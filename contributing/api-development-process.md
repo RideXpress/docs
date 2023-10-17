@@ -5,7 +5,7 @@
 1. Execute the API Pipeline Creator (Github Actions) :
     1. Complete the required fields
     1. Create a new repository
-    1. Use the arquetype as a base
+    1. Use the archetype as a base
 1. Import the API from Designer with Studio
 1. Implement the API 
 1. When PR is merged to master
