@@ -1,5 +1,7 @@
 # How to open drawio files
 
+1. Open https://draw.io?mode=github
+
 1. Open https://draw.io
 ![https://draw.io](images/drawio-main-page.png?raw=true "draw.io")
 
