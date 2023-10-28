@@ -2,6 +2,9 @@
 
 1. Open https://draw.io?mode=github
 
+<img src="images/drawio-github-mode.png" alt="drawio" width="100"/>
+
+
 ![https://draw.io?mode=github](images/drawio-github-mode.png?raw=true "draw.io" | width=100)
 
 2. Click on Open Existing Diagram
