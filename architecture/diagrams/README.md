@@ -18,3 +18,5 @@
 4. Select File
 
 <img src="images/drawio-select-file.png" alt="drawio select file" width="300"/>
+
+NOTE: In case you want to update a diagram, make sure you open it from a feature branch and open a Pull Request once the update is made
