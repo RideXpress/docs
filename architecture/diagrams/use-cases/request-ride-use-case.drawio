@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-11-25T18:18:44.540Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="uzKrw4HGcggGmtU-G647" version="22.1.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-11-25T18:56:06.091Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="NwmInBvPZBkOsdc6GXWw" version="22.1.4" type="github">
   <diagram name="Drill down creation of Drive by Client" id="9YAQOSyTMkeQ9x9ABCWg">
     <mxGraphModel dx="2052" dy="2764" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -12,6 +12,9 @@
         </mxCell>
         <mxCell id="UceIsVDDBgMtnl9OKH8S-25" value="Create ride" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" parent="Aa5zBOkpth9xLfSPm0mI-2" vertex="1">
           <mxGeometry x="890" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-9" value="Get ride" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-2">
+          <mxGeometry x="1760" y="60" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Aa5zBOkpth9xLfSPm0mI-14" value="Client - Mobile App" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;" parent="Aa5zBOkpth9xLfSPm0mI-1" vertex="1">
           <mxGeometry x="40" y="500" width="2760" height="200" as="geometry" />
@@ -44,6 +47,62 @@
         </mxCell>
         <mxCell id="UceIsVDDBgMtnl9OKH8S-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="Aa5zBOkpth9xLfSPm0mI-14" source="Aa5zBOkpth9xLfSPm0mI-20" target="Aa5zBOkpth9xLfSPm0mI-21" edge="1">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-14" source="V-Sp3iliHSX2cf2iS0s_-1" target="V-Sp3iliHSX2cf2iS0s_-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-1" value="Update Ride Id in UI" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-14">
+          <mxGeometry x="1110" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-14" source="V-Sp3iliHSX2cf2iS0s_-2" target="V-Sp3iliHSX2cf2iS0s_-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-2" value="Waiting for notification" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-14">
+          <mxGeometry x="1430" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-14" source="V-Sp3iliHSX2cf2iS0s_-4" target="V-Sp3iliHSX2cf2iS0s_-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1730" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-16" value="Yes" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="V-Sp3iliHSX2cf2iS0s_-7">
+          <mxGeometry x="-0.4333" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-4" value="User forces Refresh?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-14">
+          <mxGeometry x="1650" y="80" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-8" value="Get Ride Information By Id" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-14">
+          <mxGeometry x="1750" y="60" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-14" source="V-Sp3iliHSX2cf2iS0s_-11" target="V-Sp3iliHSX2cf2iS0s_-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-11" value="Notification received" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-14">
+          <mxGeometry x="2170" y="60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-14" source="V-Sp3iliHSX2cf2iS0s_-4" target="V-Sp3iliHSX2cf2iS0s_-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1670" y="160" />
+              <mxPoint x="2230" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-14" value="No" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="V-Sp3iliHSX2cf2iS0s_-13">
+          <mxGeometry x="0.0129" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-19" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-14">
+          <mxGeometry x="2600" y="75" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-14" source="V-Sp3iliHSX2cf2iS0s_-20" target="V-Sp3iliHSX2cf2iS0s_-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-20" value="Display Ride information and payment link" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-14">
+          <mxGeometry x="2370" y="60" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="Aa5zBOkpth9xLfSPm0mI-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="Aa5zBOkpth9xLfSPm0mI-1" source="Aa5zBOkpth9xLfSPm0mI-20" target="Aa5zBOkpth9xLfSPm0mI-4" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -110,13 +169,13 @@
         <mxCell id="vcw9PWRFaFQ3ZF1qO-cl-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="UceIsVDDBgMtnl9OKH8S-28" source="vcw9PWRFaFQ3ZF1qO-cl-0" target="Aa5zBOkpth9xLfSPm0mI-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="YocWgqZ5pPx6VDa771cW-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="UceIsVDDBgMtnl9OKH8S-28" source="vcw9PWRFaFQ3ZF1qO-cl-12" target="vcw9PWRFaFQ3ZF1qO-cl-29">
+        <mxCell id="YocWgqZ5pPx6VDa771cW-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="UceIsVDDBgMtnl9OKH8S-28" source="vcw9PWRFaFQ3ZF1qO-cl-12" target="vcw9PWRFaFQ3ZF1qO-cl-29" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="vcw9PWRFaFQ3ZF1qO-cl-12" value="Broadcast to driver to announce ride" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" parent="UceIsVDDBgMtnl9OKH8S-28" vertex="1">
           <mxGeometry x="1710" y="50" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="YocWgqZ5pPx6VDa771cW-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="UceIsVDDBgMtnl9OKH8S-28" source="vcw9PWRFaFQ3ZF1qO-cl-22" target="hMduTiMmT0IllQ8ryoB6-10">
+        <mxCell id="YocWgqZ5pPx6VDa771cW-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="UceIsVDDBgMtnl9OKH8S-28" source="vcw9PWRFaFQ3ZF1qO-cl-22" target="hMduTiMmT0IllQ8ryoB6-10" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="vcw9PWRFaFQ3ZF1qO-cl-22" value="Broadcast to client to announce ride" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" parent="UceIsVDDBgMtnl9OKH8S-28" vertex="1">
@@ -226,7 +285,7 @@
         <mxCell id="vcw9PWRFaFQ3ZF1qO-cl-42" value="Update Ride" style="points=[[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0.25,0],[1,0.5,0],[1,0.75,0],[0.75,1,0],[0.5,1,0],[0.25,1,0],[0,0.75,0],[0,0.5,0],[0,0.25,0]];shape=mxgraph.bpmn.task;whiteSpace=wrap;rectStyle=rounded;size=10;html=1;container=1;expand=0;collapsible=0;taskMarker=abstract;" parent="vcw9PWRFaFQ3ZF1qO-cl-31" vertex="1">
           <mxGeometry x="2200" y="50" width="120" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="YocWgqZ5pPx6VDa771cW-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="vcw9PWRFaFQ3ZF1qO-cl-31" target="hMduTiMmT0IllQ8ryoB6-1">
+        <mxCell id="YocWgqZ5pPx6VDa771cW-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" parent="vcw9PWRFaFQ3ZF1qO-cl-31" target="hMduTiMmT0IllQ8ryoB6-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="2400" y="690" as="sourcePoint" />
             <mxPoint x="2420" y="-70" as="targetPoint" />
@@ -297,18 +356,34 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="YocWgqZ5pPx6VDa771cW-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-1" source="hMduTiMmT0IllQ8ryoB6-1" target="vcw9PWRFaFQ3ZF1qO-cl-22">
+        <mxCell id="YocWgqZ5pPx6VDa771cW-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="Aa5zBOkpth9xLfSPm0mI-1" source="hMduTiMmT0IllQ8ryoB6-1" target="vcw9PWRFaFQ3ZF1qO-cl-22" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="2530" y="-10" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="YocWgqZ5pPx6VDa771cW-5" value="&lt;h1&gt;Note&lt;/h1&gt;&lt;p&gt;Notification to the client happens after the checkout has happened. So we can share with him, the payment URL and the information of the Driver / Ride / etc.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-1">
+        <mxCell id="YocWgqZ5pPx6VDa771cW-5" value="&lt;h1&gt;Note&lt;/h1&gt;&lt;p&gt;Notification to the client happens after the checkout has happened. So we can share with him, the payment URL and the information of the Driver / Ride / etc.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="Aa5zBOkpth9xLfSPm0mI-1" vertex="1">
           <mxGeometry x="2830" y="-80" width="190" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="YocWgqZ5pPx6VDa771cW-6" value="&lt;h1&gt;Note&lt;/h1&gt;&lt;p&gt;Not sure if we want to drill into more details in how we are going to fetch the information of the user and checkout system in this diagram. TBD.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="Aa5zBOkpth9xLfSPm0mI-1">
+        <mxCell id="YocWgqZ5pPx6VDa771cW-6" value="&lt;h1&gt;Note&lt;/h1&gt;&lt;p&gt;Not sure if we want to drill into more details in how we are going to fetch the information of the user and checkout system in this diagram. TBD.&lt;/p&gt;" style="text;html=1;strokeColor=none;fillColor=none;spacing=5;spacingTop=-20;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="Aa5zBOkpth9xLfSPm0mI-1" vertex="1">
           <mxGeometry x="2840" y="-860" width="190" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-1" source="vcw9PWRFaFQ3ZF1qO-cl-35" target="V-Sp3iliHSX2cf2iS0s_-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1120" y="580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-1" source="V-Sp3iliHSX2cf2iS0s_-8" target="V-Sp3iliHSX2cf2iS0s_-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-18" value="GET /rides/{id}" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="V-Sp3iliHSX2cf2iS0s_-10">
+          <mxGeometry x="-0.5333" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="V-Sp3iliHSX2cf2iS0s_-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="Aa5zBOkpth9xLfSPm0mI-1" source="V-Sp3iliHSX2cf2iS0s_-9" target="V-Sp3iliHSX2cf2iS0s_-11">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
