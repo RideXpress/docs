@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-02T17:29:56.620Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="Lga52dVXbqkLLRY-uD-f" version="22.1.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-02T17:36:09.527Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="ZKtcV2JwG5DdIqumZpbA" version="22.1.5" type="github">
   <diagram name="Drill down accepting ride by Driver" id="8dZDTHeo8D08LRkWfQlF">
     <mxGraphModel dx="954" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -37,6 +37,9 @@
         <mxCell id="biwPG4yyWc9a5ADrEja7-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-4" target="biwPG4yyWc9a5ADrEja7-5">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="biwPG4yyWc9a5ADrEja7-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-4" target="biwPG4yyWc9a5ADrEja7-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="biwPG4yyWc9a5ADrEja7-4" value="In route" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="420" y="630" width="120" height="60" as="geometry" />
         </mxCell>
@@ -46,6 +49,9 @@
         <mxCell id="biwPG4yyWc9a5ADrEja7-5" value="Arrived at&lt;br&gt;destination" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="420" y="760" width="120" height="60" as="geometry" />
         </mxCell>
+        <mxCell id="biwPG4yyWc9a5ADrEja7-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=classic;endFill=1;dashed=1;startArrow=classic;startFill=1;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-6" target="biwPG4yyWc9a5ADrEja7-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="biwPG4yyWc9a5ADrEja7-6" value="Finished" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="750" y="760" width="120" height="60" as="geometry" />
         </mxCell>
@@ -54,6 +60,18 @@
         </mxCell>
         <mxCell id="biwPG4yyWc9a5ADrEja7-16" value="Passenger gets&lt;br&gt;into the car" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="420" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="biwPG4yyWc9a5ADrEja7-20" value="Payment on hold" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
+          <mxGeometry x="160" y="167" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="biwPG4yyWc9a5ADrEja7-22" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;dashed=1;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-20" target="biwPG4yyWc9a5ADrEja7-0">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="290" y="200" as="sourcePoint" />
+            <mxPoint x="340" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="biwPG4yyWc9a5ADrEja7-23" value="Payment commit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
+          <mxGeometry x="970" y="760" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
