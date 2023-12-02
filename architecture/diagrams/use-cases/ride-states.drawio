@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-02T17:36:09.527Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="ZKtcV2JwG5DdIqumZpbA" version="22.1.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-02T17:37:57.804Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="Jneda_fCnvJ8GxX4hzku" version="22.1.5" type="github">
   <diagram name="Drill down accepting ride by Driver" id="8dZDTHeo8D08LRkWfQlF">
     <mxGraphModel dx="954" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -22,10 +22,10 @@
         <mxCell id="biwPG4yyWc9a5ADrEja7-1" value="Waiting for driver" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="420" y="287" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="biwPG4yyWc9a5ADrEja7-2" value="Canceled" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
+        <mxCell id="biwPG4yyWc9a5ADrEja7-2" value="Canceled for&lt;br&gt;refund" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="750" y="287" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="biwPG4yyWc9a5ADrEja7-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-3" target="biwPG4yyWc9a5ADrEja7-2">
+        <mxCell id="biwPG4yyWc9a5ADrEja7-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-3" target="biwPG4yyWc9a5ADrEja7-25">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="biwPG4yyWc9a5ADrEja7-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-3" target="biwPG4yyWc9a5ADrEja7-16">
@@ -38,7 +38,12 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="biwPG4yyWc9a5ADrEja7-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-4" target="biwPG4yyWc9a5ADrEja7-2">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="660" />
+              <mxPoint x="950" y="317" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="biwPG4yyWc9a5ADrEja7-4" value="In route" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="420" y="630" width="120" height="60" as="geometry" />
@@ -72,6 +77,12 @@
         </mxCell>
         <mxCell id="biwPG4yyWc9a5ADrEja7-23" value="Payment commit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="970" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="biwPG4yyWc9a5ADrEja7-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-25" target="biwPG4yyWc9a5ADrEja7-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="biwPG4yyWc9a5ADrEja7-25" value="Canceled without&lt;br&gt;refund" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
+          <mxGeometry x="750" y="520" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
