@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-12-02T17:37:57.804Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="Jneda_fCnvJ8GxX4hzku" version="22.1.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-12-02T17:50:16.121Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Safari/605.1.15" etag="k8Yapjen-09EOs1dE23G" version="22.1.5" type="github">
   <diagram name="Drill down accepting ride by Driver" id="8dZDTHeo8D08LRkWfQlF">
     <mxGraphModel dx="954" dy="650" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
       <root>
@@ -78,11 +78,16 @@
         <mxCell id="biwPG4yyWc9a5ADrEja7-23" value="Payment commit" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="970" y="760" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="biwPG4yyWc9a5ADrEja7-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-25" target="biwPG4yyWc9a5ADrEja7-23">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="biwPG4yyWc9a5ADrEja7-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="X2ThzPGtKYhUf4odgKNz-1" source="biwPG4yyWc9a5ADrEja7-25">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="810" y="750" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="biwPG4yyWc9a5ADrEja7-25" value="Canceled without&lt;br&gt;refund" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
           <mxGeometry x="750" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="biwPG4yyWc9a5ADrEja7-27" value="&lt;br&gt;&lt;br&gt;&lt;br&gt;&amp;nbsp;- New state will calculate Ride price and will put that amount on hold.&lt;br&gt;&amp;nbsp;- There are two types of cancelations, the ones that apply for refund or no charge&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;* When the driver has not been confirmed after 2 minutes and the passenger doesn&#39;t want to wait longer&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;* When there are no drivers available and no one confirms after 3 minutes&lt;br&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;* When the driver has confirmed but will take longer to get to the passenger&#39;s location than expected" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;fillColor=#fff2cc;strokeColor=#d6b656;align=left;perimeterSpacing=10;spacingTop=0;verticalAlign=top;" vertex="1" parent="X2ThzPGtKYhUf4odgKNz-1">
+          <mxGeometry x="1020" y="140" width="650" height="270" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
