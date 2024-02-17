@@ -4,45 +4,13 @@
 
 **Status:** *<u>Draft</u>* → *Reviewable→* *Accepted* | *Abandoned*
 
-<table>
-<colgroup>
-<col/>
-<col/>
-<col/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>Author(s)</th>
-<th colspan="2">Paola Alcantar</th>
-</tr>
-<tr class="odd">
-<th>Owning Team</th>
-<th colspan="2">Integrations Team</th>
-</tr>
-<tr class="header">
-<th>Reviewer(s)</th>
-<th colspan="2"><p>N/A</p>
-<p><em>(Here have the name of the team reviewers)</em></p></th>
-</tr>
-<tr class="odd">
-<th>Ticket (Git Number)</th>
-<th colspan="2"><p>N/A</p>
-<p><em>(Here have the name of the team approvals)</em></p></th>
-</tr>
-<tr class="header">
-<th>Deployment Approval</th>
-<th colspan="2"><p>N/A</p>
-<p><em>(Here include the name of the team approvals)</em></p></th>
-</tr>
-<tr class="odd">
-<th>Pull Request</th>
-<th colspan="2"><p>N/A</p>
-<p><em>(Here have the link of the PR)</em></p></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+| Author(s)           | Paola Alcantar       |                  |
+|---------------------|----------------------|------------------|
+| Owning Team         | Integrations Team    |                  |
+| Reviewer(s)         | N/A                  | *Here have the name of the team reviewers* |
+| Ticket (Git Number) | N/A                  | *Here have the name of the team approvals* |
+| Deployment Approval | N/A                  | *Here include the name of the team approvals* |
+| Pull Request        | N/A                  | *Here have the link of the PR*             |
 
 ## Problem Statement
 
@@ -73,59 +41,18 @@ Mulesoft needs to be able to
 
 ## Technical Integration Details
 
-<table>
-<colgroup>
-<col/>
-<col/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>Runtime Version</th>
-<th>4.4.0</th>
-</tr>
-<tr class="odd">
-<th>Integration Type</th>
-<th><p>Experience API</p>
-<p>Process API</p>
-<p>System API</p>
-<p>Publish / Subscribe</p></th>
-</tr>
-<tr class="header">
-<th>Cadence</th>
-<th>1-hour events for Publish / Subscribe</th>
-</tr>
-<tr class="odd">
-<th>Volume</th>
-<th>5,000 per day</th>
-</tr>
-<tr class="header">
-<th>Transaction Types</th>
-<th>Insert, Update, Merge</th>
-</tr>
-<tr class="odd">
-<th>Platforms</th>
-<th>Anypoint Platform, Salesforce, LDAP, MySQL, ActiveMQ</th>
-</tr>
-<tr class="header">
-<th>Integration method</th>
-<th>REST API / Batch Process</th>
-</tr>
-<tr class="odd">
-<th>Server(s)</th>
-<th>On-prem (standalone server)</th>
-</tr>
-<tr class="header">
-<th>CI/CD</th>
-<th>Jenkins</th>
-</tr>
-<tr class="odd">
-<th>Version Control System</th>
-<th>Github</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+| Runtime Version      | 4.4.0                              |
+|----------------------|------------------------------------|
+| Integration Type     | Experience API<br>Process API<br>System API<br>Publish / Subscribe |
+| Cadence              | 1-hour events for Publish / Subscribe |
+| Volume               | 5,000 per day                      |
+| Transaction Types    | Insert, Update, Merge              |
+| Platforms            | Anypoint Platform, Salesforce, LDAP, MySQL, ActiveMQ |
+| Integration method   | REST API / Batch Process           |
+| Server(s)            | On-prem (standalone server)        |
+| CI/CD                | Jenkins                            |
+| Version Control System | Github                            |
+
 
 ## Data Storage
 
@@ -134,178 +61,42 @@ hourly.
 
 ### Salesforce
 
-<table>
-<colgroup>
-<col/>
-<col/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>User Name</th>
-<th>paola.alcval@gmail.com</th>
-</tr>
-<tr class="odd">
-<th>Password</th>
-<th>Shared secretly</th>
-</tr>
-<tr class="header">
-<th>Security Token</th>
-<th>Shared secretly</th>
-</tr>
-<tr class="odd">
-<th>Connection URL</th>
-<th>https://login/test.salesforce.com/services/Soap/u/56.0</th>
-</tr>
-<tr class="header">
-<th>Environment(s)</th>
-<th>Prod, staging, dev</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+| User Name       | paola.alcval@gmail.com                                      |
+|-----------------|-------------------------------------------------------------|
+| Password        | Shared secretly                                             |
+| Security Token  | Shared secretly                                             |
+| Connection URL  | <https://login/test.salesforce.com/services/Soap/u/56.0>    |
+| Environment(s)  | Prod, staging, dev                                          |
 
 ### HRDW (MySQL)
 
-<table>
-<colgroup>
-<col/>
-<col/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>Host</th>
-<th>Localhost (Docker)</th>
-</tr>
-<tr class="odd">
-<th>Database</th>
-<th>hr</th>
-</tr>
-<tr class="header">
-<th>User Name</th>
-<th>root</th>
-</tr>
-<tr class="odd">
-<th>Password</th>
-<th>Shared secretly</th>
-</tr>
-<tr class="header">
-<th>Environment(s)</th>
-<th>Prod, staging, dev</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+| Host          | Localhost (Docker) |
+|---------------|--------------------|
+| Database      | hr                 |
+| User Name     | root               |
+| Password      | Shared secretly    |
+| Environment(s)| Prod, staging, dev |
 
 ## Data Schemas
 
-<table>
-<colgroup>
-<col/>
-<col/>
-<col/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>LDAP Field</th>
-<th>Salesforce Field</th>
-<th>MySQL Field</th>
-</tr>
-<tr class="odd">
-<th>employeeIdentificationNumber</th>
-<th>Employee_number__c</th>
-<th>emp_number</th>
-</tr>
-<tr class="header">
-<th>cn</th>
-<th>Ldap__c</th>
-<th>emp_ldap</th>
-</tr>
-<tr class="odd">
-<th>employeeEmail</th>
-<th>Email</th>
-<th>emp_email</th>
-</tr>
-<tr class="header">
-<th>employeeName</th>
-<th>Name</th>
-<th>emp_full_name</th>
-</tr>
-<tr class="odd">
-<th>employeeName</th>
-<th>First_name__c</th>
-<th>emp_first_name</th>
-</tr>
-<tr class="header">
-<th>sn</th>
-<th>Last_name__c</th>
-<th>emp_last_name</th>
-</tr>
-<tr class="odd">
-<th>telephoneNumber</th>
-<th>Phone</th>
-<th>emp_phone</th>
-</tr>
-<tr class="header">
-<th>mobile</th>
-<th>MobilePhone</th>
-<th>emp_mobile_phone</th>
-</tr>
-<tr class="odd">
-<th>address1<br />
-address2<br />
-zipCode<br />
-city<br />
-state<br />
-county</th>
-<th>MailingAddress</th>
-<th>emp_address_1<br />
-emp_address_2<br />
-emp_zipcode<br />
-emp_city<br />
-emp_state<br />
-emp_country</th>
-</tr>
-<tr class="header">
-<th>birthdate</th>
-<th>Birthdate</th>
-<th>emp_birthday</th>
-</tr>
-<tr class="odd">
-<th>employeeDepartmentNumber</th>
-<th>Department</th>
-<th>emp_department</th>
-</tr>
-<tr class="header">
-<th>title</th>
-<th>Title</th>
-<th>emp_title</th>
-</tr>
-<tr class="odd">
-<th>startDate</th>
-<th>Start_date__c</th>
-<th>emp_start_date</th>
-</tr>
-<tr class="header">
-<th>endDate</th>
-<th>End_date__c</th>
-<th>emp_end_date</th>
-</tr>
-<tr class="odd">
-<th>salary</th>
-<th>Salary__c</th>
-<th>emp_salary</th>
-</tr>
-<tr class="header">
-<th>userType</th>
-<th>Employee_type__c</th>
-<th>emp_type</th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+| LDAP Field                  | Salesforce Field    | MySQL Field           |
+|-----------------------------|---------------------|-----------------------|
+| employeeIdentificationNumber| Employee_number__c  | emp_number            |
+| cn                          | Ldap__c             | emp_ldap              |
+| employeeEmail               | Email               | emp_email             |
+| employeeName                | Name                | emp_full_name         |
+| employeeName                | First_name__c       | emp_first_name        |
+| sn                          | Last_name__c        | emp_last_name         |
+| telephoneNumber             | Phone               | emp_phone             |
+| mobile                      | MobilePhone         | emp_mobile_phone      |
+| address1<br>address2<br>zipCode<br>city<br>state<br>county | MailingAddress | emp_address_1<br>emp_address_2<br>emp_zipcode<br>emp_city<br>emp_state<br>emp_country |
+| birthdate                   | Birthdate           | emp_birthday          |
+| employeeDepartmentNumber    | Department          | emp_department        |
+| title                       | Title               | emp_title             |
+| startDate                   | Start_date__c       | emp_start_date        |
+| endDate                     | End_date__c         | emp_end_date          |
+| salary                      | Salary__c           | emp_salary            |
+| userType                    | Employee_type__c    | emp_type              |
 
 ## Proposed Solution
 
@@ -408,37 +199,12 @@ Creating errors-library to standardize error response.
 
 -   Automated testing using MUnits.
 
-<table>
-<colgroup>
-<col/>
-<col/>
-<col/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>Scenarios</th>
-<th>Expected Results</th>
-<th>Results</th>
-</tr>
-<tr class="odd">
-<th>Replicate data from LDAP into Salesforce</th>
-<th></th>
-<th></th>
-</tr>
-<tr class="header">
-<th>Replicate data from LDAP into HRDW</th>
-<th></th>
-<th></th>
-</tr>
-<tr class="odd">
-<th>…</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+| Scenarios                             | Expected Results | Results |
+|---------------------------------------|------------------|---------|
+| Replicate data from LDAP into Salesforce |                  |         |
+| Replicate data from LDAP into HRDW    |                  |         |
+| …                                     |                  |         |
+
 
 ## Alternatives Considered / Steps in the future
 
