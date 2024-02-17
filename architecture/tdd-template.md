@@ -4,45 +4,13 @@
 
 **Status:** *<u>Draft</u>* → *Reviewable→* *Accepted* | *Abandoned*
 
-<table>
-<colgroup>
-<col/>
-<col/>
-<col/>
-</colgroup>
-<thead>
-<tr class="header">
-<th>Author(s)</th>
-<th colspan="2">Paola Alcantar</th>
-</tr>
-<tr class="odd">
-<th>Owning Team</th>
-<th colspan="2">Integrations Team</th>
-</tr>
-<tr class="header">
-<th>Reviewer(s)</th>
-<th colspan="2"><p>N/A</p>
-<p><em>(Here have the name of the team reviewers)</em></p></th>
-</tr>
-<tr class="odd">
-<th>Ticket (Git Number)</th>
-<th colspan="2"><p>N/A</p>
-<p><em>(Here have the name of the team approvals)</em></p></th>
-</tr>
-<tr class="header">
-<th>Deployment Approval</th>
-<th colspan="2"><p>N/A</p>
-<p><em>(Here include the name of the team approvals)</em></p></th>
-</tr>
-<tr class="odd">
-<th>Pull Request</th>
-<th colspan="2"><p>N/A</p>
-<p><em>(Here have the link of the PR)</em></p></th>
-</tr>
-</thead>
-<tbody>
-</tbody>
-</table>
+| Author(s)           | Paola Alcantar       |                  |
+|---------------------|----------------------|------------------|
+| Owning Team         | Integrations Team    |                  |
+| Reviewer(s)         | N/A                  | *Here have the name of the team reviewers* |
+| Ticket (Git Number) | N/A                  | *Here have the name of the team approvals* |
+| Deployment Approval | N/A                  | *Here include the name of the team approvals* |
+| Pull Request        | N/A                  | *Here have the link of the PR*             |
 
 ## Problem Statement
 
