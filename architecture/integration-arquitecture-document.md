@@ -182,7 +182,17 @@ The app will send a verification code to the registered email and/or phone.
 - Source System(s): N/A
 - Flow: TODO: Add diagram link
 
-#### Ride creation
+#### Request a ride
+
+- Description: 
+- Timeliness: 
+- Business Trigger: 
+- Source System(s): N/A
+- Flow: 
+![alt text](../architecture/diagrams/use-cases/request-ride-use-case.drawio.svg)
+
+
+#### Accepting ride
 
 - Description: 
 - Timeliness: 
@@ -190,12 +200,80 @@ The app will send a verification code to the registered email and/or phone.
 - Source System(s): N/A
 - Flow: TODO: Add diagram link
 
+#### Wait for ride
+
+- Description: 
+- Timeliness: 
+- Business Trigger: 
+- Source System(s): N/A
+- Flow: TODO: Add diagram link
+
+#### Finish ride
+
+- Description: 
+- Timeliness: 
+- Business Trigger: 
+- Source System(s): N/A
+- Flow: TODO: Add diagram link
 
 ## Mulesoft Integration Implementation
+The key goal of the approach recommended by this document is to introduce reusable building blocks that can be reused both during the initial implementation as well as by future projects, resulting in reduced development effort.
+
+API-led connectivity is a methodical way to connect data to applications through a series of reusable and purposeful modern APIs that are each developed to play a specific role – unlock data from systems, compose data into processes, or deliver an experience.
+
+The API building block is a product that consists of functionality and simplicity required for the full lifecycle of APIs.  This lifecycle consists of the ability to compose the data and connect to any other source of data. And it must provide full visibility, security, governance right from design.
+The diagram below illustrates the API-led connectivity approach composed of three main layers:
+
+-	System APIs to unlock backend systems through a consistent contract, making use of our extensive connectivity 
+-	Process APIs providing orchestration and transformation into business domain objects for greater agility and value creation and 
+-	Experience APIs focused on rendering information specific to devices or consuming client applications
+
+![alt text](image-1.png)
+
+The value of this approach is enabling a flexible, agile architecture built for reuse and consumption, to speed up project delivery with built in governance and security.
+
 ### Mulesoft Anypoint Platform
+The Anypoint Platform has five major components and will be the core to future integration capabilities:
+-	Exchange: Marketplace of API and integration assets, promotes reuse of pre-built connectors, templates, examples, and APIs 
+-	Design center: Comprehensive tools to develop APIs and integrations faster and easier
+-	Mule runtime engine & services: Single runtime for your Mule applications, easily configurable, performant, and deployable anywhere
+-	Management center: Manage and monitor your applications across the platform in a single place
+-	Security: Safeguard sensitive information with layers of protection
+
+![alt text](image.png)
+
 ### What is an API?
+![alt text](image-2.png)
+
+An API is comprised of the following three aspects:
+1.	API Contract: Describes data formats, transport and protocols that are used to consume this API
+2.	Logic: The implementation of the API, including data transformation, logical flow control, error handling, etc.
+3.	Connectivity: Adapters for translating to external application interfaces, including protocol translation, data format transformation, security, etc.
+
 ### Mulesoft Connectors
+
+To meet the connectivity requirements of this solution, the following MuleSoft Connectors will be used:
+Adjust according to your solution context.
+1.	Salesforce Connector (Platform Events, sObject CRUD operations)
+    - Salesforce SOAP, REST, Bulk, Platform Events, and Streaming APIs
+3.	Web Services:
+    - SOAP
+    - REST
+4.	Database
+5.	SFTP
+6. Google Maps Connector
+7. Okta Connector
+
 ### API Application Catalogue
+A list of the proposed deployed API applications is provided below. Note that this list is based on the information provided during the discovery workshops and validated during playback sessions. A single deployed API application can support multiple aspects of the logical integrations as described in section 1 of this document.
+
+To interpret this table, it is important to first understand the MuleSoft API-led Connectivity approach as described in section 2 and in more detail here:
+https://www.mulesoft.com/lp/whitepaper/api/api-led-connectivity
+
+| API Name	| Type (E/P/S)	| Function (+ logical integration catalogue references)||---------------------------------------|------------------|---------------------------------------|------------------|
+| Okta | System | asdf |
+
+
 ### Reusable APIs
 
 ## Mulesoft Platform Reference Architecture
