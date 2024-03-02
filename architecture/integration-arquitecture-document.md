@@ -1,5 +1,7 @@
 # Integration Architecture Specification
 
+Note: document based of https://knowledgehub.mulesoft.com/s/article/Integration-Architecture-Specification
+
 ## Table of Contents
 - [Introduction](#introduction)
     - [Key Business Drivers](#key-business-drivers)
@@ -51,7 +53,6 @@
         - [Virtual Private Networks](#virtual-private-networks)
     - [About MuleSoft, a Salesforce company](#about-mulesoft-a-salesforce-company)
 
-Note: document based of https://knowledgehub.mulesoft.com/s/article/Integration-Architecture-Specification
 
 ## Introduction
 
