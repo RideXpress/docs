@@ -2,7 +2,7 @@
 
 ### Folder structure
     .
-    ├── [contributing](./contributing)             # Documentation for contributing
+    ├── [contributing](contributing)               # Documentation for contributing
     ├── architecture                               # Architecture documentation
     │   ├─ diagrams                                # Architecture diagrams
     │   │   ├─ api-led                             # API Led diagrams
