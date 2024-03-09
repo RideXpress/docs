@@ -29,25 +29,17 @@ In addition to these roles, it is essential that the Business Teams (Business An
 - [2. Anypoint Platform](#anypoint-platform)
     - [2.1. Anypoint Platform Licensed Capabilities](#anypoint-platform-licensed-capabilities)
     - [2.2. Platform Architecture and Setup](#platform-architecture-and-setup)
-    - [2.3. Business Groups](#business-groups)
-    - [2.4. Environments Model](#environments-model)
-    - [2.5. Infrastructure Setup (CloudHub)](#infrastructure-setup-cloudhub)
-    - [2.6. Virtual Private Cloud (VPC)](#virtual-private-cloud-vpc)
-    - [2.7. Secure Connectivity Configurations](#secure-connectivity-configurations)
-    - [2.8. Load Balancing](#load-balancing)
-    - [2.9. SSL Endpoint and DNS Configuration](#ssl-endpoint-and-dns-configuration)
-    - [2.10. Routing Rules](#routing-rules)
-    - [2.11. Infrastructure Setup (On-premise Bare Metal)](#infrastructure-setup-on-premise-bare-metal)
-    - [2.12. Mule Clusters](#mule-clusters)
-    - [2.13. Mule Server Groups](#mule-server-groups)
-    - [2.14. Infrastructure Setup (Runtime Fabric)](#infrastructure-setup-runtime-fabric)
-    - [2.15. TCP Load Balancer](#tcp-load-balancer)
-    - [2.16. Workers](#workers)
-    - [2.17. Controllers](#controllers)
-    - [2.18. High Availability (HA)](#high-availability-ha)
-    - [2.19. Disaster Recovery](#disaster-recovery)
-    - [2.20. CloudHub Capability – Key Considerations](#cloudhub-capability-key-considerations)
-    - [2.21. Disaster Recovery – Options Considered](#disaster-recovery-options-considered)
+    - [2.3. Environments Model](#environments-model)
+    - [2.4. Infrastructure Setup (CloudHub)](#infrastructure-setup-cloudhub)
+    - [2.5. Load Balancing](#load-balancing)
+    - [2.6. SSL Endpoint and DNS Configuration](#ssl-endpoint-and-dns-configuration)
+    - [2.7. TCP Load Balancer](#tcp-load-balancer)
+    - [2.8. Workers](#workers)
+    - [2.9. Controllers](#controllers)
+    - [2.10. High Availability (HA)](#high-availability-ha)
+    - [2.11. Disaster Recovery](#disaster-recovery)
+    - [2.12. CloudHub Capability – Key Considerations](#cloudhub-capability-key-considerations)
+    - [2.13. Disaster Recovery – Options Considered](#disaster-recovery-options-considered)
 - [3. Security Architecture](#security-architecture)
     - [3.1. User Identity Management](#user-identity-management)
     - [3.2. Anypoint User Access Management - Authentication](#anypoint-user-access-management-authentication)
@@ -61,8 +53,7 @@ In addition to these roles, it is essential that the Business Teams (Business An
     - [3.10. API Policy Management](#api-policy-management)
     - [3.11. Secure Application Configuration Management](#secure-application-configuration-management)
     - [3.12. Infrastructure Security](#infrastructure-security)
-    - [3.13. DLB Security](#dlb-security)
-    - [3.14. Firewall Rules](#firewall-rules)
+    - [3.13. Firewall Rules](#firewall-rules)
 - [4. Application Architecture](#application-architecture)
     - [4.1. API Led Connectivity](#api-led-connectivity)
     - [4.2. Integration Patterns](#integration-patterns)
@@ -86,7 +77,6 @@ In addition to these roles, it is essential that the Business Teams (Business An
 - [Appendix](#appendix)
     - [Backend Systems Catalog](#backend-systems-catalog)
     - [CloudHub Log Data Externalization Options](#cloudhub-log-data-externalization-options)
-    - [CloudHub DLB Detailed Connectivity Flow](#cloudhub-dlb-detailed-connectivity-flow)
     - [Anypoint Team Profiles and Permissions Model](#anypoint-team-profiles-and-permissions-model)
 - [About MuleSoft, a Salesforce Company](#about-mulesoft-a-salesforce-company)
 
@@ -201,82 +191,22 @@ The following section describes how the Anypoint platform foundations are archit
  
 _Update diagram based on agreed platform architecture_
 
-### 4.1. Business Groups
-
-Business Groups provide a mechanism for delegating management and administration of Anypoint Platform to users within different business units or functions. Additionally, Business Groups provide isolation of resources allowing for multi-tenant use cases within the Anypoint Platform. 
-
-Note that the Anypoint Platform imposes a limit of 100 Business Groups per master organization. This is not expected to be an issue today, but worth considering for future expansion and Business Group strategy. 
-
-Additional details on Business Groups are available [here](#).
-
-| Business Group | Description |
-| --- | --- |
-| [CUSTOMER] | Master Business Group |
-| [CUSTOMER] Central IT | Central IT organization for central MuleSoft assets |
-
-### 4.2. Environments Model
+### 4.1. Environments Model
 
 Environments are a logical construct within Anypoint. Environments will be created at the business group level. Given the current Route to Live considerations, the minimum set of environments required would be as follows:
 
 | Environment | Description | Classification (vCore) | High Availability? | Deployed By |
 | --- | --- | --- | --- | --- |
-| DEV | To support development and CI activities | Sandbox | No | DevOps + Developer |
 | TEST | Used for functional and end to end testing | Sandbox | No | DevOps (Manual Approvals) |
-| PREPROD | Like for like production environment to support acceptance and non-functional testing | Sandbox | Yes | DevOps (Manual Approvals) |
 | PROD | Production environment | Production | Yes | DevOps (Manual Approvals) |
 
-### 4.3. Infrastructure Setup (CloudHub)
+### 4.2. Infrastructure Setup (CloudHub)
 
 TODO: Infrastructure diagram
 
-#### 4.3.1. Virtual Private Cloud (VPC)
+ Access from [CUSTOMER] Data Center subnets to Internal CloudHub DLB internal endpoint, or alternatively through use of the mule-worker-internal-* endpoints. |
 
-CloudHub VPCs provide a virtual, private, and isolated network segment where CloudHub workers (and in turn deployed MuleSoft applications) are hosted. 
-
-A key consideration of the VPC setup is the size of the VPC, i.e. the range of IP addresses available for this network, specified in the form of a Classless Inter-Domain Routing (CIDR) block. The VPC size needs to consider the number of Mule APIs and applications that are planned to be deployed to the VPC, including allowances for high availability, zero downtime deployments and scaling considerations. Additional details on VPC sizing are available [here](#). 
-
-As part of the CloudHub Setup, the following VPCs will be configured.
-
-TODO: update the table
-
-| VPC name | Region | CIDR | Environments | Business Group |
-| --- | --- | --- | --- | --- |
-| vpc01-nonprod-de-c1 | EU - Frankfurt | 10.0.0.0/16 | DEV, TEST, PREPROD | [CUSTOMER] |
-| vpc02-prod-de-c1 | EU - Frankfurt | 10.1.0.0/16 | PROD | [CUSTOMER] |
-
-Additional details on VPC sizing are available [here](https://docs.mulesoft.com/runtime-manager/virtual-private-cloud).
-
-##### 4.3.1.1. Virtual Private Cloud (VPC)
-
-VPC firewall rules will be configured to restrict traffic to internally originating traffic only, i.e. traffic originating within the VPC itself, or traffic originating from the corporate data center which is securely connected to the CloudHub VPC via VPN. 
-
-In addition, all applications will be deployed to CloudHub private port (8092) which restricts access to the Dedicated Load Balancer and mule-worker-internal-* endpoints only.
-
-Additional details on VPC firewall rules are available [here](https://docs.mulesoft.com/runtime-manager/vpc-firewall-rules-concept).
-
-TODO: Complete the table
-
-| Source CIDR Range | Destination Port Range | Scope |
-| --- | --- | --- |
-| Local VPC CIDR | 8091-8092 | Access to traffic originating within the VPC. Either DLB to Mule applications, or Mule to Mule applications. |
-| [CUSTOMER] VPN remote subnets | 8091-8092 | Access from [CUSTOMER] Data Center subnets to Internal CloudHub DLB internal endpoint, or alternatively through use of the mule-worker-internal-* endpoints. |
-
-#### 4.3.2. Secure Connectivity configurations 
-
-Connectivity between the Anypoint CloudHub platform and corporate internal / partner networks will be established via IPsec Tunnel (or VPC Peering / Direct Connect if appropriate)  
-
-The following table captures the key details:
-
-| VPN name | VPC association | Routing | ASNs | Remote IP | Static Routes |
-| --- | --- | --- | --- | --- | --- |
-| nonprod-vpn-vpc01-to-dc1 | vpc01-nonprod-eu-frankfurt | Static | N/A | x.x.x.x | ●	x.x.x.x/24, ●	x.x.x.x/20 |
-| prod-vpn-vpc02-to-dc1 | vpc02-prod-eu-frankfurt | Static | N/A | x.x.x.x | ●	x.x.x.x/24, ●	x.x.x.x/20 |
-
-TODO: Complete the table ^
-
-Additional details on VPN configurations are available [here](https://docs.mulesoft.com/runtime-manager/vpn-about).
-
-#### 4.3.3. Load Balancing
+#### 4.2.1. Load Balancing
 
 Dedicated Load balancers (DLBs) will be used to support load balancing of all MuleSoft hosted applications – both external facing and internal facing APIs. Access to shared load balancer endpoints will be restricted via VPC firewall rules to restrict access exclusively through the DLBs. DLBs also provide High Availability through deployment on two or more workers. This does NOT reduce the number of vCores available on CloudHub. Note that at this stage, the default DLB entitlement of 2 workers will be used, but this can be extended if additional throughput is required (additional DLB entitlements have commercial considerations and will need to be reviewed with the MuleSoft Account Team). 
 
@@ -295,7 +225,7 @@ TODO: Complete the table ^
 
 Additional details on CloudHub networking and Dedicated Load Balancers are available [here](https://docs.mulesoft.com/runtime-manager/cloudhub-networking-guide) and [here](https://docs.mulesoft.com/runtime-manager/cloudhub-dedicated-load-balancer) respectively.
 
-#### 4.3.3.1. SSL endpoint and DNS configuration
+#### 4.2.1.1. SSL endpoint and DNS configuration
 
 External Facing Dedicated Load Balancer endpoints
 
@@ -321,59 +251,16 @@ TODO: Complete the table ^
 
 Additional details on resolving private domains in a VPC are available [here](https://docs.mulesoft.com/runtime-manager/resolve-private-domains-vpc-task).
 
-#### 4.3.3.2. Routing Rules
-
-The routing rules are aligned to the agreed application naming conventions to enable the effective routing of API traffic to the appropriate MuleSoft API endpoint. 
-
-External DLB Mapping Rules
-
-Update Mapping rules as required
-
-| Detail | Input path | Target App | Output path | Protocol |
-| --- | --- | --- | --- | --- |
-| Routes for shared (global), generic external endpoints (to ext prefix apps) | /global/{consumer}/{function}/api/{version}/ | ext-[CUSTOMER]-exp-{consumer}-{function}-api-{version}-{subdomain}* | /api/ | https |
-| Routes for shared (global), function specific (e.g. web / mobile) external endpoints (to ext prefix apps) | /global/{consumer}/api/{version}/ | ext-[CUSTOMER]-exp-{consumer}-api-{version}-{subdomain}* | /api/ | https |
-| Routes for specific scope external endpoints (to ext prefix apps) | /{scope}/{consumer}/{function}/api/{version}/ | ext-{scope}-exp-{consumer}-{function}-api-{version}-{subdomain}* | /api/ | https |
-| Routes for specific scope , specific function (e.g. web / mobile) external endpoints (to ext prefix apps) | /{scope}/{consumer}/api/{version}/ | ext-{scope}-exp-{consumer}-api-{version}-{subdomain}* | /api/ | https |
-| Testing only in non-production | /internal/{app}/ | {app}-{subdomain}* | /api/ | https |
-
-*Note: -{subdomain} suffix on the target app rules is only required for non production environments.*
-
-Internal DLB Mapping Rules
-
-| Detail | Input path | Target App | Output path | Protocol |
-| --- | --- | --- | --- | --- |
-| Routes for System API | /{scope}/sys/{system}/api/{version}/ | {scope}-sys-{system}-api-{version}-{subdomain} | /api/ | https |
-| Routes for System API | /{scope}/sys/{system}/{domain}/api/{version}/ | {scope}-sys-{system}-{domain}-api-{version}-{subdomain} | /api/ | https |
-| Routes for Process API | /{scope}/pro/{process}/api/{version}/ | {scope}-pro-{process}-api-{version}-{subdomain} | /api/ | https |
-| Routes for Process API | /{scope}/pro/{process}/{subprocess}/api/{version}/ | {scope}-pro-{process}-{subprocess}-api-{version}-{subdomain} | /api/ | https |
-| Routes for Experience API – Generic (global) endpoints | /global/{consumer}/api/{version}/ | ext-<customer>-exp-{consumer}-api-{version}-{subdomain} | /api/ | https |
-| Routes for Experience API – Generic (global) endpoints, function specific (web, mobile) | /global/{consumer}/{function}/api/{version}/ | ext-<customer>-exp-{consumer}-{function}-api-{version}-{subdomain} | /api/ | https |
-| Routes for Experience API | /{scope}/{consumer}/api/{version}/ | ext-{scope}-exp-{consumer}-api-{version}-{subdomain} | /api/ | https |
-| Routes for Experience API - function specific (web, mobile) | /{scope}/{consumer}/{function}/api/{version}/ | ext-{scope}-exp-{consumer}-{function}-api-{version}-{subdomain} | /api/ | https |
-
-*Note: -{subdomain} suffix on the target app rules is only required for non-production environments.*
-
-#### 4.4. Infrastructure Setup (On-premise Bare Metal)
-
-##### 4.4.1. Mule Clusters
+##### 4.3.1. TCP Load Balancer
 Not applicable at this stage.
 
-##### 4.4.2. Mule Server Groups 
+##### 4.3.2. Workers 
 Not applicable at this stage.
 
-#### 4.5. Infrastructure Setup (Runtime Fabric)
-
-##### 4.5.1. TCP Load Balancer
+##### 4.3.3. Controllers 
 Not applicable at this stage.
 
-##### 4.5.2. Workers 
-Not applicable at this stage.
-
-##### 4.5.3. Controllers 
-Not applicable at this stage.
-
-#### 4.6. High Availability (HA)
+#### 4.4. High Availability (HA)
 
 CloudHub provides HA and disaster recovery for hardware and application failures by using Amazon AWS as its cloud infrastructure. More details can be found in MuleSoft documentation [here](https://docs.mulesoft.com/runtime-manager/cloudhub-fabric).
 
@@ -382,18 +269,18 @@ From an applications perspective, HA is supported as follows:
 - Autoscaling is potentially a future state option, however this has commercial implications and will require an upgrade to Enterprise License Agreement (ELA). 
 - CloudHub provides zero-downtime deployments to further address availability concerns (Note, zero-downtime deployments do not impact available vCore capacity) 
 
-#### 4.7. Disaster Recovery
+#### 4.5. Disaster Recovery
 
 Several options exist within CloudHub for Disaster Recovery. Defined as the process by which a system is restored to a previous acceptable state, after a natural (flooding, tornadoes, earthquakes, fires, etc.) or human-made (power failures, server failures, misconfigurations, etc.) disaster. MuleSoft uses the Amazon AWS infrastructure to host CloudHub, which in turn provides capabilities to manage Disaster Recovery.
 
 Disaster Recovery will be based on existing CloudHub Availability zone-based DR to support the current state enterprise needs. At this stage, cross-region Disaster Recovery is not considered as a priority given the acceptable risk profile of the default DR capability via Availability Zones. For future reference, the options available for DR are documented in section 4.7.2 
 
-##### 4.7.1. CloudHub capability – key considerations
+##### 4.5.1. CloudHub capability – key considerations
 - CloudHub provides HA and disaster recovery for hardware and application failures by using Amazon AWS as its cloud infrastructure
 - From a DR perspective, it is recommended to deploy the CloudHub control plane to a different region to runtime plane - this will enable management and redeployment of runtimes in the case of runtime region failure. For example, customers can configure the control plane in the US-East region, and the runtime plane currently in EU-Central (Frankfurt) region depending on regional considerations (e.g proximity to corporate applications and data).
 - Mule applications deployed to multiple CloudHub workers, are deployed across AWS Availability Zones (AZ), which enable better isolation and protection from issues such as power outages, lightning strikes, tornadoes, earthquakes, etc. AZ’s are physically separated by a meaningful distance, many kilometers, from any other AZ, although all are within 100 km (60 miles) of each other
 
-##### 4.7.2. Disaster Recovery – Options considered
+##### 4.5.2. Disaster Recovery – Options considered
 
 - Disaster Recovery using Availability Zones: When MuleSoft applications are deployed to multiple workers, they are automatically distributed across 2 or more availability zones. This provides for availability as well as redundancy in the event of a disaster occurring in one Availability Zone (AZ). Where a Mule application is deployed across AZ’s, the customer is better isolated and protected from issues such as power outages, lightning strikes, tornadoes, earthquakes, etc. AZ’s are physically separated by a meaningful distance, many kilometers, from any other AZ, although all are within 100 km (60 miles) of each other.
 - Disaster Recovery across Regions: It is also possible to achieve a greater level of Disaster Recovery protection by deploying Mule applications across multiple regions. This, in turn, will require additional infrastructure, processes, and tooling in place to enable deployments across multiple regions. There are different options that can be considered for Cross-region DR:
