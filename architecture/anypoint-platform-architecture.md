@@ -18,7 +18,6 @@ In addition to these roles, it is essential that the Business Teams (Business An
 
 ## Table of Contents
 
-- [Document Control](#document-control)
 - [About this Document](#about-this-document)
 - [Intended Audience](#intended-audience)
 - [1. Business and Solution Context](#business-and-solution-context)
