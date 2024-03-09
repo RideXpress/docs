@@ -255,13 +255,13 @@ To meet the connectivity requirements of this solution, the following MuleSoft C
 Adjust according to your solution context.
 1.	Salesforce Connector (Platform Events, sObject CRUD operations)
     - Salesforce SOAP, REST, Bulk, Platform Events, and Streaming APIs
-3.	Web Services:
+1.	Web Services:
     - SOAP
     - REST
-4.	Database
-5.	SFTP
-6. Google Maps Connector
-7. Okta Connector
+1.	Database
+1.	SFTP
+1. Google Maps Connector
+1. Okta Connector
 
 ### API Application Catalogue
 A list of the proposed deployed API applications is provided below. Note that this list is based on the information provided during the discovery workshops and validated during playback sessions. A single deployed API application can support multiple aspects of the logical integrations as described in section 1 of this document.
