@@ -1,4 +1,4 @@
-# Main project documentation
+# RideXpress Official Documentation
 
 ### Folder structure
     .
@@ -7,9 +7,10 @@
     │   ├─ diagrams                                # Architecture diagrams
     │   │   ├─ api-led                             # API Led diagrams
     │   │   ├─ high-level-flows                    # High level diagrams
-    │   │   └─ use-cases                           # Use cases diagrams
-    │   │   └─ integration-arquitecture-document   # Auxiliary folder for the integration arquitecture document
-    │   └─ integration-arquitecture-document.md    # Integration arquitecture document
+    │   │   ├─ use-cases                           # Use cases diagrams
+    │   │   ├─ integration-arquitecture            # Auxiliary folder for the Integration Architecture document
+    │   │   └─ anypoint-platform-architecture      # Auxiliary folder for the Anypoint Platform Architecture document
+    │   ├─ integration-architecture.md             # Integration Architecture document
+    │   ├─ anypoint-platform-architecture.md       # Anypoint Platform Architecture document
     │   └─ tdd-templates.md                        # TDD Template 
-    └── README.md                                  # Readme file
-
+    └── README.md                                  # Index
