@@ -2,7 +2,7 @@
 
 ### Folder structure
     .
-    ├── [contributing](https://github.com/RideXpress/docs/tree/main/contributing)               # Documentation for contributing
+    ├── ([contributing](https://github.com/RideXpress/docs/tree/main/contributing))               # Documentation for contributing
     ├── architecture                               # Architecture documentation
     │   ├─ diagrams                                # Architecture diagrams
     │   │   ├─ api-led                             # API Led diagrams
