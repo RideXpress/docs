@@ -20,7 +20,7 @@ In addition to these roles, it is essential that the Business Teams (Business An
 
 - [About this Document](#about-this-document)
 - [Intended Audience](#intended-audience)
-- [1. Business and Solution Context](#business-and-solution-context)
+- [1. Business and Solution Context](#1-business-and-solution-context)
     - [1.1. Goals and Objectives](#goals-and-objectives)
     - [1.2. Solution Context](#solution-context)
         - [1.2.1. Key Systems](#key-systems)
