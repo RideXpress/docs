@@ -20,9 +20,9 @@ In addition to these roles, it is essential that the Business Teams (Business An
 
 - [About this Document](#about-this-document)
 - [Intended Audience](#intended-audience)
-- [1. Business and Solution Context](#business-and-solution-context)
-    - [1.1. Goals and Objectives](#goals-and-objectives)
-    - [1.2. Solution Context](#solution-context)
+- [1. Business and Solution Context](#1-business-and-solution-context)
+    - [1.1. Goals and Objectives](#11-goals-and-objectives)
+    - [1.2. Solution Context](#12-solution-context)
         - [1.2.1. Key Systems](#key-systems)
     - [1.3. Current State Challenges](#current-state-challenges)
     - [1.4. Integration Architecture Principles](#integration-architecture-principles)
@@ -260,7 +260,7 @@ Not applicable at this stage.
 ##### 4.3.3. Controllers 
 Not applicable at this stage.
 
-#### 4.4. High Availability (HA)
+### 4.4. High Availability (HA)
 
 CloudHub provides HA and disaster recovery for hardware and application failures by using Amazon AWS as its cloud infrastructure. More details can be found in MuleSoft documentation [here](https://docs.mulesoft.com/runtime-manager/cloudhub-fabric).
 
@@ -269,7 +269,7 @@ From an applications perspective, HA is supported as follows:
 - Autoscaling is potentially a future state option, however this has commercial implications and will require an upgrade to Enterprise License Agreement (ELA). 
 - CloudHub provides zero-downtime deployments to further address availability concerns (Note, zero-downtime deployments do not impact available vCore capacity) 
 
-#### 4.5. Disaster Recovery
+### 4.5. Disaster Recovery
 
 Several options exist within CloudHub for Disaster Recovery. Defined as the process by which a system is restored to a previous acceptable state, after a natural (flooding, tornadoes, earthquakes, fires, etc.) or human-made (power failures, server failures, misconfigurations, etc.) disaster. MuleSoft uses the Amazon AWS infrastructure to host CloudHub, which in turn provides capabilities to manage Disaster Recovery.
 
@@ -290,3 +290,364 @@ Disaster Recovery will be based on existing CloudHub Availability zone-based DR 
 
 Additional details on Amazon AWS infrastructure available [here](https://aws.amazon.com/infrastructure/)
 
+
+## 5. Security Architecture
+*Document the key security architecture details that have been made to ensure the secure setup and operations of the Anypoint Platform within the customer. Please update the below sections as required to reflect the platform setup details.*
+TODO: ^
+
+### 5.1. User Identity Management
+*Document details of the setup to support User Identity management, including integration with the corporate user directory, and role-based access control considerations using Anypoint Teams and potential integration with AD groups etc.*
+
+For the MVP phase, we will utilize the Anypoint Platform's built-in Identity Provider for User Identity Management. Access control will be managed directly within the Anypoint Platform.
+
+#### 5.1.1. Anypoint User Access Management - Authentication
+The Anypoint platform will use the integrated identity solution to for all users accessing the Anypoint platform.
+
+
+#### 5.1.2. Anypoint User Access Management – Authorization
+The Anypoint platform contains a full Role Based access model allowing all users/applications to have specific access to the areas/applications they require, without impinging upon areas which they should not have access to. This includes Business Group [BG] and Environment [ENV] specific access along with 'Anypoint Application' level access. This allows for example, Operational teams to have sole-access to production data, management, monitoring, and analytics data. 
+
+The application of role-based access controls is enabled through Anypoint which allows grouping of users which can easily be configured with permissions into respective Applications, Business Groups and Environments. More information on Anypoint Teams capabilities is available [here](https://docs.mulesoft.com/access-management/teams).
+
+**Note:** Only Organization Administrator permission holders can manage teams within the business group that contains the resources that you want to give a specific user or a team access to. You can modify permissions for all teams in your organization only if you have the Organization Administrator permission over the root organization.
+
+##### 5.1.2.1. Anypoint Teams – structure and considerations
+When planning the Anypoint Teams structure, consideration is given to the following:
+- Access to the Anypoint platform enables default membership of the “Everyone at RideXPress" team, or the root team.
+- The team structure should reflect the structure of enterprise, so that teams and permissions can be planned according to member needs. Note - Teams can be moved as needs change.
+- Team names must be unique across the organization.
+- Teams can be nested up to 10 levels, including the “Everyone at [CUSTOMER]" team.
+- Every child team inherits permissions from its parent team.
+
+TODO: Org diagram
+
+As per the diagram, the preferred structure of Anypoint Teams is to align this to the organization structure defined in Anypoint – specifically via Business groups. This provides for the maximum flexibility and future scale – E.g. The Underwriting team have different API development and operations teams than the Marketing teams for example. Equally, if the same API Developer is used across different parts of the Organization, they can be assigned both roles. 
+
+Specific details on the Anypoint Teams personas and permissions model is documented in [Anypoint Team profiles and permissions model](https://docs.mulesoft.com/access-management/teams#team-permissions).
+
+#### 5.1.3. Platform User Access Management
+There are scenarios where platform access will be required to support operational and support activities as part of the management and maintenance of the Anypoint Platform. To facilitate this, Connected Apps will be defined with the relevant scopes to enable access to Anypoint platform capabilities – e.g., CICD processes that require the deployment of APIs and applications to API Manager and Runtime Manager. 
+
+Reference: [Connected Apps](https://docs.mulesoft.com/access-management/connected-apps-overview)
+
+#### 5.1.4. User Audit
+Changes made by users within the Anypoint Platform organization are logged through an audit logging service. These can be accessed through the Audit Logging Query API or through the Audit Logging UI of the Control Plane. Audit logs have a retention period of six years. Where additional retention is required, this data can be integrated to external solutions (e.g. SIEM applications).
+
+The audit logging service provides a history of actions performed within the Anypoint Platform. It keeps track of all users who have interacted with objects in the system and timestamps these actions. It also provides mechanisms for querying the set of users who have performed actions, the set of objects that have had actions performed on them, and other endpoints that enable the querying of log entries.
+
+Full details on the audit capabilities are available [here](https://docs.mulesoft.com/access-management/audit-logging).
+
+### 5.2. API and Application Security
+<Document details of the setup to support API security concerns including Authentication, authorization and policy-based access controls >
+
+#### 5.2.1. API Client Authentication and Authorization 
+API authentication will use the out of the box Client Validation policies that are available out of the box. Should OAuth 2.0 based use cases need to be supported in the future, API Client management can be configured to support this then. 
+
+For additional information on external client management options and considerations, please review the [MuleSoft documentation](https://docs.mulesoft.com/api-manager/2.x/external-client-apps).
+
+#### 5.2.2. Secure Connectivity
+To enable secure connectivity, the following security capabilities will be implemented as part of inbound and outbound API communications. 
+
+| Decision | HTTP/S | Mutual TLS | Firewall rules - E.g. Allow Lists | Other |
+| --- | --- | --- | --- | --- |
+| Public applications connecting to Mule public facing APIs | Yes | Yes | No specific rules | N/A |
+| Mule APIs connecting to each other | Yes | No | No specific rules | N/A |
+| Mule APIs consuming internal APIs hosted within the corporate infrastructure, or cloud / SAAS offerings | Dependent on capability/ requirement of downstream application | Dependent on capability/ requirement of downstream application | No specific rules | N/A |
+| Internal applications connecting to Mule APIs | Yes | No | No specific rules | N/A |
+
+#### 5.2.3. API policy management
+Every single API must be assigned to the security category based on the table below and all the policies defined for the category must be applied against the API. The table also contains the references to MuleSoft documentation of each policy.
+
+Reference: [Policies for Mule 4](https://docs.mulesoft.com/api-manager/2.x/policies-landing-page#mule4)
+
+| Security | Details |
+| --- | --- |
+| Category | Level A |
+| Description | APIs exposing highly sensitive data and capability, exposed over the internet. The abuse of API would have a critical impact on the business. E.g. leak of personal details, unauthorized updates of transactional data, etc. |
+| API Criteria | APIs with access to customer or other sensitive data, exposed externally over the internet. |
+| Use Case | Create Policy, Create Claim, Change Policy |
+| API Layer | Experience APIs |
+| Patterns | ● JWT Token Validation / OAuth 2.0 Token Enforcement (required API Client Management configuration) <br> ● All the patterns of Level B |
+| Useful Links | [JWT Token Validation](https://docs.mulesoft.com/api-manager/2.x/policy-mule4-jwt-validation#policy-configuration) |
+
+| Security | Details |
+| --- | --- |
+| Category | Level B |
+| Description | APIs with the standard, minimum level of security. The APIs are essential for day to day business activities but do NOT transfer/read sensitive data. These APIs are exposed only to internal API consumers and can be considered east-west traffic – either other Mule APIs or customer internal APIs via secure connectivity (e.g. VPNs) |
+| API Criteria | All APIs consumed within the trust boundary of the organization. |
+| Use Case | Availability |
+| API Layer | Experience, Process, System |
+| Patterns | ● Client ID Enforcement <br> ● Spike Control (based on specific API throughput considerations) <br> ● CORS (Experience APIs exposed to web clients only) <br> ● JSON Threat Protection |
+| Useful Links | [Client ID Enforcement](https://docs.mulesoft.com/api-manager/2.x/client-id-based-policies) <br> [Spike Control](https://docs.mulesoft.com/api-manager/2.x/spike-control-reference) <br> [CORS](https://docs.mulesoft.com/api-manager/2.x/cors-policy) <br> [JSON Threat Protection](https://docs.mulesoft.com/api-manager/2.x/apply-configure-json-threat-task) |
+
+#### 5.2.4. Secure Application configuration Management 
+All sensitive passwords and data in property files will be encrypted using the secure properties placeholder with a key that will be injected as part of the build process. This will ensure that secure properties are not stored in clear text in the source code repository. 
+
+A process will need to be agreed by the C4E team to support the encryption of secure properties, so that the encryption keys are not available to all developers. Additional details around configuration management is captured in the section Configuration Management
+
+Reference: [Secure Configuration Properties](https://docs.mulesoft.com/mule-runtime/4.3/secure-configuration-properties)
+
+### 5.3. Infrastructure Security
+CloudHub provides a secure platform for the deployment of MuleSoft APIs and integrations. Security and compliance details of the CloudHub platform are published [here](https://www.mulesoft.com/platform/cloudhub-ipaas-cloud-based-integration).
+
+In addition to the platform security, the following additional measures have been put in place to safeguard applications deployed in CloudHub.
+
+#### 5.3.1. DLB Security 
+All API access will be managed via DLBs. Routing rules will be configured at the DLB level to allow routing of API traffic to external facing APIs only. Internal-facing APIs will be accessible only to internal DLBs (restricted to traffic originating within MuleSoft VPCs or corporate data center(s) securely connected to CloudHub via VPN. 
+
+A more detailed view of the traffic flow between API consumers, and the DLBs (external and internal) is provided in the sequence diagram in Appendix A3. CloudHub DLB Detailed Connectivity Flow
+
+#### 5.3.2. Firewall Rules
+VPC firewall rules will be configured to restrict traffic to internally originating traffic only, i.e. traffic originating within the VPC itself, or traffic originating from the corporate data center(s) which is securely connected to the CloudHub VPC via VPN. 
+
+## 6. Application Architecture
+This section is a drill down of the Platform Architecture, covering the application related components and their interactions.
+
+### 6.1. API Led Connectivity
+
+The key goal of the approach recommended by this document is to introduce reusable building blocks that can be reused both during the initial implementation and by future projects, resulting in reduced development effort.
+
+API-led connectivity is a methodical way to connect data to applications through a series of reusable and purposeful modern APIs that are each developed to play a specific role – unlock data from systems, compose data into processes, or deliver an experience.
+
+The API building block is a product that consists of functionality and simplicity required for the full lifecycle of APIs. This lifecycle consists of the ability to compose the data and connect to any other source of data. And it must provide full visibility, security, governance right from design.
+
+The diagram below illustrates the API-led connectivity approach composed of three main layers:
+- System APIs to unlock backend systems through a consistent contract, making use of our extensive connectivity, 
+- Process APIs providing orchestration and transformation into business domain objects for greater agility and value creation and 
+- Experience APIs focused on rendering information specific to devices or consuming client applications.
+
+![alt text](./anypoint-platform-architecture/api_led.png)
+
+The value of this approach is enabling a flexible, agile architecture built for reuse and consumption, to speed up project delivery with built in governance and security.
+
+### 6.2. Integration Patterns
+Based on the discussions and discovery sessions, the following integration patterns were identified:
+
+| Pattern | Description | Examples |
+| --- | --- | --- |
+| Real time, Synchronous | Real time or near real time requests to retrieve or process data, or trigger business processes, where the requester requires immediate feedback to support the scenario. | ● Address Verification <br> ● Policy Number Generation |
+| Async - Fire and Forget | Async, near real time, Fire and Forget type scenarios where API clients send messages but do not need to wait for a response as part of their processes. | ● Policy Creation (async UW validation, core setup etc.) <br> ● Claim creation (rules processing, etc.) |
+
+## 7. Operations Architecture
+<Document details of the platform setup to support the operational management and maintenance of the platform>
+
+The Anypoint platform provides different capabilities to support the operational aspects of managing and maintaining API and applications deployed to the MuleSoft platform.
+
+### 7.1. Log Management
+<Document details specific to log management, specifically in terms of log integration with third party tools, considerations around log retention within the platform etc. >
+
+Mule applications will use a standard logging framework to ensure log data is captured consistently across Mule applications, with the right structure and data points to support effective troubleshooting. 
+
+All application logs within Mule applications will be integrated with the corporate logging solution. This will enable log aggregation between multiple Mule apps (e.g. Experience, Process and System APIs) and other systems where applicable. Data will be pushed from MuleSoft to ELK via Log4J Socket appender configurations. For more information on options to integrate MuleSoft application log data to external applications, see Appendix A2. CloudHub Log data externalization options
+
+Note that logs will not exclusively be pushed to ELK, and that these will also be available within the Anypoint platform – this is to facilitate MuleSoft support processes which require access to the logs as part of troubleshooting and supporting the delivery teams where required. 
+
+Details on Custom Log4J configurations, including CloudHub settings to enable custom Log4J configurations are available here. 
+
+### 7.2. Monitoring and Alerting
+<Document details specific to monitoring and alerting capabilities and how this will be setup - both in terms of utilizing Anypoint platform capabilities, as well as external enterprise tooling where appropriate and how the platform data will be made available to these tools >
+
+The Anypoint platform supports the following monitoring capabilities as part of the TITANIUM subscription. Depending on the relevant use cases and operational needs of the use case, one or more of the capabilities listed below can be configured as part of the use case implementation. 
+- API / Application alerts - 
+    - Alerts on API events (e.g. API errors)
+    - Custom application alerts using CloudHub Notifications
+    - If log aggregation to external tools, capability within the tooling can be leveraged to support advanced alerting use cases
+- Anypoint Monitoring dashboards
+    - Out of the box dashboards available for APIs and applications
+    - Custom dashboards can be configured to consolidate information for operational / governance purposes 
+- Anypoint Visualizer 
+    - Troubleshooting and governance of application network
+- Functional monitors 
+    - Proactive health checking and alerting - can be used with implementation health check configurations
+
+Additional Details: [Anypoint Monitoring Overview](link)
+
+### 7.3. Platform Alerts
+At a platform level, alerts should be configured when ARM encounters a problem with a Server or Server Cluster. These settings can be set at a global level, meaning for all APIs deployed to the Business Groups. At minimum, the following conditions should be monitored:
+
+| Source/Server type | Condition | Severity Level | Config details |
+| --- | --- | --- | --- |
+| Application | CPU Usage | Critical | >=80% for at least 10 mins |
+| Application | Deployment failed | Warning | NA |
+| Application | Memory Usage (depends on worker size) | Critical | >=80% for at least 10 mins |
+| Application | Worker not responding | Critical | NA |
+
+Guidance for alert creation:
+- Alert Naming Convention: 
+    - `<source-type>-<application type>-<condition>`
+    - Sample: `App-CloudHub-Deployment-Failed`
+Notes:
+- Naming convention is aligned to the key three input parameters that define the alert (i.e. source-type, application-type, condition).
+- Name is used only for providing a reference of the to the alert configuration and used for listing here. 
+
+Guidance for Alert Notification Subject creation: 
+- Subject (naming convention):  
+    - `${severity}: [CUSTOMER] Anypoint Alert (<env>) - default subject header>` 
+where `<env>` is DEV, TEST, PREPROD or PROD. 
+    - Sample: `HIGH: [CUSTOMER] Anypoint Alert (PROD) - Deployment Failed`
+    - Note:  The use of this prefix is IMPORTANT to ensure email subject header is readily identifiable in a recipient’s inbox since there are no means to use properties or parameters to describe the environment where the issue originates from. This can also support future email-based integrations to Service Management tools (E.g. Service Now) 
+
+For more information on ARM Alerts, refer to the following [Link](link).
+Additional References: [Configure Alerts](link)
+
+## 8. Common Services
+<Provide details of common services that will be configured to standardize and streamline Mule application development and delivery>
+
+### 8.1. API Implementation Template
+To support and streamline application development, API templates will be published for consistent and streamlined development activity. 
+
+These templates encapsulate the key standards, and structures to be used as part of development. Key elements included in the API template:
+- Standard structure of Mule Application files – including global configurations, API interface and implementation files
+- Structure and placeholders for common, and environment specific properties, including secure properties. 
+- Standard maven POM structure, including Parent POM and related configurations
+- CICD structure.
+- Error handling configurations (utilizing common error handler framework) 
+- Health Check framework (which can be integrated with Anypoint Functional Monitoring) 
+- Logging standards and configurations
+
+The following API templates have been published to Anypoint Exchange, and aligned to the Repository creation process: 
+| Name | Link | When to use? |
+| --- | --- | --- |
+| mule4-rest-api-template | [<<LINK>>](link) | Use this template to support the development of REST APIs. |
+| mule4-anypoint-mq-consumer-template | [<<LINK>>](link) | Use this template to support the development of Anypoint MQ Consumer Application. |
+| mule4-batch-template | [<<LINK>>](link) | Use this template to support the development of Batch applications. This template contains common aspects of Batch application development, including: <br> - Batch framework and common configuration placeholders (e.g. schedulers) <br> - Framework to support custom alerts, in conjunction with Alert Utility application. See below for details. |
+
+### 8.2. API Design Template
+API Design Templates provide a starting point for the consistent structure and design of MuleSoft API specifications based on RAML. The API design template contains the following to support a consistent design approach: 
+- Standard structure for API Design Artifacts
+- Incorporation of common traits (published separately as common-traits-library). These provide for common handling of the following API aspects
+    - API Authentication related headers
+    - API Error handling structures and example content
+    - API health checks
+    - Standard design of common API functions – e.g. Pagination
+The API design template is published the Anypoint Exchange and can be imported as part of new API creation in Anypoint Design Center: [<<LINK TO API DESIGN TEMPLATE>>](link)
+
+### 8.3. Error Handling
+A common Error handler library has been configured to support consistent error handling approaches as part of MuleSoft projects. The library leverages existing Mule error handling capabilities and builds on this to provide a framework for the management for errors in Mule APIs and applications. 
+
+The library includes default error handling logic for common error scenarios (e.g., standard HTTP errors) and the flexibility to support more bespoke error handling requirements. 
+
+A detailed view of the error handler library, including guidelines on how to implement this as part of Mule API implementations is available [<<HERE>>](link)
+
+### 8.4. Configuration Management
+Mule applications typically need specific configurations properties to support implementations. These can be split into the following categories:
+- Standard configuration properties – e.g. API endpoints. 
+- Secure configuration properties – e.g. API/DB credentials
+
+Properties can further be typically classified as common or environment agnostic properties, or environment specific properties. Common properties should be managed in a separate properties file vs. environment specific properties, to avoid repetition.
+
+The API template will be defined the structure and placeholders for Mule API and application configuration management in line with best practice to manage common properties, environment specific properties and secure properties. 
+
+#### 8.4.1. Secure properties
+- MuleSoft provides a secure property placeholder component to enable the encryption of secure properties using a private key. These can then be stored in an encrypted form in the codebase, which in turn is used to build the application and leveraged at runtime. Additional details available [here](link)
+    - The secure property key needs to be updated to the CI/CD variable at the project level - and this needs to be done for each environment that the application is deployed to.
+    - Note the underlying process and ownership of managing and encrypting secure properties will need to be agreed as part of the broader development and operations process. 
+- Every API deployed on CloudHub must use safely hidden properties for sensitivity attributes like credentials. CloudHub supports safely hidden application properties, where the name of a property is visible in the console, but the value is not displayed or retrievable by any user. CloudHub resolves the property at runtime without exposing the sensitive information. More details available [here](link).
+
+## 9. SDLC
+<Provide details of the Software development lifecycle and how the platform capabilities will support the agreed development approach and lifecycle, including details around CICD, project processes, governance and quality controls>
+
+The following section describes the process and phases of the Software Development Life Cycle of a Mule application/API, the tooling and mechanisms used as part of it.
+
+![alt text](./anypoint-platform-architecture/lifecycle.png)
+
+| Phase | Description |
+| --- | --- |
+| Discovery | Gather information related to specific needs of a defined story (JIRA). Research the available APIs in Exchange. Identify the domain. |
+| Design | Design the RAML in API Designer, publish the API Spec to Exchange. |
+| Prototype and Validate | Validate the API specification is aligned to API consumer expectations through publishing documentation in Exchange, and through use of the API mocking tools to enable API consumers to interact with the API specification. |
+| Development / Implementation | Using Anypoint Studio and reusing any available common service (e.g. auth-connector) <br> - Unit Testing (local): <br> - Push source code to Version Control System <br> - Run build and deployment automation tasks based on agreed and configured CICD processes. |
+| Operate/Monitor | Using out of the box features included as part of Anypoint Monitoring to support the operational management and maintenance of the platform. |
+
+### 9.1. Mule Application Development considerations
+#### 9.1.1. Version Control strategy
+- Version Control tooling: All MuleSoft API and application source code will be version controlled and stored in a central GIT repository – Azure Repos. 
+- Repository Strategy: 1 repository per Mule application. A Mule application can contain one or more Mule APIs or flows, balancing out the architecture principles of high cohesion, low coupling with the need to maximize vCore consumption. 
+- Branching strategy: All application source code will leverage a common branching strategy to enable effective and consistent code development and maintenance practices. The branching strategy will use three branches: 
+    - main - contains code that has been through the relevant integration testing, and is ready to deploy into acceptance environments (e.g. PREPROD), and eventually into production environments.
+    - develop - used as the CI branch and contains code to be deployed into the Development and Functional test environment
+        - feature-* - used for development of specific features as part of the delivery of new Mule API or application functionality, changes to existing Mule API capabilities, and defect fixes. 
+        - hotfix-* - used for development activities to provide fixes to code already in production. 
+        - All merges into the main and develop branch should be via Pull Request with manual reviews taking place.
+        - Additional details on the branching strategy is available [here](link)
+
+    ### 9.1.2. Deployment and sizing strategy
+    As part of the CloudHub deployment model, every application/API will be running in an isolated container; Each application will require to be properly sized based on non-functional requirements, and results from performance testing. 
+
+    The initial sizing of APIs and applications deployed to MuleSoft will be based on agreed guidelines with the C4E team. 
+
+    ### 9.1.3. Development Standards and Naming Conventions
+    All APIs and applications implemented in MuleSoft and deployed to CloudHub will need to adhere to development standards and guidelines, including naming conventions. Consistent standards and naming conventions support maintainability, discoverability and contribute to better quality code. This in turn helps drive reuse and pace of change, and help to reduce technical debt on the platform
+
+    In addition, from a CloudHub application deployment perspective, the application name has the following constraints that need to be addressed as part of the naming convention: 
+    - Application names cannot exceed 42 characters in length
+    - Application names need to be unique across the MuleSoft deployment region (e.g. EU Frankfurt). This is because the application name is used to generate DNS records (e.g. <app-name>.de-c1.CloudHub.io)  
+
+    The application development standards and guidelines are defined in detail [HERE](link)
+
+    ### 9.2.	Build and Deployment Automation (CICD)
+
+    ![alt text](./anypoint-platform-architecture/ci_cd.png)
+
+    The solution will leverage Github actions to support the end to end development and deployment lifecycle of MuleSoft APIs and applications.  From a MuleSoft perspective, maven is used to support build and deployment activities, via the Mule Maven plugin. Note: The Mule Maven Plugin leverages CloudHub platform APIs under the hood). 
+
+    The detailed configuration of Github Actions is documented [HERE](link)
+
+    ### 9.3. SDLC Tooling Catalog
+
+    | Phase | Tooling | Details |
+    | --- | --- | --- |
+    | Planning | Github Project | [Link](url) / Licensing and access considerations |
+    | Documentation | Github Markdown | [Link](url) / Licensing and access considerations |
+    | API Design | Anypoint Design Center | [Link](url) / Licensing and access considerations |
+    | API Development and Unit Testing | Anypoint Studio | [Link](url) / Licensing and access considerations |
+    | Version Control | Github | [Link](url) / Licensing and access considerations |
+    | Build and Deployment Automation | Github Actions | [Link](url) / Licensing and access considerations |
+    | Artifact Repository | Github | [Link](url) / Licensing and access considerations |
+    | Static Code Analysis | SonarQube | TBC – not required for initial foundation configuration. |
+    | Test Automation | TBC | TBC – not required for initial foundation configuration. |
+    | Release Management | Github Releases | Aligned to CAB processes. |
+
+
+    ## A. Appendix
+    ### A.1. Backend Systems Catalog
+
+    | System name | Location | Access Protocol | Host | Access |
+    | --- | --- | --- | --- | --- |
+    | Salesforce - sandbox - partial | Cloud | HTTPS | https://my.salesforce.com | Integration user |
+    | Salesforce - sandbox - full | Cloud | HTTPS | TBD | Integration user |
+    | Salesforce - production | Cloud | HTTPS | TBD | Integration user |
+    | Workday - sandbox | Cloud | HTTPS | wd5-impl-services1.workday.com | Integration user |
+    | Workday - production | Cloud | HTTPS | TBD | Integration user |
+
+    ### A.2. CloudHub Log data externalization options
+
+    ![alt text](./anypoint-platform-architecture/logs_external.png)
+
+    ### A.3. CloudHub DLB Detailed Connectivity Flow
+
+    ![alt text](./anypoint-platform-architecture/dlb_sequence.png)
+
+    ### A.4. Anypoint Team profiles and permissions model
+
+    | #.# | Team | Description |
+    | --- | --- | --- |
+    | | Everyone at [CUSTOMER] | Root level Team which all subsequent teams will inherit. Assign view only to users who would like to explore the Anypoint platform and discover assets within Anypoint Exchange. Note: This can be limited in case confidential assets exist within a specific Business Group |
+    | 1 | C4E | Core C4E team. Assign C4E users who want read-only permissions across the Anypoint platform (All Business Groups) and the ability to contribute to the documentation within Exchange. This includes access to Design Center, and View permissions to API manager, Anypoint MQ, Runtime Manager, and Anypoint Monitoring. |
+    | 1.1 | C4E Platform Administrators | C4E platform administrators. Assign users who have global administrator access to the platform, from management of infrastructure and administration of wider aspects of the platform. This includes administration and management access to API manager, Runtime manager, Anypoint MQ, Anypoint Monitoring, including Org Administrator permissions. This Team should be limited in access – e.g., assigned to core C4E Platform Lead |
+    | 1.2 | C4E Platform Engineers | C4E platform engineers. Assign users who are responsible for the technical management and evolution of the Platform. This includes the ability to manage and support the configuration of the platform infrastructure through Runtime Manager (e.g. creation and configuration of VPC, VPN, DLBs) and administrator level access to Anypoint Monitoring, Visualizer and Exchange |
+    | 2 | Business Group Teams (E.g. [CUSTOMER] Central IT) | Business group team. Assign business and project users who need to view Exchange assets, and review API and application metrics via Anypoint Monitoring within the specific business group. |
+    | 2.1 | Development Team | Development team for a specific business group. Assign to business unit specific development teams. This team will have permissions to support the following: Contribute assets and documents to Exchange. Design APIs in Design Center. Manage APIs in API Manager, Anypoint MQ and Runtime Manager in DEV. Support troubleshooting activities in TEST, PREPROD activities via read only permissions to API Manager, Anypoint MQ and Runtime Manager. |
+    | 2.2 | Business Analysis Team | Business Analysis Team for a specific business group. Assign to members who need to review and collaborate on API specifications and documentation in Exchange. |
+    | 2.3 | Test Team | Test Team for a specific business group. Assign to members who support testing activities of Mule APIs and applications. This team will need the ability to view and manage aspects of applications in non production environments – E.g. ability to view and manage queues, manage schedules in Runtime Manager (for batch applications) and view application logs. |
+    | 2.4 | Business Support and Operations | Operations Team for a specific business group. Assign to business unit specific operational users who need to analyse and troubleshoot issues aligned to the business group, including support analyst who are responsible for L1 and L2 support of the platform. This role will need to permissions for the following: Ability to view API configurations in API Manager in preprod and production environments. Ability to view Runtime Manager configurations in preprod and production environments. Ability to view messaging assets in Anypoint MQ. |
+    | 2.5 | Group Administrators | Administrators for a specific business group. Assign to business unit specific administrators to manage configuration of business group, including managing permissions and users within the business group. |
+    | 3 | Global Support and Operations | Central Support and Operations Team. Assign to Central support and operations teams |
+    | 3.1 | Support Analysts | Shared Services and Support Analysts across the organization. Assign to support analysts who are responsible for L1 and L2 support of the platform, in a shared services model. This role will need to permissions for the following: Ability to view API configurations in API Manager in preprod and production environments. Ability to view Runtime Manager configurations in preprod and production environments. Ability to view messaging assets in Anypoint MQ. |
+    | 3.2 | Release Managers | Central Release Management Team. Assign to the release management team who will be responsible for managing Mule application related releases. Ability to manage API configurations in API Manager in preprod and production environments. Ability to manage Runtime Manager configurations in preprod and production environments. Ability to manage messaging assets in Anypoint MQ. |
+
+    ## About MuleSoft, a Salesforce company
+
+    MuleSoft, provider of the world’s #1 integration and API platform, makes it easy to connect data from any system – no matter where it resides – to create connected experiences, faster. Thousands of organizations across industries rely on MuleSoft to realize speed, agility and innovation at scale. For more information, visit [https://www.mulesoft.com](https://www.mulesoft.com).
+
+    MuleSoft is a registered trademark of MuleSoft, LLC, a Salesforce company. All other marks are those of respective owners.
