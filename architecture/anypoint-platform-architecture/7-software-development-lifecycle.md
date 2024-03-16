@@ -1,12 +1,26 @@
 # Software Development Lifecycle
 
-- [7. Software Development Lifecycle (SDLC)](anypoint-platform-architecture/7-software-development-lifecycle.md)
-    - [7.1. Mule Application Development Considerations](anypoint-platform-architecture/7-software-development-lifecycle.md#mule-application-development-considerations)
-    - [7.2. Version Control Strategy](anypoint-platform-architecture/7-software-development-lifecycle.md#version-control-strategy)
-    - [7.3. Deployment and Sizing Strategy](anypoint-platform-architecture/7-software-development-lifecycle.md#deployment-and-sizing-strategy)
-    - [7.4. Development Standards and Naming Conventions](anypoint-platform-architecture/7-software-development-lifecycle.md#development-standards-and-naming-conventions)
-    - [7.5. Build and Deployment Automation (CI/CD)](anypoint-platform-architecture/7-software-development-lifecycle.md#build-and-deployment-automation-cicd)
-    - [7.6. SDLC Tooling Catalog](anypoint-platform-architecture/7-software-development-lifecycle.md#sdlc-tooling-catalog)
+- [7. Software Development Lifecycle (SDLC)](#7-software-development-lifecycle.md)
+    - [7.1. Mule Application Development Considerations](#71-mule-application-development-considerations)
+    - [7.2. Version Control Strategy](#72-version-control-strategy)
+    - [7.3. Deployment and Sizing Strategy](#73-deployment-and-sizing-strategy)
+    - [7.4. Development Standards and Naming Conventions](#74development-standards-and-naming-conventions)
+    - [7.5. Build and Deployment Automation (CI/CD)](#75-build-and-deployment-automation-cicd)
+    - [7.6. SDLC Tooling Catalog](#76-sdlc-tooling-catalog)
+
+## 7 Software Development Lifecycle
+
+The following section describes the process and phases of the Software Development Life Cycle of a Mule application/API, the tooling and mechanisms used as part of it.
+
+![alt text](./anypoint-platform-architecture/lifecycle.png)
+
+| Phase | Description |
+| --- | --- |
+| Discovery | Gather information related to specific needs of a defined story (JIRA). Research the available APIs in Exchange. Identify the domain. |
+| Design | Design the RAML in API Designer, publish the API Spec to Exchange. |
+| Prototype and Validate | Validate the API specification is aligned to API consumer expectations through publishing documentation in Exchange, and through use of the API mocking tools to enable API consumers to interact with the API specification. |
+| Development / Implementation | Using Anypoint Studio and reusing any available common service (e.g. auth-connector) <br> - Unit Testing (local): <br> - Push source code to Version Control System <br> - Run build and deployment automation tasks based on agreed and configured CICD processes. |
+| Operate/Monitor | Using out of the box features included as part of Anypoint Monitoring to support the operational management and maintenance of the platform. |
 
 ## 7.1 Mule Application Development Considerations
 
@@ -24,17 +38,7 @@
 ## 9. SDLC
 <Provide details of the Software development lifecycle and how the platform capabilities will support the agreed development approach and lifecycle, including details around CICD, project processes, governance and quality controls>
 
-The following section describes the process and phases of the Software Development Life Cycle of a Mule application/API, the tooling and mechanisms used as part of it.
 
-![alt text](./anypoint-platform-architecture/lifecycle.png)
-
-| Phase | Description |
-| --- | --- |
-| Discovery | Gather information related to specific needs of a defined story (JIRA). Research the available APIs in Exchange. Identify the domain. |
-| Design | Design the RAML in API Designer, publish the API Spec to Exchange. |
-| Prototype and Validate | Validate the API specification is aligned to API consumer expectations through publishing documentation in Exchange, and through use of the API mocking tools to enable API consumers to interact with the API specification. |
-| Development / Implementation | Using Anypoint Studio and reusing any available common service (e.g. auth-connector) <br> - Unit Testing (local): <br> - Push source code to Version Control System <br> - Run build and deployment automation tasks based on agreed and configured CICD processes. |
-| Operate/Monitor | Using out of the box features included as part of Anypoint Monitoring to support the operational management and maintenance of the platform. |
 
 ### 9.1. Mule Application Development considerations
 #### 9.1.1. Version Control strategy
