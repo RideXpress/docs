@@ -69,7 +69,7 @@ In addition to these roles, it is essential that the Business Teams (Business An
     - [6.5. Secure Properties](#secure-properties)
 - [7. Software Development Lifecycle (SDLC)](anypoint-platform-architecture/7-software-development-lifecycle.md)
     - [7.1. Mule Application Development Considerations](anypoint-platform-architecture/7-software-development-lifecycle.md#71-mule-application-development-considerations)
-    - [7.2. Version Control Strategy](anypoint-platform-architecture/7-software-development-lifecycle.md#71-version-control-strategy)
+    - [7.2. Version Control Strategy](anypoint-platform-architecture/7-software-development-lifecycle.md#72-version-control-strategy)
     - [7.3. Deployment and Sizing Strategy](anypoint-platform-architecture/7-software-development-lifecycle.md#73-deployment-and-sizing-strategy)
     - [7.4. Development Standards and Naming Conventions](anypoint-platform-architecture/7-software-development-lifecycle.md#74-development-standards-and-naming-conventions)
     - [7.5. Build and Deployment Automation (CICD)](anypoint-platform-architecture/7-software-development-lifecycle.md#75-build-and-deployment-automation-cicd)

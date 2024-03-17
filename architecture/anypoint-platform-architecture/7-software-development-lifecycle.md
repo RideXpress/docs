@@ -4,15 +4,15 @@
     - [7.1. Mule Application Development Considerations](#71-mule-application-development-considerations)
     - [7.2. Version Control Strategy](#72-version-control-strategy)
     - [7.3. Deployment and Sizing Strategy](#73-deployment-and-sizing-strategy)
-    - [7.4. Development Standards and Naming Conventions](#74development-standards-and-naming-conventions)
+    - [7.4. Development Standards and Naming Conventions](#74-development-standards-and-naming-conventions)
     - [7.5. Build and Deployment Automation (CI/CD)](#75-build-and-deployment-automation-cicd)
     - [7.6. SDLC Tooling Catalog](#76-sdlc-tooling-catalog)
 
-## 7 Software Development Lifecycle
+## 7 Software Development Lifecycle (SDLC)
 
 The following section describes the process and phases of the Software Development Life Cycle of a Mule application/API, the tooling and mechanisms used as part of it.
 
-![alt text](./anypoint-platform-architecture/lifecycle.png)
+![alt text](./images/lifecycle.png)
 
 | Phase | Description |
 | --- | --- |
@@ -26,7 +26,7 @@ The following section describes the process and phases of the Software Developme
 
 ## 7.2 Version Control Strategy
 
-## 7.3 Deployment and Sizing
+## 7.3 Deployment and Sizing Strategy
 
 ## 7.4 Development Standards and Naming Conventions
 
