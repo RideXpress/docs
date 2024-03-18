@@ -1,6 +1,6 @@
 # Anypoint Platform Architecture
 
-Note: document based of [https://knowledgehub.mulesoft.com/s/article/Anypoint-Platform-Architecture-Template](https://knowledgehub.mulesoft.com/s/article/Anypoint-Platform-Architecture-Template)
+Reference: [Knowledge Hub](https://knowledgehub.mulesoft.com/s/article/Anypoint-Platform-Architecture-Template)
 
 # About this Document
 

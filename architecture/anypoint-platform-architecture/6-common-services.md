@@ -1,5 +1,12 @@
 # Common Services
 
+- [6. Common Services](#common-services)
+    - [6.1. API Implementation Template](#api-implementation-template)
+    - [6.2. API Design Template](#api-design-template)
+    - [6.3. Error Handling](#error-handling)
+    - [6.4. Configuration Management](#configuration-management)
+    - [6.5. Secure Properties](#secure-properties)
+
 ## 8. Common Services
 <Provide details of common services that will be configured to standardize and streamline Mule application development and delivery>
 

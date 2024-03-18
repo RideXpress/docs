@@ -1,5 +1,9 @@
 # Application Architecture
 
+- [4. Application Architecture](#application-architecture)
+    - [4.1. API Led Connectivity](#api-led-connectivity)
+    - [4.2. Integration Patterns](#integration-patterns)
+
 ## 4. Platform Architecture and Setup
 
 <Describe the key details of the platform setup with the customer landscape, including details of platform infrastructure considerations like VPCs, DLBs, VPNs > 

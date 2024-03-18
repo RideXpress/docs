@@ -1,5 +1,20 @@
 # Anypoint Platform
 
+- [2. Anypoint Platform](#anypoint-platform)
+    - [2.1. Anypoint Platform Licensed Capabilities](#anypoint-platform-licensed-capabilities)
+    - [2.2. Platform Architecture and Setup](#platform-architecture-and-setup)
+    - [2.3. Environments Model](#environments-model)
+    - [2.4. Infrastructure Setup (CloudHub)](#infrastructure-setup-cloudhub)
+    - [2.5. Load Balancing](#load-balancing)
+    - [2.6. SSL Endpoint and DNS Configuration](#ssl-endpoint-and-dns-configuration)
+    - [2.7. TCP Load Balancer](#tcp-load-balancer)
+    - [2.8. Workers](#workers)
+    - [2.9. Controllers](#controllers)
+    - [2.10. High Availability (HA)](#high-availability-ha)
+    - [2.11. Disaster Recovery](#disaster-recovery)
+    - [2.12. CloudHub Capability – Key Considerations](#cloudhub-capability-key-considerations)
+    - [2.13. Disaster Recovery – Options Considered](#disaster-recovery-options-considered)
+
 ## 2. Architecture Decisions
 
 <Document the key architecture decisions that have been made as part of the platform architecture definition.Please update the below decisions to reflect the platform architecture decisions agreed with the customer. > 

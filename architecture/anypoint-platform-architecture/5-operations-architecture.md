@@ -1,5 +1,10 @@
 # Operations Architecture
 
+- [5. Operations Architecture](#operations-architecture)
+    - [5.1. Log Management](#log-management)
+    - [5.2. Monitoring and Alerting](#monitoring-and-alerting)
+    - [5.3. Platform Alerts](#platform-alerts)
+
 ## 7. Operations Architecture
 <Document details of the platform setup to support the operational management and maintenance of the platform>
 

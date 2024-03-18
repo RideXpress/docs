@@ -1,5 +1,20 @@
 # Security Architecture
 
+- [3. Security Architecture](#security-architecture)
+    - [3.1. User Identity Management](#user-identity-management)
+    - [3.2. Anypoint User Access Management - Authentication](#anypoint-user-access-management-authentication)
+    - [3.3. Anypoint User Access Management – Authorization](#anypoint-user-access-management-authorization)
+    - [3.4. Anypoint Teams – Structure and Considerations](#anypoint-teams-structure-and-considerations)
+    - [3.5. Platform User Access Management](#platform-user-access-management)
+    - [3.6. User Audit](#user-audit)
+    - [3.7. API and Application Security](#api-and-application-security)
+    - [3.8. API Client Authentication and Authorization](#api-client-authentication-and-authorization)
+    - [3.9. Secure Connectivity](#secure-connectivity)
+    - [3.10. API Policy Management](#api-policy-management)
+    - [3.11. Secure Application Configuration Management](#secure-application-configuration-management)
+    - [3.12. Infrastructure Security](#infrastructure-security)
+    - [3.13. Firewall Rules](#firewall-rules)
+
 ## 5. Security Architecture
 *Document the key security architecture details that have been made to ensure the secure setup and operations of the Anypoint Platform within the customer. Please update the below sections as required to reflect the platform setup details.*
 TODO: ^

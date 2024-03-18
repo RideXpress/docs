@@ -1,5 +1,12 @@
 # Business and Solution Context
 
+- [1. Business and Solution Context](#1-business-and-solution-context)
+    - [1.1. Goals and Objectives](#11-goals-and-objectives)
+    - [1.2. Solution Context](#12-solution-context)
+        - [1.2.1. Key Systems](#key-systems)
+    - [1.3. Current State Challenges](#current-state-challenges)
+    - [1.4. Integration Architecture Principles](#integration-architecture-principles)
+
 ## 1. Business and Solution Context
 
 RideXpress is a fictional ride sharing company founded with the solely purpose of demonstrating the power of the API-First approach. It was created with the idea of powering every single API with Anypoint Platform, from the main API to the integration to third party APIs or Applications, every single piece of code runs on a flavor of the Mule Runtime.
