@@ -56,10 +56,10 @@ All APIs and applications implemented in MuleSoft and deployed to CloudHub will 
 
 | **Domain** | **Convention** |
 | --- | --- |
-| **Maven artifact name** | Full names are favored to improve readibility |
-| **Cloudhub domain** | [TODO] |
-| **API version** | We'll follow the v1, v2, v{n} format |
-| **API Resources organization** | [TODO] |
+| **Maven Artifact Id** | Full names are favored to improve readibility |
+| **Cloudhub domain** | Cloudhub follows the `https://{application_name}.cloudhub.io` convention with a maximum length of 42 characters and names should be unique for the whole cloudhub.io domain. For RideXpress we'll adopt the following convention: `https://ridexpress-{api_name}.cloudhub.io/{api_version}/{api_resources}`. Please refer to the table below for more details. |
+| **API version** | We'll follow the `v1, v2, v{n}` standard |
+| **API Resources organization** | API resources should be aligned with business resources and should follow the most common REST API standard `/{resources}/{resource_id}` i.e. `users/123456` |
 | **API Methods** | [TODO] |
 | **API body format** | [TODO] |
 | **API pagination and filtering** | [TODO] |
@@ -69,9 +69,33 @@ All APIs and applications implemented in MuleSoft and deployed to CloudHub will 
 | **Connector configuration names** | [TODO] |
 | **Log files (when required)** | [TODO] |
 
+
+
+| **API** | **Maven Artifact Id** | **Cloudhub domain** |
+| --- | --- | --- |
+| Mobile | mobile-experience-api | https://ridexpress-mobile.cloudhub.io/v1 |
+| User Sign up | user-sign-up-process-api | https://ridexpress-user-sign-up.cloudhub.io/v1 |
+| Request Ride | request-ride-process-api | https://ridexpress-request-ride.cloudhub.io/v1 |
+| Accept Ride | accept-ride-process-api | https://ridexpress-accept-ride.cloudhub.io/v1 |
+| Wait for Ride | wait-for-ride-process-api | https://ridexpress-wait-for-ride.cloudhub.io/v1 |
+| Finish Ride | finish-ride-process-api | https://ridexpress-finish-ride.cloudhub.io/v1 |
+| Okta | okta-system-api | https://ridexpress-okta.cloudhub.io/v1 |
+| Google Maps | google-maps-system-api | https://ridexpress-google-maps.cloudhub.io/v1 |
+| Salesfore | salesforce-system-api | https://ridexpress-salesforce.cloudhub.io/v1 |
+| Square | square-system-api | https://ridexpress-square.cloudhub.io/v1 |
+| Push Notifications | push-notifications-system-api | https://ridexpress-push-notifications.cloudhub.io/v1 |
+| Database | database-system-api | https://ridexpress-db.cloudhub.io/v1 |
+| Email | email-system-api | https://ridexpress-email.cloudhub.io/v1 |
+
+
 For additional details such as error handling or logging, please refer to the Archetype design document.
 
 [TODO] Link to the Archetype design document
+[TODO] For further discussion:
+Should Names in Design Center be Human friendly? The Audience for Design Center is Architects and since we plan to automate the sync between Design Center, Studio and Exchange, probably matching with Maven would be more functional even though I think Human Friendly should be the norm.
+What about Exchange? The audience here may not be very technical so they are more focused on the functionality side and also on the process side so my suggestion is to make it Human friendly.
+My last question is around the table above, is this the right document? Initially I wanted to describe the naming convention only but somehow I ended up creating that table that may include the asset in Exchange and the API in Design Center.
+Initially I thought about using the artifact id in the cloudhub domain but we have a 42 characters restriction and RideXpress already used 10 so I kept it short and I liked it. Also thought about using the api layer as part of the url but didn't find any value in doing so, keeping the API url simple seems more adequate to me. The layers are more relevant at the Maven and the Exchange level.
 
 ## 7.5 Build and Deployment Automation (CI/CD)
 
