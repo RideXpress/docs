@@ -48,7 +48,22 @@ From Maven we'll make use of **SNAPSHOT** versions that are extremely handy for 
 
 ## 7.3 Deployment and Sizing Strategy
 
-For the MVP all the applications will use the minimum CPU allocation which is 0.1 vCores.
+For the MVP all the applications will use the minimum capacity
+
+| Worker Size | Worker Memory | Heap Memory | Disk Storage Size |
+| --- | --- | --- | --- |
+| 0.1 vCores | 1 GB | 500 MB | 8 GB |
+
+Workers with 0.1 vCores and 0.2 vCores:
+- Provide limited CPU and I/O for apps with smaller workloads
+- Can burst to higher CPU speeds for a short time
+- This ability helps to improve application startup times and to process infrequent, large workloads. If you need consistent performance, use workers with more vCores.
+
+| Mule Runtime Version |
+| --- |
+| 4.6.1 |
+
+[Reference](https://docs.mulesoft.com/cloudhub/cloudhub-architecture#cloudhub-workers)
 
 ## 7.4 Development Standards and Naming Conventions
 
@@ -115,7 +130,7 @@ Initially I thought about using the artifact id in the cloudhub domain but we ha
 | API Design | [Anypoint Design Center](https://www.mulesoft.com/platform/anypoint-design-center) | Design and build APIs and integrations at lightning speed, all in one product |
 | API Development and Unit Testing | [Anypoint Studio](https://www.mulesoft.com/platform/studio) | IDE for integration and API development that has prebuilt modules for common integration requirements, including querying backend systems, routing events, business transformation logic, and error handling. <br>- Jumpstart your integrations with prebuilt connectors, templates, and examples<br>- Debug with design time error handling<br>- Normalize, join, filter, or map any data format<br>- Integrate automated testing into your existing CI/CD pipeline with MUnit<br>- Deploy APIs and integrations to the cloud or on-premises<br> |
 | Version Control | [Github](https://github.com) | The complete developer platform to build, scale, and deliver secure software. Github is a collaborative platform for Version Control |
-| Build and Deployment Automation | [Github Actions](https://github.com/features/actions) | GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want. |
+| Build and Deployment Automation | [Github Actions](https://github.com/features/actions)<br> [Anypoint CLI](https://docs.mulesoft.com/anypoint-cli/latest/) | GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want. Anypoint CLI will be used to automate and ochestrate the snapshots deployment and release process |
 | Artifact Repository | [Anypoint Exchange](https://www.mulesoft.com/exchange) | Anypoint Exchange is the marketplace for connectors, templates, examples, and APIs. Discover and use prebuilt assets from the MuleSoft ecosystem, or use Exchange to save, share, and reuse internal best practices. |
 | Release Management | [Github Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) | You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see "REST API endpoints for releases" in the REST API documentation. |
 
