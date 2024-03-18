@@ -1,12 +1,12 @@
 # Software Development Lifecycle
 
-- [7. Software Development Lifecycle (SDLC)](#7-software-development-lifecycle.md)
-    - [7.1. Mule Application Development Considerations](#71-mule-application-development-considerations)
-    - [7.2. Version Control Strategy](#72-version-control-strategy)
-    - [7.3. Deployment and Sizing Strategy](#73-deployment-and-sizing-strategy)
-    - [7.4. Development Standards and Naming Conventions](#74-development-standards-and-naming-conventions)
-    - [7.5. Build and Deployment Automation (CI/CD)](#75-build-and-deployment-automation-cicd)
-    - [7.6. SDLC Tooling Catalog](#76-sdlc-tooling-catalog)
+- [7 Software Development Lifecycle (SDLC)](#7-software-development-lifecycle.md)
+    - [7.1 Mule Application Development Considerations](#71-mule-application-development-considerations)
+    - [7.2 Version Control Strategy](#72-version-control-strategy)
+    - [7.3 Deployment and Sizing Strategy](#73-deployment-and-sizing-strategy)
+    - [7.4 Development Standards and Naming Conventions](#74-development-standards-and-naming-conventions)
+    - [7.5 Build and Deployment Automation (CI/CD)](#75-build-and-deployment-automation-cicd)
+    - [7.6 SDLC Tooling Catalog](#76-sdlc-tooling-catalog)
 
 ## 7 Software Development Lifecycle (SDLC)
 
