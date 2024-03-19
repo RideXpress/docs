@@ -13,14 +13,13 @@
 The following section describes the process and phases of the Software Development Life Cycle of a Mule application/API, the tooling and mechanisms used as part of it.
 
 ![alt text](./images/lifecycle.png)
-[TODO] Update lifecycle diagram, it looks out-to-date
 
 | Phase | Description |
 | --- | --- |
 | Discovery | Gather information related to specific needs of a defined story (GitHub issues). Research the available APIs in Exchange. Identify the domain. |
-| Design | Design the RAML in API Designer |
-| Prototype and Validate | Validate the API specification is aligned to API consumer expectations through publishing documentation in Exchange, and through use of the API mocking tools to enable API consumers to interact with the API specification. |
-| Development / Implementation | Using Anypoint Studio and reusing any available common service (e.g. json-logger) <br> - Unit Testing (local): <br> - Push source code to Version Control System <br> - Run build and deployment automation tasks based on agreed and configured CI/CD processes. |
+| Design | Design the RAML in Design Center. |
+| Prototype and Validate | Validate the API specification is aligned to API consumer expectations through the use of the API mocking tools to enable API consumers to interact with the API specification. |
+| Development / Implementation | Using Anypoint Studio and/or Anypoint Code Builder and reusing any available common service (e.g. json-logger) <br> - Unit Testing (local): <br> - Push source code to Version Control System <br> - Run build and deployment automation tasks based on agreed and configured CI/CD processes. |
 | Operate/Monitor | Using out of the box features included as part of Anypoint Monitoring to support the operational management and maintenance of the platform. |
 
 ## 7.1 Mule Application Development Considerations
@@ -69,22 +68,92 @@ Workers with 0.1 vCores and 0.2 vCores:
 
 All APIs and applications implemented in MuleSoft and deployed to CloudHub will need to adhere to development standards and guidelines, including naming conventions. Consistent standards and naming conventions support maintainability, discoverability and contribute to better quality code. This in turn helps drive reuse and pace of change, and help to reduce technical debt in the future.
 
-| **Domain** | **Convention** |
-| --- | --- |
-| **Maven Artifact Id** | Full names are favored to improve readibility |
-| **Cloudhub domain** | Cloudhub follows the `https://{application_name}.cloudhub.io` convention with a maximum length of 42 characters and names should be unique for the whole cloudhub.io domain. For RideXpress we'll adopt the following convention: `https://ridexpress-{api_name}.cloudhub.io/{api_version}/{api_resources}`. Please refer to the table below for more details. |
-| **API version** | We'll follow the `v1, v2, v{n}` standard |
-| **API Resources organization** | API resources should be aligned with business resources and should follow the most common REST API standard `/{resources}/{resource_id}` i.e. `users/123456` |
-| **API Methods** | [TODO] |
-| **API body format** | [TODO] |
-| **API pagination and filtering** | [TODO] |
-| **Files names** | [TODO] |
-| **Flow names** | [TODO] |
-| **Dataweave files** | [TODO] |
-| **Connector configuration names** | [TODO] |
-| **Log files (when required)** | [TODO] |
+### 7.4.1 Maven Artifact Id
 
+Full names are favored to improve readability.
 
+Examples:
+```
+ridexpress-mobile-experience-api
+salesforce-system-api
+okta-system-api
+```
+
+### 7.4.2 Cloudhub domain
+
+Cloudhub follows the `https://{application_name}.cloudhub.io` convention with a maximum length of 42 characters and names should be unique for the whole cloudhub.io domain.
+
+For RideXpress we'll adopt the following convention:
+```
+https://ridexpress-{api_name}.cloudhub.io/{api_version}/{api_resources}
+```
+
+### 7.4.3 API version
+
+We'll follow the `v1, v2, v{n}` standard
+
+### 7.4.4 API Resources organization
+
+API resources should be aligned with business resources and should follow the most common REST API standard:
+
+```
+/{resources}/{resource_id}
+users/123456
+rides/123456
+contacts/12345
+contacts?address=123 Main
+```
+
+### 7.4.5 API Methods
+
+HTTP Methods should be used according the following convention:
+
+**GET:** The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
+**HEAD:** The HEAD method asks for a response identical to a GET request, but without the response body.
+**POST:** The POST method submits an entity to the specified resource, often causing a change in state or side effects on the server.
+**PUT:** The PUT method replaces all current representations of the target resource with the request payload.
+**DELETE:** The DELETE method deletes the specified resource.
+**CONNECT:** The CONNECT method establishes a tunnel to the server identified by the target resource. **OPTIONS:** The OPTIONS method describes the communication options for the target resource. **TRACE:** The TRACE method performs a message loop-back test along the path to the target resource. **PATCH:** The PATCH method applies partial modifications to a resource.
+
+[Reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
+
+### 7.4.6 API body format
+
+By default, all the APIs will use json as the body format it should be expressed by the `Accept` and `Content-Type` headers and the value should be `application/json`  
+Fields in the json body should be expressed in camel case as follows:  
+
+```
+{
+    "driverId": 12345,
+    "firstName": "James Dean"
+}
+```
+
+### 7.4.7 API pagination and filtering
+
+[TODO]
+
+### 7.4.8 Files names
+
+[TODO]
+
+### 7.4.9 Flow names
+
+[TODO]
+
+### 7.4.10 Dataweave files
+
+[TODO]
+
+### 7.4.11 Connector configuration names**
+
+[TODO]
+
+### 7.4.12 Log files
+
+[TODO]
+
+### 7.4.13 API, Maven and Cloudhub matching
 
 | **API** | **Maven Artifact Id** | **Cloudhub domain** |
 | --- | --- | --- |
@@ -102,15 +171,7 @@ All APIs and applications implemented in MuleSoft and deployed to CloudHub will 
 | Database | database-system-api | https://ridexpress-db.cloudhub.io/v1 |
 | Email | email-system-api | https://ridexpress-email.cloudhub.io/v1 |
 
-
-For additional details such as error handling or logging, please refer to the Archetype design document.
-
-[TODO] Link to the Archetype design document
-[TODO] For further discussion:
-Should Names in Design Center be Human friendly? The Audience for Design Center is Architects and since we plan to automate the sync between Design Center, Studio and Exchange, probably matching with Maven would be more functional even though I think Human Friendly should be the norm.
-What about Exchange? The audience here may not be very technical so they are more focused on the functionality side and also on the process side so my suggestion is to make it Human friendly.
-My last question is around the table above, is this the right document? Initially I wanted to describe the naming convention only but somehow I ended up creating that table that may include the asset in Exchange and the API in Design Center.
-Initially I thought about using the artifact id in the cloudhub domain but we have a 42 characters restriction and RideXpress already used 10 so I kept it short and I liked it. Also thought about using the api layer as part of the url but didn't find any value in doing so, keeping the API url simple seems more adequate to me. The layers are more relevant at the Maven and the Exchange level.
+For additional details such as error handling or logging, please refer to the [Archetype design document](../archetype-design.md).
 
 ## 7.5 Build and Deployment Automation (CI/CD)
 
