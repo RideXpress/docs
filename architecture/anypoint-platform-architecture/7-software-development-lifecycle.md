@@ -5,6 +5,19 @@
     - [7.2 Version Control Strategy](#72-version-control-strategy)
     - [7.3 Deployment and Sizing Strategy](#73-deployment-and-sizing-strategy)
     - [7.4 Development Standards and Naming Conventions](#74-development-standards-and-naming-conventions)
+        - [7.4.1 Maven Artifact Id]()
+        - [7.4.2 Cloudhub domain]()
+        - [7.4.3 API version]()
+        - [7.4.4 API Resources organization]()
+        - [7.4.5 API Methods]()
+        - [7.4.6 API body format]()
+        - [7.4.7 API pagination and filtering]()
+        - [7.4.8 Files names]()
+        - [7.4.9 Flow names]()
+        - [7.4.10 Dataweave files]()
+        - [7.4.11 Connector configuration names]()
+        - [7.4.12 Log files]()
+        - [7.4.13 API, Maven and Cloudhub matching]()
     - [7.5 Build and Deployment Automation (CI/CD)](#75-build-and-deployment-automation-cicd)
     - [7.6 SDLC Tooling Catalog](#76-sdlc-tooling-catalog)
 
@@ -85,12 +98,21 @@ Cloudhub follows the `https://{application_name}.cloudhub.io` convention with a 
 
 For RideXpress we'll adopt the following convention:
 ```
-https://ridexpress-{api_name}.cloudhub.io/{api_version}/{api_resources}
+https://ridexpress-{environment}-{api_name_short_name}.shard.{region}.cloudhub.io/{api_version}/{api_resources}
+
+https://ridexpress-sandbox-mobile.shard.usa-w2.cloudhub.io/v1
+https://ridexpress-sandbox-salesforce.shard.usa-w2.cloudhub.io/v1
+https://ridexpress-sandbox-okta.shard.usa-w2.cloudhub.io/v1
+https://ridexpress-prd-mobile.shard.usa-w2.cloudhub.io/v1
+https://ridexpress-prd-salesforce.shard.usa-w2.cloudhub.io/v1
+https://ridexpress-prd-okta.shard.usa-w2.cloudhub.io/v1
 ```
 
 ### 7.4.3 API version
 
 We'll follow the `v1, v2, v{n}` standard
+
+Versions will be updated only when changes are not backward compatible.  
 
 ### 7.4.4 API Resources organization
 
@@ -108,12 +130,13 @@ contacts?address=123 Main
 
 HTTP Methods should be used according the following convention:
 
-**GET:** The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
-**HEAD:** The HEAD method asks for a response identical to a GET request, but without the response body.
-**POST:** The POST method submits an entity to the specified resource, often causing a change in state or side effects on the server.
-**PUT:** The PUT method replaces all current representations of the target resource with the request payload.
-**DELETE:** The DELETE method deletes the specified resource.
-**CONNECT:** The CONNECT method establishes a tunnel to the server identified by the target resource. **OPTIONS:** The OPTIONS method describes the communication options for the target resource. **TRACE:** The TRACE method performs a message loop-back test along the path to the target resource. **PATCH:** The PATCH method applies partial modifications to a resource.
+**GET:** The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.  
+**HEAD:** The HEAD method asks for a response identical to a GET request, but without the response body.  
+**POST:** The POST method submits an entity to the specified resource, often causing a change in state or side effects on the server.  
+**PUT:** The PUT method replaces all current representations of the target resource with the request payload.  
+**DELETE:** The DELETE method deletes the specified resource.  
+**CONNECT:** The CONNECT method establishes a tunnel to the server identified by the target resource. **OPTIONS:** The OPTIONS method describes the communication options for the target resource. **TRACE:** The TRACE method performs a message loop-back test along the path to the target resource.  
+**PATCH:** The PATCH method applies partial modifications to a resource.  
 
 [Reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
@@ -145,7 +168,7 @@ Fields in the json body should be expressed in camel case as follows:
 
 [TODO]
 
-### 7.4.11 Connector configuration names**
+### 7.4.11 Connector configuration names
 
 [TODO]
 
@@ -157,19 +180,19 @@ Fields in the json body should be expressed in camel case as follows:
 
 | **API** | **Maven Artifact Id** | **Cloudhub domain** |
 | --- | --- | --- |
-| Mobile | mobile-experience-api | https://ridexpress-mobile.cloudhub.io/v1 |
-| User Sign up | user-sign-up-process-api | https://ridexpress-user-sign-up.cloudhub.io/v1 |
-| Request Ride | request-ride-process-api | https://ridexpress-request-ride.cloudhub.io/v1 |
-| Accept Ride | accept-ride-process-api | https://ridexpress-accept-ride.cloudhub.io/v1 |
-| Wait for Ride | wait-for-ride-process-api | https://ridexpress-wait-for-ride.cloudhub.io/v1 |
-| Finish Ride | finish-ride-process-api | https://ridexpress-finish-ride.cloudhub.io/v1 |
-| Okta | okta-system-api | https://ridexpress-okta.cloudhub.io/v1 |
-| Google Maps | google-maps-system-api | https://ridexpress-google-maps.cloudhub.io/v1 |
-| Salesfore | salesforce-system-api | https://ridexpress-salesforce.cloudhub.io/v1 |
-| Square | square-system-api | https://ridexpress-square.cloudhub.io/v1 |
-| Push Notifications | push-notifications-system-api | https://ridexpress-push-notifications.cloudhub.io/v1 |
-| Database | database-system-api | https://ridexpress-db.cloudhub.io/v1 |
-| Email | email-system-api | https://ridexpress-email.cloudhub.io/v1 |
+| Mobile | mobile-experience-api | https://ridexpress-prd-mobile.shard.usa-w2.cloudhub.io/v1 |
+| User Sign up | user-sign-up-process-api | https://ridexpress-prd-user-sign-up.shard.usa-w2.cloudhub.io/v1 |
+| Request Ride | request-ride-process-api | https://ridexpress-prd-request-ride.shard.usa-w2.cloudhub.io/v1 |
+| Accept Ride | accept-ride-process-api | https://ridexpress-accept-ride.shard.usa-w2.cloudhub.io/v1 |
+| Wait for Ride | wait-for-ride-process-api | https://ridexpress-wait-for-ride.shard.usa-w2.cloudhub.io/v1 |
+| Finish Ride | finish-ride-process-api | https://ridexpress-finish-ride.shard.usa-w2.cloudhub.io/v1 |
+| Okta | okta-system-api | https://ridexpress-okta.shard.usa-w2.cloudhub.io/v1 |
+| Google Maps | google-maps-system-api | https://ridexpress-google-maps.shard.usa-w2.cloudhub.io/v1 |
+| Salesfore | salesforce-system-api | https://ridexpress-salesforce.shard.usa-w2.cloudhub.io/v1 |
+| Square | square-system-api | https://ridexpress-square.shard.usa-w2.cloudhub.io/v1 |
+| Push Notifications | push-notifications-system-api | https://ridexpress-push-notifications.shard.usa-w2.cloudhub.io/v1 |
+| Database | database-system-api | https://ridexpress-db.shard.usa-w2.cloudhub.io/v1 |
+| Email | email-system-api | https://ridexpress-email.shard.usa-w2.cloudhub.io/v1 |
 
 For additional details such as error handling or logging, please refer to the [Archetype design document](../archetype-design.md).
 
@@ -179,20 +202,17 @@ For additional details such as error handling or logging, please refer to the [A
  
  The CI/CD Pipeline will also use Anypoint CLI to orchestrate some tasks to automate repetitive tasks such as pulling the latest changes from Design Center, publishing snapshot versions to Exchange, Applying predefined Policies and SLAs to API Manager and deploying to Runtime Manager.
 
- For more information about the CI/CD configuration, please refer to the CI/CD design document.
- [TODO] Link to the CI/CD design document
+ For more information about the CI/CD configuration, please refer to the [CI/CD design document](../ci-cd-design.md).  
 
 ## 7.6 SDLC Tooling Catalog
 
 | Phase | Tooling | Details |
 | --- | --- | --- |
 | Planning | [Github Projects](https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) | Projects is an adaptable, flexible tool for planning and tracking work on GitHub. |
-| Documentation | [Github Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) | Markdown is a human-readable format that is perfect for documentation and integrates perfectly with Github |
+| Documentation | [Github Markdown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) <br> [draw.io](https://app.diagrams.net/?src=about) | Markdown is a human-readable format that is perfect for documentation and integrates perfectly with Github |
 | API Design | [Anypoint Design Center](https://www.mulesoft.com/platform/anypoint-design-center) | Design and build APIs and integrations at lightning speed, all in one product |
-| API Development and Unit Testing | [Anypoint Studio](https://www.mulesoft.com/platform/studio) | IDE for integration and API development that has prebuilt modules for common integration requirements, including querying backend systems, routing events, business transformation logic, and error handling. <br>- Jumpstart your integrations with prebuilt connectors, templates, and examples<br>- Debug with design time error handling<br>- Normalize, join, filter, or map any data format<br>- Integrate automated testing into your existing CI/CD pipeline with MUnit<br>- Deploy APIs and integrations to the cloud or on-premises<br> |
+| API Development and Unit Testing | [Anypoint Studio](https://www.mulesoft.com/platform/studio)<br> [Anypoint Code Builder](https://www.mulesoft.com/platform/api/anypoint-code-builder) <br> [MUnit](https://docs.mulesoft.com/munit/latest/) | IDE for integration and API development that has prebuilt modules for common integration requirements, including querying backend systems, routing events, business transformation logic, and error handling. <br>- Jumpstart your integrations with prebuilt connectors, templates, and examples<br>- Debug with design time error handling<br>- Normalize, join, filter, or map any data format<br>- Integrate automated testing into your existing CI/CD pipeline with MUnit<br>- Deploy APIs and integrations to the cloud or on-premises<br> |
 | Version Control | [Github](https://github.com) | The complete developer platform to build, scale, and deliver secure software. Github is a collaborative platform for Version Control |
 | Build and Deployment Automation | [Github Actions](https://github.com/features/actions)<br> [Anypoint CLI](https://docs.mulesoft.com/anypoint-cli/latest/) | GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub. Make code reviews, branch management, and issue triaging work the way you want. Anypoint CLI will be used to automate and ochestrate the snapshots deployment and release process |
 | Artifact Repository | [Anypoint Exchange](https://www.mulesoft.com/exchange) | Anypoint Exchange is the marketplace for connectors, templates, examples, and APIs. Discover and use prebuilt assets from the MuleSoft ecosystem, or use Exchange to save, share, and reuse internal best practices. |
 | Release Management | [Github Releases](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) | You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see "REST API endpoints for releases" in the REST API documentation. |
-
-[TODO] Add more tools and utilities like a rest client, MUnit, draw.io, etc.
