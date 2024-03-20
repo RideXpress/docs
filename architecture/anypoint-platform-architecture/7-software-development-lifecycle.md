@@ -210,11 +210,11 @@ For additional details such as error handling or logging, please refer to the [A
 
 ## 7.5 Build and Deployment Automation (CI/CD)
 
- The solution will leverage Github actions to support the end-to-end development and deployment lifecycle of MuleSoft APIs and applications. From a MuleSoft perspective, Maven is used to support test, build and deployment activities through the Mule Maven plugin.
+The solution will leverage Github actions to support the end-to-end development and deployment lifecycle of MuleSoft APIs and applications. From a MuleSoft perspective, Maven is used to support test, build and deployment activities through the Mule Maven plugin.
  
- The CI/CD Pipeline will also use Anypoint CLI to orchestrate some tasks to automate repetitive tasks such as pulling the latest changes from Design Center, publishing snapshot versions to Exchange, Applying predefined Policies and SLAs to API Manager and deploying to Runtime Manager.
+The CI/CD Pipeline will also use Anypoint CLI to orchestrate some tasks to automate repetitive tasks such as pulling the latest changes from Design Center, publishing snapshot versions to Exchange, Applying predefined Policies and SLAs to API Manager and deploying to Runtime Manager.
 
- For more information about the CI/CD configuration, please refer to the [CI/CD design document](../ci-cd-design.md).  
+For more information about the CI/CD configuration, please refer to the [CI/CD design document](../ci-cd-design.md).  
 
 ## 7.6 SDLC Tooling Catalog
 
