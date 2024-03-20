@@ -94,7 +94,7 @@ okta-system-api
 
 ### 7.4.2 Cloudhub domain
 
-Cloudhub follows the `https://{application_name}.cloudhub.io` convention with a maximum length of 42 characters and names should be unique for the whole cloudhub.io domain.
+Cloudhub follows the `https://{application_name}.shard.usa-w2.cloudhub.io` convention with a maximum length of 42 characters and names should be unique for the whole cloudhub.io domain.
 
 For RideXpress we'll adopt the following convention:
 ```
@@ -174,7 +174,19 @@ Fields in the json body should be expressed in camel case as follows:
 
 ### 7.4.12 Log files
 
-[TODO]
+Logs should be formatted in JSON so they can be easily extracted by any Log Aggregation Tool
+
+```
+{
+    "severity": "INFO",
+    "correlationId": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+    "timestamp": "2012-04-23T18:25:43.511Z",
+    "message": "This is a log entry",
+    "payload": {
+        "customFields": "This section will be reserved for custom fields"
+    }
+}
+```
 
 ### 7.4.13 API, Maven and Cloudhub matching
 
