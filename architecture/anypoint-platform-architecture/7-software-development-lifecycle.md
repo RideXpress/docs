@@ -178,10 +178,13 @@ Logs should be formatted in JSON so they can be easily extracted by any Log Aggr
 
 ```
 {
-    "severity": "INFO",
+    "priority": "INFO",
     "correlationId": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
     "timestamp": "2012-04-23T18:25:43.511Z",
     "message": "This is a log entry",
+    "applicationName": "test-api",
+    "applicationVersion": "1.0.0-SNAPSHOT",
+    "environment": "sandbox",
     "payload": {
         "customFields": "This section will be reserved for custom fields"
     }
