@@ -1,19 +1,12 @@
 # RideXpress Official Documentation
 
-### Folder structure
-    .
-    ├── ([contributing](https://github.com/RideXpress/docs/tree/main/contributing))               # Documentation for contributing
-    ├── architecture                               # Architecture documentation
-    │   ├─ diagrams                                # Architecture diagrams
-    │   │   ├─ api-led                             # API Led diagrams
-    │   │   ├─ high-level-flows                    # High level diagrams
-    │   │   ├─ use-cases                           # Use cases diagrams
-    │   │   ├─ integration-arquitecture            # Auxiliary folder for the Integration Architecture document
-    │   │   └─ anypoint-platform-architecture      # Auxiliary folder for the Anypoint Platform Architecture document
-    │   ├─ integration-architecture.md             # Integration Architecture document
-    │   ├─ anypoint-platform-architecture.md       # Anypoint Platform Architecture document
-    │   └─ tdd-templates.md                        # TDD Template 
-    └── README.md                                  # Index
-
-
-[contributing](https://github.com/RideXpress/docs/tree/main/contributing)
+- [Integration Architecture](architecture/integration-architecture.md)
+- [Anypoint Platform Architecture](architecture/anypoint-platform-architecture.md)
+- [Archetype Design](architecture/archetype-design.md)
+- [CI/CD Design](architecture/ci-cd-design.md)
+- [Technical Design Document Template](architecture/tdd-template.md)
+- [Diagrams](architecture/diagrams)
+    - [Use cases](architecture/diagrams/use-cases/)
+    - [API-led](architecture/diagrams/api-led/)
+    - [High Level Flows](architecture/diagrams/high-level-flows/)
+    - [Entities](architecture/diagrams/entity-diagrams/)
