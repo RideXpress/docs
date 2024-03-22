@@ -152,66 +152,29 @@ Fields in the json body should be expressed in camel case as follows:
 }
 ```
 
-### 7.4.7 API pagination and filtering
+### 7.4.7 API filtering
 
-When the API endpoints return multiple records results should be paginated. Endpoints should offer parameters to control the pages like `GET /rides?limit=200&offset=0&userId=12345`.  
-
-The response body should adhere to the HATEOAS conventions to facilitate the pages navigation.
+When the API endpoints return multiple records, the endpoints should offer parameters to control the pages like `GET /rides?userId=12345&zipCode=94000`.  
 
 ```
-GET /users?limit=2000&offset=0&zipCode=94000
-{
-    "_links": {
-        "self": {
-            "href": "https://ridexpress.io/api/v1/users?page=3"
-        },
-        "first": {
-            "href": "https://ridexpress.io/api/v1/users"
-        },
-        "prev": {
-            "href": "https://ridexpress.io/api/v1/users?page=2"
-        },
-        "next": {
-            "href": "https://ridexpress.io/api/v1/users?page=4"
-        },
-        "last": {
-            "href": "https://ridexpress.io/api/v1/users?page=133"
-        }
+GET /users?userId=12345&zipCode=94000
+[
+    {
+        "id": "1",
+        "name": "Matt Matthews",
+        "href": "https://ridexpress.io/api/v1/users/1"
+    },
+    {
+        "id": "2",
+        "name": "Tony Thompson",
+        "href": "https://ridexpress.io/api/v1/users/m2"
+    },
+    {
+        "id": "3",
+        "name": "Katty Kay",
+        "href": "https://ridexpress.io/api/v1/users/3"
     }
-    "count": 3,
-    "total": 498,
-    "_embedded": {
-        "users": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "https://ridexpress.io/api/v1/users/1"
-                    }
-                },
-                "id": "1",
-                "name": "Matt Matthews"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "https://ridexpress.io/api/v1/users/m2"
-                    }
-                },
-                "id": "2",
-                "name": "Tony Thompson"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": "https://ridexpress.io/api/v1/users/3"
-                    }
-                },
-                "id": "3",
-                "name": "Katty Kay"
-            }
-        ]
-    }
-}
+]
 ```
 
 [Reference](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/)
@@ -224,7 +187,7 @@ In case the files names need to be more descriptive, kebab-case is preferred.
 
 Flows and variables will follow the camelCase standard. For API generated flows we'll keep the out-of-the-box convention.
 
-The main difference between these two is variables should have simple names while flows should be named as actions.
+The main difference between these two is variables should have simple names while flows should be named as actions followed by the suffix `Flow`.
 
 ```
 Variables:
@@ -237,8 +200,8 @@ get:\users:api-config
 put:\rides\{id}:api-config
 
 Other flows:
-getUserId
-aggregateResponse
+getUserIdFlow
+aggregateResponseFlow
 ```
 
 ### 7.4.10 Dataweave files
