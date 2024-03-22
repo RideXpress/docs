@@ -154,27 +154,113 @@ Fields in the json body should be expressed in camel case as follows:
 
 ### 7.4.7 API pagination and filtering
 
-[TODO]
+When the API endpoints return multiple records results should be paginated. Endpoints should offer parameters to control the pages like `GET /rides?limit=200&offset=0&userId=12345`.  
+
+The response body should adhere to the HATEOAS conventions to facilitate the pages navigation.
+
+```
+GET /users?limit=2000&offset=0&zipCode=94000
+{
+    "_links": {
+        "self": {
+            "href": "https://ridexpress.io/api/v1/users?page=3"
+        },
+        "first": {
+            "href": "https://ridexpress.io/api/v1/users"
+        },
+        "prev": {
+            "href": "https://ridexpress.io/api/v1/users?page=2"
+        },
+        "next": {
+            "href": "https://ridexpress.io/api/v1/users?page=4"
+        },
+        "last": {
+            "href": "https://ridexpress.io/api/v1/users?page=133"
+        }
+    }
+    "count": 3,
+    "total": 498,
+    "_embedded": {
+        "users": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "https://ridexpress.io/api/v1/users/1"
+                    }
+                },
+                "id": "1",
+                "name": "Matt Matthews"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "https://ridexpress.io/api/v1/users/m2"
+                    }
+                },
+                "id": "2",
+                "name": "Tony Thompson"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "https://ridexpress.io/api/v1/users/3"
+                    }
+                },
+                "id": "3",
+                "name": "Katty Kay"
+            }
+        ]
+    }
+}
+```
+
+[Reference](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/)
 
 ### 7.4.8 Files names
 
-[TODO]
+In case the files names need to be more descriptive, kebab-case is preferred.
 
-### 7.4.9 Flow names
+### 7.4.9 Flows and variables names
 
-[TODO]
+Flows and variables will follow the camelCase standard. For API generated flows we'll keep the out-of-the-box convention.
+
+```
+Examples:
+get
+```
 
 ### 7.4.10 Dataweave files
 
-[TODO]
+Dataweave files will be placed under `src/main/resources/dwl` folder and will be named using the kebab-case convention.
+
+If the dw file is part of an API, the name may be something like `{http_method}-{http_resource}-{request_or_response}.dwl`
+
+```
+Examples:
+get-accounts-response.dwl
+put-contact-request.dwl
+put-contact-response.dwl
+post-ride-request.dwl
+post-ride-response.dwl
+```
+
 
 ### 7.4.11 Connector configuration names
 
-[TODO]
+Connectors and components names should follow the kebab-case convention and will follow the next convention `{connector_type}-{system_instance}-config`
+
+```
+Examples:
+http-listener-config
+http-request-okta-config
+kafka-rides-config
+database-ridexpress-config
+sfdc-main-config
+```
 
 ### 7.4.12 Log files
 
-Logs should be formatted in JSON so they can be easily extracted by any Log Aggregation Tool
+Logs should be formatted in JSON so they can be easily extracted by any Log Aggregation Tool.
 
 ```
 {
