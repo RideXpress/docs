@@ -227,7 +227,7 @@ The diagram below illustrates the API-led connectivity approach composed of thre
 -	Process APIs providing orchestration and transformation into business domain objects for greater agility and value creation and 
 -	Experience APIs focused on rendering information specific to devices or consuming client applications
 
-![alt text](integration-arquitecture-document/api-led.png)
+![alt text](integration-architecture/api-led.png)
 
 The value of this approach is enabling a flexible, agile architecture built for reuse and consumption, to speed up project delivery with built in governance and security.
 
@@ -239,10 +239,10 @@ The Anypoint Platform has five major components and will be the core to future i
 -	Management center: Manage and monitor your applications across the platform in a single place
 -	Security: Safeguard sensitive information with layers of protection
 
-![alt text](integration-arquitecture-document/platform-components.png)
+![alt text](integration-architecture/platform-components.png)
 
 ### What is an API?
-![alt text](integration-arquitecture-document/api-definition.png)
+![alt text](integration-architecture/api-definition.png)
 
 An API is comprised of the following three aspects:
 1.	API Contract: Describes data formats, transport and protocols that are used to consume this API
