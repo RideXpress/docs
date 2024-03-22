@@ -224,9 +224,21 @@ In case the files names need to be more descriptive, kebab-case is preferred.
 
 Flows and variables will follow the camelCase standard. For API generated flows we'll keep the out-of-the-box convention.
 
+The main difference between these two is variables should have simple names while flows should be named as actions.
+
 ```
-Examples:
-get
+Variables:
+sfdcAccountId
+oktaUserId
+databaseFieldName
+
+API-generated flows:
+get:\users:api-config
+put:\rides\{id}:api-config
+
+Other flows:
+getUserId
+aggregateResponse
 ```
 
 ### 7.4.10 Dataweave files
