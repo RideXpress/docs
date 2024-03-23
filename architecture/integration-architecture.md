@@ -227,7 +227,7 @@ The diagram below illustrates the API-led connectivity approach composed of thre
 -	Process APIs providing orchestration and transformation into business domain objects for greater agility and value creation and 
 -	Experience APIs focused on rendering information specific to devices or consuming client applications
 
-![alt text](integration-arquitecture-document/api-led.png)
+![alt text](integration-architecture/api-led.png)
 
 The value of this approach is enabling a flexible, agile architecture built for reuse and consumption, to speed up project delivery with built in governance and security.
 
@@ -239,10 +239,10 @@ The Anypoint Platform has five major components and will be the core to future i
 -	Management center: Manage and monitor your applications across the platform in a single place
 -	Security: Safeguard sensitive information with layers of protection
 
-![alt text](integration-arquitecture-document/platform-components.png)
+![alt text](integration-architecture/platform-components.png)
 
 ### What is an API?
-![alt text](integration-arquitecture-document/api-definition.png)
+![alt text](integration-architecture/api-definition.png)
 
 An API is comprised of the following three aspects:
 1.	API Contract: Describes data formats, transport and protocols that are used to consume this API
@@ -306,7 +306,7 @@ In line with the customer’s cloud-first strategy, the MuleSoft integration pla
 This section serves as an initial Platform Reference Architecture that will provide a scalable and performant foundational architecture for ongoing and future integration and API development. The architecture provides common reference specifically around the physical, security, and deployment aspects of the platform.
 
 ### Platform Capabilities
-![alt text](integration-arquitecture-document/platform-capabilities.png)
+![alt text](integration-architecture/platform-capabilities.png)
 
 As per the diagram above, the MuleSoft Anypoint Platform capabilities can be categorised into high-level groups of capabilities, each of which are briefly described below with links to detailed product documentation.
 
@@ -462,7 +462,7 @@ Organization Administrators can view and configure properties for an organizatio
 ##### Business Groups Explained
 Business Groups are also referred to as organizations (or sub organizations). Business Groups reside within the master organization and can contain their own Business Groups. Thus, the master organization and its Business Groups are organized in a hierarchical tree, where the master organization is the root. Each Business Group has one direct parent and can have multiple children, e.g.:
 
-![alt text](integration-arquitecture-document/organization.png)
+![alt text](integration-architecture/organization.png)
 
 The organization administrator is also the administrator of all Business Groups within the account’s organization hierarchy.
 ##### Business Group Structure
@@ -501,7 +501,7 @@ The Anypoint Platform can be configured to use an external Identity Provider usi
 - SAML 2.0: Web-based authorization including cross-domain SSO.
 
 The following diagram shows the high level SAML based identity management process:
-![alt text](integration-arquitecture-document/identity-management-process.png)
+![alt text](integration-architecture/identity-management-process.png)
 
 See [External Identity](https://docs.mulesoft.com/access-management/external-identity) for further information on configuring external Identity Providers.
 
@@ -547,7 +547,7 @@ MuleSoft recommends a pair of Dedicated Load Balancers per environment type, i.e
 
 This is illustrated in the diagram below:
 
-![alt text](integration-arquitecture-document/dlb-diagram.png)
+![alt text](integration-architecture/dlb-diagram.png)
 
 #### Virtual Private Clouds
 Two Virtual Private Clouds (VPCs) will be required - one for Production and one for Sandbox (Non-production). VPCs are required to support custom Dedicated Load Balancers (DLBs).
