@@ -16,12 +16,12 @@ The practice we started using was to create feature branches directly from Githu
 
 From the issues page click on `Create branch`
 
-[!Create branch](images/issues-create-branch.png)
+![Create branch](images/issues-create-branch.png)
 
-That will open a dialog to create the remote branch, use the default values:
+That will open a dialog to create the remote branch. Use the default values and click on `Create branch`:
 
-[!Checkout locally](images/issues-checkout-locally.png)
+![Checkout locally](images/issues-checkout-locally.png)
 
 Copy and paste the following commands in your terminal (If you are not using a Desktop client):
 
-[!Fetch and Checkout](images/issues-fetch-checkout.png)
+![Fetch and Checkout](images/issues-fetch-checkout.png)
