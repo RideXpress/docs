@@ -37,7 +37,7 @@ A parent POM will be used to include all common dependencies, deployment configu
 - CICD structure.
 TODO
 - Error handling configurations (utilizing common error handler framework)
-Every project contains an errors.xml containing common error handling for all projects. Most projects will log exceptions and will return http status error code in the request, most projects will return #[error.description], #[error.errorType] and #[correlationId], depending of the nature of the API or Batch job/Sync, more detailed information will be needed including additional fields. #[error.errorType] can be used to define retries strategy, example: HTTP:CONNECTIVITY can be used to define if an Until Successful component needs to be used.
+Every project contains an errors.xml containing common error handling for all projects. Most projects will log exceptions and will return http status error code in the request, they will return #[error.description], #[error.errorType] and #[correlationId], depending of the nature of the API or Batch job/Sync, more detailed information will be needed including additional fields. #[error.errorType] can be used to define retries strategy, example: HTTP:CONNECTIVITY can be used to define if an Until Successful component needs to be used.
 
 - Health Check framework (which can be integrated with Anypoint Functional Monitoring)
 Every project will expose a GET endpoint for Health checks.
@@ -46,6 +46,22 @@ Health checks framework will be implemeted using Anypoint Functional Monitoring 
 
 - Logging standards and configurations
 
+Logs should be formatted in JSON so they can be easily extracted by any Log Aggregation Tool. Logs will have the following format:
+For the MVP, logs will in cloudhub only.
+```
+{
+    "priority": "INFO",
+    "correlationId": "e58ed763-928c-4155-bee9-fdbaaadc15f3",
+    "timestamp": "2012-04-23T18:25:43.511Z",
+    "message": "This is a log entry",
+    "applicationName": "test-api",
+    "applicationVersion": "1.0.0-SNAPSHOT",
+    "environment": "sandbox",
+    "payload": {
+        "customFields": "This section will be reserved for custom fields"
+    }
+}
+```
 
 
 The following API templates have been published to Anypoint Exchange, and aligned to the Repository creation process: 
@@ -57,7 +73,7 @@ The following API templates have been published to Anypoint Exchange, and aligne
 ### 8.2. API Design Template
 API Design Templates provide a starting point for the consistent structure and design of MuleSoft API specifications based on RAML. The API design template contains the following to support a consistent design approach: 
 - Standard structure for API Design Artifacts
-- Incorporation of common traits (published separately as common-traits-library). These provide for common handling of the following API aspects
+- Incorporation of common traits. Traits will be pusblished as single components, example: one RAML artifact for orderBy and a different trait for searheable. Unless multiple traits are used across different projects, a library will be created.  These provide for common handling of the following API aspects
     - API Authentication related headers
     - API Error handling structures and example content
     - API health checks
@@ -67,7 +83,7 @@ The API design template is published the Anypoint Exchange and can be imported a
 ### 8.3. Error Handling
 A common Error handler library has been configured to support consistent error handling approaches as part of MuleSoft projects. The library leverages existing Mule error handling capabilities and builds on this to provide a framework for the management for errors in Mule APIs and applications. 
 
-The library includes default error handling logic for common error scenarios (e.g., standard HTTP errors) and the flexibility to support more bespoke error handling requirements. 
+The library includes default error handling logic for common error scenarios (e.g., standard HTTP errors) and the flexibility to support more bespoke error handling requirements. Most projects will log exceptions and will return http status error code in the request, they will return #[error.description], #[error.errorType] and #[correlationId], depending of the nature of the API or Batch job/Sync, more detailed information will be needed including additional fields.
 
 A detailed view of the error handler library, including guidelines on how to implement this as part of Mule API implementations is available [<<HERE>>](link)
 
@@ -77,6 +93,9 @@ Mule applications typically need specific configurations properties to support i
 - Secure configuration properties – e.g. API/DB credentials
 
 Properties can further be typically classified as common or environment agnostic properties, or environment specific properties. Common properties should be managed in a separate properties file vs. environment specific properties, to avoid repetition.
+Configurations properties will be yaml files and they will contain all common properties under config.yaml. If properties values are changed accross environments, there will be a different property per environment: config-sandbox.yaml, config-prod.yaml
+Passwords and sensetive information will be saved under secure.yaml and all its values need to be encrypted using Secure properties tool
+https://docs.mulesoft.com/mule-runtime/latest/secure-configuration-properties
 
 The API template will be defined the structure and placeholders for Mule API and application configuration management in line with best practice to manage common properties, environment specific properties and secure properties. 
 
