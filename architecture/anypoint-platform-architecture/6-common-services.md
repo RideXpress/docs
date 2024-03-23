@@ -16,12 +16,14 @@ To support and streamline application development, API templates will be publish
 These templates encapsulate the key standards, and structures to be used as part of development. Key elements included in the API template:
 - Standard structure of Mule Application files – including global configurations, API interface and implementation files
 Projects will folow this structure:
+
 | Name | Description |
 | --- | --- |
-| <artifactName>.xml | This file will contain the API interface and all main flows auto-generated |
+| artifactName.xml | This file will contain the API interface and all main flows auto-generated |
 | implementation.xml| If multiple files are needed for implementation, a folder will be used with the same name and files will be named as per use case|
 | common.xml | It will contain project configurations as database connections, jms, API autodisovery conf, HTTP request conf, etc. |
 | errors.xml | It will contain error strategies for the project|
+
 
 - Structure and placeholders for common, and environment specific properties, including secure properties.
 Configurations will be localted under src/main/resources.
