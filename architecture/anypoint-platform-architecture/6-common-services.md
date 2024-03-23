@@ -11,22 +11,45 @@
 <Provide details of common services that will be configured to standardize and streamline Mule application development and delivery>
 
 ### 8.1. API Implementation Template
-To support and streamline application development, API templates will be published for consistent and streamlined development activity. 
+To support and streamline application development, API templates will be published for consistent and streamlined development activity. Templates will de created using maven archetypes and they will be pusblished to our version control system and Exchange.
 
 These templates encapsulate the key standards, and structures to be used as part of development. Key elements included in the API template:
 - Standard structure of Mule Application files – including global configurations, API interface and implementation files
-- Structure and placeholders for common, and environment specific properties, including secure properties. 
+Projects will folow this structure:
+| Name | Description |
+| --- | --- |
+| <artifactName>.xml | This file will contain the API interface and all main flows auto-generated |
+| implementation.xml| If multiple files are needed for implementation, a folder will be used with the same name and files will be named as per use case|
+| common.xml | It will contain project configurations as database connections, jms, API autodisovery conf, HTTP request conf, etc. |
+| errors.xml | It will contain error strategies for the project|
+
+- Structure and placeholders for common, and environment specific properties, including secure properties.
+Configurations will be localted under src/main/resources.
+Dataweave files will be located under src/main/resources/dw
+Configurations properties will be yaml files and they will contain all common properties under config.yaml. If properties values are changed accross environments, there will be a different property per environment: config-sandbox.yaml, config-prod.yaml
+Passwords and sensetive information will be saved under secure.yaml and all its values need to be encrypted using Secure properties tool
+https://docs.mulesoft.com/mule-runtime/latest/secure-configuration-properties
+
 - Standard maven POM structure, including Parent POM and related configurations
+A parent POM will be used to include all common dependencies, deployment configurations and properties. All projects will declare a parent POM that will reside in the code repository.
 - CICD structure.
-- Error handling configurations (utilizing common error handler framework) 
-- Health Check framework (which can be integrated with Anypoint Functional Monitoring) 
+TODO
+- Error handling configurations (utilizing common error handler framework)
+Every project contains an errors.xml containing common error handling for all projects. Most projects will log exceptions and will return http status error code in the request, most projects will return #[error.description], #[error.errorType] and #[correlationId], depending of the nature of the API or Batch job/Sync, more detailed information will be needed including additional fields. #[error.errorType] can be used to define retries strategy, example: HTTP:CONNECTIVITY can be used to define if an Until Successful component needs to be used.
+
+- Health Check framework (which can be integrated with Anypoint Functional Monitoring)
+Every project will expose a GET endpoint for Health checks.
+GET:/health-check
+Health checks framework will be implemeted using Anypoint Functional Monitoring and alerts will be configured. Using the same convention for all projects will allow seamless integration with the framework.
+
 - Logging standards and configurations
+
+
 
 The following API templates have been published to Anypoint Exchange, and aligned to the Repository creation process: 
 | Name | Link | When to use? |
 | --- | --- | --- |
 | mule4-rest-api-template | [<<LINK>>](link) | Use this template to support the development of REST APIs. |
-| mule4-anypoint-mq-consumer-template | [<<LINK>>](link) | Use this template to support the development of Anypoint MQ Consumer Application. |
 | mule4-batch-template | [<<LINK>>](link) | Use this template to support the development of Batch applications. This template contains common aspects of Batch application development, including: <br> - Batch framework and common configuration placeholders (e.g. schedulers) <br> - Framework to support custom alerts, in conjunction with Alert Utility application. See below for details. |
 
 ### 8.2. API Design Template
