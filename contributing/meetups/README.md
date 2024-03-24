@@ -11,4 +11,9 @@ Fill out the session details from the new file and open a PR for review
 
 ## Index
 
-[TODO]
+api-first.md
+ci-cd.md
+configuring-anypoint-platform.md
+evaluating-geographic-apis.md
+evaluating-payment-apis.md
+evaluating-salesforce-apis.md
