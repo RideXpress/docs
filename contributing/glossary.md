@@ -1,3 +1,9 @@
 # Glossary
 
-## TBD
+## A
+API: Application programming interface
+
+## B
+
+## C
+...
