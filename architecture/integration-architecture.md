@@ -90,9 +90,4 @@ Please note that any version numbers are current as of the time of writing this 
 ### Acronyms
 
 - **DB**: Data Base
-- **MULE**: 
-
-
-
-
-
+- **MULE**:
