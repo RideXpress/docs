@@ -61,8 +61,12 @@ Full details on the audit capabilities are available [here](https://docs.mulesof
 ![Img source: https://www.okta.com/partners/mulesoft/#](image.png)
 
 #### 3.2.1. API Client Authentication and Authorization 
-API authentication will use OAuth 2.0 with Okta as the Identity provider. 
+API authentication will use OAuth 2.0 with Okta as the Client provider and Users Identity provider. 
 Clients can be administrated with Anypoint Platform when using the OpenId configuration.
+
+Users will call Experience API using a On-Behalf-Of Token in combination of the Mobile Client App client registration.
+
+Reference: https://developer.okta.com/docs/guides/set-up-token-exchange/main/
 
 For additional information on external client management options and considerations, please review the [MuleSoft documentation](https://docs.mulesoft.com/access-management/configure-client-management-openid-task).
 
@@ -98,7 +102,7 @@ Reference: [Policies for Mule 4](https://docs.mulesoft.com/api-manager/2.x/polic
 | API Criteria | All APIs consumed within the trust boundary of the organization. |
 | Use Case | Availability |
 | API Layer | Experience, Process, System |
-| Patterns | ● Client ID Enforcement <br> ● Spike Control (based on specific API throughput considerations) <br> ● CORS (Experience APIs exposed to web clients only) <br> ● JSON Threat Protection |
+| Patterns |  ● JWT Token Validation / OAuth 2.0 Token Enforcement (required API Client Management configuration) <br> ● Spike Control (based on specific API throughput considerations) <br> ● CORS (Experience APIs exposed to web clients only) <br> ● JSON Threat Protection |
 | Useful Links | [Client ID Enforcement](https://docs.mulesoft.com/api-manager/2.x/client-id-based-policies) <br> [Spike Control](https://docs.mulesoft.com/api-manager/2.x/spike-control-reference) <br> [CORS](https://docs.mulesoft.com/api-manager/2.x/cors-policy) <br> [JSON Threat Protection](https://docs.mulesoft.com/api-manager/2.x/apply-configure-json-threat-task) |
 
 #### 3.2.5. Secure Application configuration Management 
