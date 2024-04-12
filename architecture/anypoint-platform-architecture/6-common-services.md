@@ -9,7 +9,7 @@
 
 ## 6 Common Services
 
-<Provide details of common services that will be configured to standardize and streamline Mule application development and delivery>
+Provide details of common services that will be configured to standardize and streamline Mule application development and delivery>
 
 ### 6.1 API Implementation Template
 
