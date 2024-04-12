@@ -17,7 +17,7 @@ To support and streamline application development, API templates will be publish
 
 These templates encapsulate the key standards, and structures to be used as part of development. Key elements included in the API template:
 - Standard structure of Mule Application files
-- Including global configurations,
+- Global configurations,
 - API interface and implementation files
 
 Projects will follow this structure:
@@ -47,23 +47,25 @@ A parent POM will be used to include all common dependencies, deployment configu
 - CICD structure.
 
 There are 2 main branches in code repository: sandbox, main.
-- main will be used as base to build applications into our sandbox and prod envieonment
+- main will be used as base to build applications into our sandbox and prod environment
 
 [Github actions](https://docs.github.com/es/actions)  will be used to build CICD pipeline. It allows to automate, customize, and execute your software development workflows right in your repository with GitHub Actions. You can discover, create, and share actions to perform any job you'd like, including CI/CD, and combine actions in a completely customized workflow.
 
-
-
-It will follow the pipeline as follows:
+High level CI/CD pipeline:
 
 1. Code is created in each developer branch
-2. After completion, commit will be done and and merged into main branch
-3. A github action will be triggered automatically to deploy code into sandbox environment and Artifacotry
+2. After completion, commit will be done and and pull request will be raised
+3. After review, code will be merged into main branch
+4. A github action will be triggered automatically to deploy code into sandbox environment and Artifactory
+5. A different github action will be used to promote code to production
 
 
-- Error handling configurations (utilizing common error handler framework)
-Every project contains an errors.xml containing common error handling for all projects. Most projects will log exceptions and will return http status error code in the request, they will return #[error.description], #[error.errorType] and #[correlationId], depending of the nature of the API or Batch job/Sync, more detailed information will be needed including additional fields. #[error.errorType] can be used to define retries strategy, example: HTTP:CONNECTIVITY can be used to define if an Until Successful component needs to be used.
+- Error handling configurations 
+
+  Every project contains an errors.xml containing common error handling for all projects. Most projects will log exceptions and will return http status error code in the request, they will return #[error.description], #[error.errorType] and #[correlationId], depending of the nature of the API or Batch job/Sync, more detailed information will be needed including additional fields. #[error.errorType] can be used to define retries strategy, example: HTTP:CONNECTIVITY can be used to define if an Until Successful component needs to be used.
 
 - Health Check framework (which can be integrated with Anypoint Functional Monitoring)
+
 Every project will expose a GET endpoint for Health checks.
 GET:/health-check
 Health checks framework will be implemeted using Anypoint Functional Monitoring and alerts will be configured. Using the same convention for all projects will allow seamless integration with the framework.
@@ -111,7 +113,15 @@ A common Error handler library has been configured to support consistent error h
 
 The library includes default error handling logic for common error scenarios (e.g., standard HTTP errors) and the flexibility to support more bespoke error handling requirements. Most projects will log exceptions and will return http status error code in the request, they will return #[error.description], #[error.errorType] and #[correlationId], depending of the nature of the API or Batch job/Sync, more detailed information will be needed including additional fields.
 
-A detailed view of the error handler library, including guidelines on how to implement this as part of Mule API implementations is available [<<HERE>>](link)
+A framework will be configured for different use cases:
+
+    - APIs will use APIKit configurations and logging containing date, correlationId, error message and error type
+    
+    Every project contains an errors.xml containing common error handling for all projects. Most projects will log exceptions and will return http status error code in the request, they will return #[error.description], #[error.errorType] and #[correlationId], depending of the nature of the API or Batch job/Sync, more detailed information will be needed including additional fields. #[error.errorType] can be used to define retries strategy, example: HTTP:CONNECTIVITY can be used to define if an Until Successful component needs to be used.
+    
+    - Async processes will have a common error handler that will log the error and will have standardized reprocessing mechanism, every use will have the option to modify the reprocessing strategy as per requirements
+    - If batch process are needed, errors will need a correlation Id as well and logging to batch results will be mandatory, special error handling will be performed as per requirements.
+
 
 ### 6.4 Configuration Management
 
@@ -120,15 +130,19 @@ Mule applications typically need specific configurations properties to support i
 - Secure configuration properties – e.g. API/DB credentials
 
 Properties can further be typically classified as common or environment agnostic properties, or environment specific properties. Common properties should be managed in a separate properties file vs. environment specific properties, to avoid repetition.
-Configurations properties will be yaml files and they will contain all common properties under config.yaml. If properties values are changed accross environments, there will be a different property per environment: config-sandbox.yaml, config-prod.yaml
-Passwords and sensetive information will be saved under secure.yaml and all its values need to be encrypted using Secure properties tool
-https://docs.mulesoft.com/mule-runtime/latest/secure-configuration-properties
+Configurations properties will be yaml files and they will contain all common properties under config.yaml. If properties values are changed accross environments, there will be a different property per environment: 
+
+Examples:
+square-staging-host: "connect.sandbox.squareup.com"
+square-prod.yaml: "connect.squareup.com"
 
 The API template will be defined the structure and placeholders for Mule API and application configuration management in line with best practice to manage common properties, environment specific properties and secure properties. 
 
 ### 6.5 Secure properties
 
-- MuleSoft provides a secure property placeholder component to enable the encryption of secure properties using a private key. These can then be stored in an encrypted form in the codebase, which in turn is used to build the application and leveraged at runtime. Additional details available [here](link)
+Secrets will be saved in github secrets and are accesible via github actions.
+
     - The secure property key needs to be updated to the CI/CD variable at the project level - and this needs to be done for each environment that the application is deployed to.
-    - Note the underlying process and ownership of managing and encrypting secure properties will need to be agreed as part of the broader development and operations process. 
+    - Only admins will be able to manage secure properties and any change needs to be approved by the team.
+    
 - Every API deployed on CloudHub must use safely hidden properties for sensitivity attributes like credentials. CloudHub supports safely hidden application properties, where the name of a property is visible in the console, but the value is not displayed or retrievable by any user. CloudHub resolves the property at runtime without exposing the sensitive information. More details available [here](link).
