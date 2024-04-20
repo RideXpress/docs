@@ -13,9 +13,6 @@
     - [3.2.4. API policy management](#324-api-policy-management)
 
 ## 3. Security Architecture
-*Document the key security architecture details that have been made to ensure the secure setup and operations of the Anypoint Platform within the customer. Please update the below sections as required to reflect the platform setup details.*
-TODO: ^
-
 ### 3.1 User Identity Management
 For the MVP phase, we will utilize the Anypoint Platform's built-in Identity Provider for User Identity Management. Access control will be managed directly within the Anypoint Platform for the Anypoint Platform users.
 
