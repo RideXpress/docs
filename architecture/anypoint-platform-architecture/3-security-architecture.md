@@ -89,9 +89,8 @@ Reference: [Policies for Mule 4](https://docs.mulesoft.com/api-manager/2.x/polic
 | Category | Level A |
 | Description | APIs exposing highly sensitive data and capability, exposed over the internet. The abuse of API would have a critical impact on the business. E.g. leak of personal details, unauthorized updates of transactional data, etc. |
 | API Criteria | APIs with access to customer or other sensitive data, exposed externally over the internet. |
-| Use Case | Create Policy, Create Claim, Change Policy |
 | API Layer | Experience APIs |
-| Patterns | ● JWT Token Validation / OAuth 2.0 Token Enforcement (required API Client Management configuration) <br> ● All the patterns of Level B |
+| Patterns | OAuth 2.0 Token Enforcement (required API Identity Management configuration) <br> ● All the patterns of Level B <br> mTLS with Mobile App|
 | Useful Links | [JWT Token Validation](https://docs.mulesoft.com/api-manager/2.x/policy-mule4-jwt-validation#policy-configuration) |
 
 | Security | Details |
@@ -99,10 +98,9 @@ Reference: [Policies for Mule 4](https://docs.mulesoft.com/api-manager/2.x/polic
 | Category | Level B |
 | Description | APIs with the standard, minimum level of security. The APIs are essential for day to day business activities but do NOT transfer/read sensitive data. These APIs are exposed only to internal API consumers and can be considered east-west traffic – either other Mule APIs or customer internal APIs via secure connectivity (e.g. VPNs) |
 | API Criteria | All APIs consumed within the trust boundary of the organization. |
-| Use Case | Availability |
 | API Layer | Experience, Process, System |
-| Patterns |  ● JWT Token Validation / OAuth 2.0 Token Enforcement (required API Client Management configuration) <br> ● Spike Control (based on specific API throughput considerations) <br> ● CORS (Experience APIs exposed to web clients only) <br> ● JSON Threat Protection |
-| Useful Links | [Client ID Enforcement](https://docs.mulesoft.com/api-manager/2.x/client-id-based-policies) <br> [Spike Control](https://docs.mulesoft.com/api-manager/2.x/spike-control-reference) <br> [CORS](https://docs.mulesoft.com/api-manager/2.x/cors-policy) <br> [JSON Threat Protection](https://docs.mulesoft.com/api-manager/2.x/apply-configure-json-threat-task) |
+| Patterns |  ● JWT Token Validation / OAuth 2.0 Token Enforcement (required API Client Management configuration) <br> ● Spike Control (based on specific API throughput considerations) <br> ● JSON Threat Protection |
+| Useful Links | [Client ID Enforcement](https://docs.mulesoft.com/api-manager/2.x/client-id-based-policies) <br> [Spike Control](https://docs.mulesoft.com/api-manager/2.x/spike-control-reference) <br> [JSON Threat Protection](https://docs.mulesoft.com/api-manager/2.x/apply-configure-json-threat-task) |
 
 #### 3.2.5. Secure Application configuration Management 
 All sensitive passwords and data in property files will be encrypted using the secure properties placeholder with a key that will be injected as part of the build process. This will ensure that secure properties are not stored in clear text in the source code repository. 
