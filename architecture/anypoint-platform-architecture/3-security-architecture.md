@@ -17,7 +17,9 @@
 TODO: ^
 
 ### 3.1 User Identity Management
-For the MVP phase, we will utilize the Anypoint Platform's built-in Identity Provider for User Identity Management. Access control will be managed directly within the Anypoint Platform.
+For the MVP phase, we will utilize the Anypoint Platform's built-in Identity Provider for User Identity Management. Access control will be managed directly within the Anypoint Platform for the Anypoint Platform users.
+
+For the users of the RideXPress platform, Okta will be the Identity Provider. Users will be created in that platform and will use a native token for the Mobile App [here](https://developer.okta.com/docs/guides/configure-native-sso/main/) and an on behalf token [here](https://developer.okta.com/docs/guides/set-up-token-exchange/main/) to talk with the APIs.
 
 #### 3.1.1. Anypoint User Access Management - Authentication
 The Anypoint platform will use the integrated identity solution to for all users accessing the Anypoint platform.
