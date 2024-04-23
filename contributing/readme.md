@@ -6,7 +6,7 @@ Thanks for your interest in RideXpress. We are continously looking to improve th
 - Coding new components
 - Creating content for Meetups
 
-I you would like to contribute please reach out to [Felipe Ocadiz](mailto:felipe@ocadiz.net?subject=[RideXpress]%20Contributing) so we can give you access to the GitHub team and Anypoint Platform.
+I you would like to contribute please open an issue in this repo so the team can give you access to the GitHub team and Anypoint Platform.
 
 Every contribution counts and every voice and opinion is valuable so we meet regularly to discuss several topics around Requirements, Architecture, Best practices and also experiences in general. We don't expect you to join to all the calls but catching up in a call has been very valuable for the team.
 
