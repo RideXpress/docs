@@ -1,5 +1,6 @@
 # RideXpress Official Documentation
 
+- [Contributing](contributing/README.md)
 - [Integration Architecture](architecture/integration-architecture.md)
 - [Anypoint Platform Architecture](architecture/anypoint-platform-architecture.md)
 - [Archetype Design](architecture/archetype-design.md)
