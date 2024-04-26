@@ -177,14 +177,12 @@ The following initial Business Group structure is recommended:
 APIs are deployed to Environments; Environments belong to a single Business Group. Anypoint Platform defines three Environment Types:
 1.	Design: Enables API designers to test and run applications at design time. This environment type is used exclusively for APIs developed using Flow Designer within Design Center and consumes Design vCore allocations
 1.	Sandbox: Provides useful environments for development and testing and enables you to safely test an application without affecting the production environment. Environments of this type consume Pre-Production resource allocations
-1.	Production: The production environment where you can deploy applications and APIs. Environments of this type consume Production resource allocations.
 The following environments will be created in the RideXPress Business Group:
 
 | Environment name | Environment Type|
 |------------------|-----------------|
 | dev              | Sandbox (Non-production)|
 | test             | Sandbox (Non-production)|
-| prod             | Production|  
 
 As stated previously, roles can be applied at the master organization level as well as at the business group level. Within Business Groups some roles and permissions are valid for the entire organization (=all environments) like the API designer role, and some are only valid for a specific environment like the permissions for deploying and starting applications.
 
