@@ -10,7 +10,7 @@ In line with the customer’s cloud-first strategy, the MuleSoft integration pla
 This section serves as an initial Platform Reference Architecture that will provide a scalable and performant foundational architecture for ongoing and future integration and API development. The architecture provides common reference specifically around the physical, security, and deployment aspects of the platform.
 
 ### Platform Capabilities
-![alt text](integration-architecture/platform-capabilities.png)
+![alt text](images/platform-capabilities.png)
 
 As per the diagram above, the MuleSoft Anypoint Platform capabilities can be categorised into high-level groups of capabilities, each of which are briefly described below with links to detailed product documentation.
 
@@ -166,7 +166,7 @@ Organization Administrators can view and configure properties for an organizatio
 ##### Business Groups Explained
 Business Groups are also referred to as organizations (or sub organizations). Business Groups reside within the master organization and can contain their own Business Groups. Thus, the master organization and its Business Groups are organized in a hierarchical tree, where the master organization is the root. Each Business Group has one direct parent and can have multiple children, e.g.:
 
-![alt text](integration-architecture/organization.png)
+![alt text](integration-architecture/images/organization.png)
 
 The organization administrator is also the administrator of all Business Groups within the account’s organization hierarchy.
 ##### Business Group Structure
@@ -251,7 +251,7 @@ MuleSoft recommends a pair of Dedicated Load Balancers per environment type, i.e
 
 This is illustrated in the diagram below:
 
-![alt text](integration-architecture/dlb-diagram.png)
+![alt text](images/dlb-diagram.png)
 
 #### Virtual Private Clouds
 Two Virtual Private Clouds (VPCs) will be required - one for Production and one for Sandbox (Non-production). VPCs are required to support custom Dedicated Load Balancers (DLBs).
