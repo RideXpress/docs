@@ -1,6 +1,6 @@
 
 
-## Integration Catalog
+# Integration Catalog
 
 The Integration Catalog provides a high-level overview of the integration flows for the system.
 
@@ -8,17 +8,15 @@ TODO: Integration flow diagram
 
 The catalog is structured to be driven by the inbound triggers, where a single integration flow will lead to outbound interactions with one or more target systems. It's important to note that multiple source systems can trigger the same integration flow.
 
-### Table of Main Integration Use Cases
+## Main Integration Use Cases
 
-| Name                                  |  | | Comments                                                                                     |
-|---------------------------------------|------------------|------------------------------------------------|----------------------------------------------------------------------------------------------|
-| User sign up                     | | |
-| Request ride|   |                                        |
-| Accepting ride| |                                                                                              |
-| Wait for ride| |
-| Finish ride||
+- [User sign up](#user-sign-up)
+- [Request ride](#request-a-ride)
+- [Accepting ride](#accepting-ride)
+- [Wait for ride](#wait-for-ride)
+- [Finish ride](#finish-ride)
 
-#### User sign up 
+### User sign up 
 
 - Description: As a user I want the ability to sign up to the application using a Mobile App.
 The app will send a verification code to the registered email and/or phone.
@@ -27,7 +25,7 @@ The app will send a verification code to the registered email and/or phone.
 - Source System(s): N/A
 ![alt text](../../architecture/diagrams/use-cases/sign-up-user-use-case.drawio.svg)
 
-#### Request a ride
+### Request a ride
 
 - Description: As a customer I want the ability to select a destination in the Mobile App and the App will show the price based on X criteria and also the estimated arrival time.
 - Timeliness: 
@@ -37,7 +35,7 @@ The app will send a verification code to the registered email and/or phone.
 ![alt text](../../architecture/diagrams/use-cases/request-ride-use-case.drawio.svg)
 
 
-#### Accepting ride
+### Accepting ride
 
 - Description: As a driver, I want the ability to accept or deny any inbound ride.
 - Timeliness: 
@@ -45,7 +43,7 @@ The app will send a verification code to the registered email and/or phone.
 - Source System(s): N/A
 ![alt text](../../architecture/diagrams/use-cases/accepting-ride-use-case.drawio.svg)
 
-#### Wait for ride
+### Wait for ride
 
 - Description: As a customer I want the ability to see the location of the driver to know when it will be near my pick up location.
 - Timeliness: 
@@ -53,7 +51,7 @@ The app will send a verification code to the registered email and/or phone.
 - Source System(s): N/A
 ![alt text](../../architecture/diagrams/use-cases/wait-for-ride-use-case.drawio.svg)
 
-#### Finish ride
+### Finish ride
 
 - Description: As a driver I want the ability to finish the drive and as a user, I want the ability to confirm the end of the trip by scanning a QR code, using an NFC, or some other method.
 - Timeliness: 
