@@ -166,7 +166,7 @@ Organization Administrators can view and configure properties for an organizatio
 ##### Business Groups Explained
 Business Groups are also referred to as organizations (or sub organizations). Business Groups reside within the master organization and can contain their own Business Groups. Thus, the master organization and its Business Groups are organized in a hierarchical tree, where the master organization is the root. Each Business Group has one direct parent and can have multiple children, e.g.:
 
-![alt text](integration-architecture/images/organization.png)
+![alt text](images/organization.png)
 
 The organization administrator is also the administrator of all Business Groups within the account’s organization hierarchy.
 ##### Business Group Structure
@@ -203,7 +203,7 @@ The Anypoint Platform can be configured to use an external Identity Provider usi
 - SAML 2.0: Web-based authorization including cross-domain SSO.
 
 The following diagram shows the high level SAML based identity management process:
-![alt text](integration-architecture/identity-management-process.png)
+![alt text](images/identity-management-process.png)
 
 See [External Identity](https://docs.mulesoft.com/access-management/external-identity) for further information on configuring external Identity Providers.
 
