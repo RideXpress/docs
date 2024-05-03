@@ -9,7 +9,6 @@ The integration platform is presumed to encompass and facilitate a range of capa
 - **Connectivity:** Fundamental for linking various systems and applications.
 - **API Design and Management:** Tools and protocols for creating and overseeing APIs.
 - **Discovery and Reuse:** Mechanisms for identifying and repurposing existing assets.
-- **Batch Processing:** Handling and processing of bulk data transactions. TODO: is this one valid? (I don't think so)
 - **Monitoring:** Oversight of system health and transaction flow.
 - **Enterprise Security:** Protocols and measures to safeguard data and interactions.
 
