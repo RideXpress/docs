@@ -1,6 +1,8 @@
 ## Solution Architecture
 
-TODO: Link to diagram
+<a href="../../architecture/diagrams/entity-diagrams/solution-diagram.drawio.svg">
+  <img src="../../architecture/diagrams/entity-diagrams/solution-diagram.drawio.svg" alt="alt text" width="800"/>
+</a>
 
 ### Integration Platform Capabilities
 
