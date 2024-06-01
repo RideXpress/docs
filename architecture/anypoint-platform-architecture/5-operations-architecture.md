@@ -5,12 +5,12 @@
     - [5.2. Monitoring and Alerting](#monitoring-and-alerting)
     - [5.3. Platform Alerts](#platform-alerts)
 
-## 7. Operations Architecture
+## 5. Operations Architecture
 <Document details of the platform setup to support the operational management and maintenance of the platform>
 
 The Anypoint platform provides different capabilities to support the operational aspects of managing and maintaining API and applications deployed to the MuleSoft platform.
 
-### 7.1. Log Management
+### 5.1. Log Management
 <Document details specific to log management, specifically in terms of log integration with third party tools, considerations around log retention within the platform etc. >
 
 Mule applications will use a standard logging framework to ensure log data is captured consistently across Mule applications, with the right structure and data points to support effective troubleshooting. 
@@ -21,7 +21,7 @@ Note that logs will not exclusively be pushed to ELK, and that these will also b
 
 Details on Custom Log4J configurations, including CloudHub settings to enable custom Log4J configurations are available here. 
 
-### 7.2. Monitoring and Alerting
+### 5.2. Monitoring and Alerting
 <Document details specific to monitoring and alerting capabilities and how this will be setup - both in terms of utilizing Anypoint platform capabilities, as well as external enterprise tooling where appropriate and how the platform data will be made available to these tools >
 
 The Anypoint platform supports the following monitoring capabilities as part of the TITANIUM subscription. Depending on the relevant use cases and operational needs of the use case, one or more of the capabilities listed below can be configured as part of the use case implementation. 
@@ -39,7 +39,7 @@ The Anypoint platform supports the following monitoring capabilities as part of 
 
 Additional Details: [Anypoint Monitoring Overview](link)
 
-### 7.3. Platform Alerts
+### 5.3. Platform Alerts
 At a platform level, alerts should be configured when ARM encounters a problem with a Server or Server Cluster. These settings can be set at a global level, meaning for all APIs deployed to the Business Groups. At minimum, the following conditions should be monitored:
 
 | Source/Server type | Condition | Severity Level | Config details |
