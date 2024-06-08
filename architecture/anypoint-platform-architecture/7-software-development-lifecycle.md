@@ -1,27 +1,27 @@
 # Software Development Lifecycle
 
-- [7 Software Development Lifecycle (SDLC)](#7-software-development-lifecycle.md)
-    - [7.1 Mule Application Development Considerations](#71-mule-application-development-considerations)
-    - [7.2 Version Control Strategy](#72-version-control-strategy)
-    - [7.3 Deployment and Sizing Strategy](#73-deployment-and-sizing-strategy)
-    - [7.4 Development Standards and Naming Conventions](#74-development-standards-and-naming-conventions)
-        - [7.4.1 Maven Artifact Id](#741-maven-artifact-id)
-        - [7.4.2 Cloudhub domain](#742-cloudhub-domain)
-        - [7.4.3 API version](#743-api-version)
-        - [7.4.4 API Resources organization](#744-api-resources-organization)
-        - [7.4.5 API Methods](#745-api-methods)
-        - [7.4.6 API body format](#746-api-body-format)
-        - [7.4.7 API pagination and filtering](#747-api-pagination-and-filtering)
-        - [7.4.8 Files names](#748-files-names)
-        - [7.4.9 Flow names](#749-flow-names)
-        - [7.4.10 Dataweave files](#7410-dataweave-files)
-        - [7.4.11 Connector configuration names](#7411-connector-configuration-names)
-        - [7.4.12 Log files](#7412-log-files)
-        - [7.4.13 API, Maven and Cloudhub matching](#7413-api-maven-and-cloudhub-matching)
-    - [7.5 Build and Deployment Automation (CI/CD)](#75-build-and-deployment-automation-cicd)
-    - [7.6 SDLC Tooling Catalog](#76-sdlc-tooling-catalog)
+- [Software Development Lifecycle (SDLC)](#software-development-lifecycle.md)
+    - [Mule Application Development Considerations](#71-mule-application-development-considerations)
+    - [Version Control Strategy](#72-version-control-strategy)
+    - [Deployment and Sizing Strategy](#73-deployment-and-sizing-strategy)
+    - [Development Standards and Naming Conventions](#74-development-standards-and-naming-conventions)
+        - [Maven Artifact Id](#741-maven-artifact-id)
+        - [Cloudhub domain](#742-cloudhub-domain)
+        - [API version](#743-api-version)
+        - [API Resources organization](#744-api-resources-organization)
+        - [API Methods](#745-api-methods)
+        - [API body format](#746-api-body-format)
+        - [API pagination and filtering](#747-api-pagination-and-filtering)
+        - [Files names](#748-files-names)
+        - [Flow names](#749-flow-names)
+        - [Dataweave files](#7410-dataweave-files)
+        - [Connector configuration names](#7411-connector-configuration-names)
+        - [Log files](#7412-log-files)
+        - [API, Maven and Cloudhub matching](#7413-api-maven-and-cloudhub-matching)
+    - [Build and Deployment Automation (CI/CD)](#75-build-and-deployment-automation-cicd)
+    - [SDLC Tooling Catalog](#76-sdlc-tooling-catalog)
 
-## 7 Software Development Lifecycle (SDLC)
+## Software Development Lifecycle (SDLC)
 
 The following section describes the process and phases of the Software Development Life Cycle of a Mule application/API, the tooling and mechanisms used as part of it.
 
@@ -35,13 +35,13 @@ The following section describes the process and phases of the Software Developme
 | Development / Implementation | Using Anypoint Studio and/or Anypoint Code Builder and reusing any available common service (e.g. json-logger) <br> - Unit Testing (local): <br> - Push source code to Version Control System <br> - Run build and deployment automation tasks based on agreed and configured CI/CD processes. |
 | Operate/Monitor | Using out of the box features included as part of Anypoint Monitoring to support the operational management and maintenance of the platform. |
 
-## 7.1 Mule Application Development Considerations
+## Mule Application Development Considerations
 
 - **Version Control tooling**: All Mulesoft code will be stored and managed in GitHub.
 - **Repository Strategy**: We'll pick a monorepo to store all the MuleSoft-related code. This approach will bring some advantages that can be found [here](https://semaphoreci.com/blog/what-is-monorepo). APIs or Integrations will be related to one system of records per System API i.e. okta-system-api, salesforce-sytem-api, google-maps-system-api. One Process API per use case. i.e. request-ride-process-api, accept-ride-process-api, finish-ride-process-api, etc. And one Experience API per consumer platform. i.e. mobile-experience-api.
 - **Branching strategy**: We'll follow the widely known [Git flow](https://www.gitkraken.com/learn/git/git-flow) which consists in keeping the latest stable code in the main branch and adding new features from feature branches that are mapped to user stories (GitHub issues). Merging changes into the main branch will require a core review and approval from at least 1 team member.
 
-## 7.2 Version Control Strategy
+## Version Control Strategy
 
 The development team will follow the [Semantic Versioning](https://semver.org) and the Apache Maven conventions.
 
@@ -58,7 +58,7 @@ From Maven we'll make use of **SNAPSHOT** versions that are extremely handy for 
 - **okta-system-api-1.0.0-SNAPSHOT** is a version that is under development
 - **okta-system-api-1.0.0** is a release version
 
-## 7.3 Deployment and Sizing Strategy
+## Deployment and Sizing Strategy
 
 For the MVP all the applications will use the minimum capacity
 
@@ -77,11 +77,11 @@ Workers with 0.1 vCores and 0.2 vCores:
 
 [Reference](https://docs.mulesoft.com/cloudhub/cloudhub-architecture#cloudhub-workers)
 
-## 7.4 Development Standards and Naming Conventions
+## Development Standards and Naming Conventions
 
 All APIs and applications implemented in MuleSoft and deployed to CloudHub will need to adhere to development standards and guidelines, including naming conventions. Consistent standards and naming conventions support maintainability, discoverability and contribute to better quality code. This in turn helps drive reuse and pace of change, and help to reduce technical debt in the future.
 
-### 7.4.1 Maven Artifact Id
+### Maven Artifact Id
 
 Full names are favored to improve readability.
 
@@ -92,7 +92,7 @@ salesforce-system-api
 okta-system-api
 ```
 
-### 7.4.2 Cloudhub domain
+### Cloudhub domain
 
 Cloudhub follows the `https://{application_name}.shard.usa-w2.cloudhub.io` convention with a maximum length of 42 characters and names should be unique for the whole cloudhub.io domain.
 
@@ -108,13 +108,13 @@ https://ridexpress-prd-salesforce.shard.usa-w2.cloudhub.io/v1
 https://ridexpress-prd-okta.shard.usa-w2.cloudhub.io/v1
 ```
 
-### 7.4.3 API version
+### API version
 
 We'll follow the `v1, v2, v{n}` standard
 
 Versions will be updated only when changes are not backward compatible.  
 
-### 7.4.4 API Resources organization
+### API Resources organization
 
 API resources should be aligned with business resources and should follow the most common REST API standard:
 
@@ -126,7 +126,7 @@ contacts/12345
 contacts?address=123 Main
 ```
 
-### 7.4.5 API Methods
+### API Methods
 
 HTTP Methods should be used according the following convention:
 
@@ -140,7 +140,7 @@ HTTP Methods should be used according the following convention:
 
 [Reference](https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods)
 
-### 7.4.6 API body format
+### API body format
 
 By default, all the APIs will use json as the body format it should be expressed by the `Accept` and `Content-Type` headers and the value should be `application/json`  
 Fields in the json body should be expressed in camel case as follows:  
@@ -152,7 +152,7 @@ Fields in the json body should be expressed in camel case as follows:
 }
 ```
 
-### 7.4.7 API filtering
+### API filtering
 
 When the API endpoints return multiple records, the endpoints should offer parameters to control the pages like `GET /rides?userId=12345&zipCode=94000`.  
 
@@ -179,11 +179,11 @@ GET /users?userId=12345&zipCode=94000
 
 [Reference](https://nordicapis.com/everything-you-need-to-know-about-api-pagination/)
 
-### 7.4.8 Files names
+### Files names
 
 In case the files names need to be more descriptive, kebab-case is preferred.
 
-### 7.4.9 Flows and variables names
+### Flows and variables names
 
 Flows and variables will follow the camelCase standard. For API generated flows we'll keep the out-of-the-box convention.
 
@@ -204,7 +204,7 @@ getUserIdFlow
 aggregateResponseFlow
 ```
 
-### 7.4.10 Dataweave files
+### Dataweave files
 
 Dataweave files will be placed under `src/main/resources/dwl` folder and will be named using the kebab-case convention.
 
@@ -220,7 +220,7 @@ post-ride-response.dwl
 ```
 
 
-### 7.4.11 Connector configuration names
+### Connector configuration names
 
 Connectors and components names should follow the kebab-case convention and will follow the next convention `{connector_type}-{system_instance}-config`
 
@@ -233,7 +233,7 @@ database-ridexpress-config
 sfdc-main-config
 ```
 
-### 7.4.12 Log files
+### Log files
 
 Logs should be formatted in JSON so they can be easily extracted by any Log Aggregation Tool.
 
@@ -252,7 +252,7 @@ Logs should be formatted in JSON so they can be easily extracted by any Log Aggr
 }
 ```
 
-### 7.4.13 API, Maven and Cloudhub matching
+### API, Maven and Cloudhub matching
 
 | **API** | **Maven Artifact Id** | **Cloudhub domain** |
 | --- | --- | --- |
@@ -272,7 +272,7 @@ Logs should be formatted in JSON so they can be easily extracted by any Log Aggr
 
 For additional details such as error handling or logging, please refer to the [Archetype design document](../archetype-design.md).
 
-## 7.5 Build and Deployment Automation (CI/CD)
+## Build and Deployment Automation (CI/CD)
 
 The solution will leverage Github actions to support the end-to-end development and deployment lifecycle of MuleSoft APIs and applications. From a MuleSoft perspective, Maven is used to support test, build and deployment activities through the Mule Maven plugin.
  
@@ -280,7 +280,7 @@ The CI/CD Pipeline will also use Anypoint CLI to orchestrate some tasks to autom
 
 For more information about the CI/CD configuration, please refer to the [CI/CD design document](../ci-cd-design.md).  
 
-## 7.6 SDLC Tooling Catalog
+## SDLC Tooling Catalog
 
 | Phase | Tooling | Details |
 | --- | --- | --- |
