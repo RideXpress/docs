@@ -57,7 +57,7 @@ Full details on the audit capabilities are available [here](https://docs.mulesof
 
 ### API and Application Security
 
-![Img source: https://www.okta.com/partners/mulesoft/#](image.png)
+![Img source: https://www.okta.com/partners/mulesoft/#](images/image.png)
 
 #### API Client Authentication and Authorization 
 API authentication will use OAuth 2.0 with Okta as the Client provider and Users Identity provider. 
