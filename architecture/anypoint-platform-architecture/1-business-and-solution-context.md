@@ -1,19 +1,19 @@
 # Business and Solution Context
 
-- [1 Business and Solution Context](#1-business-and-solution-context)
-    - [1.1 Goals and Objectives](#11-goals-and-objectives)
-    - [1.2 Solution Context](#12-solution-context)
-        - [1.2.1 Key Systems](#121-key-systems)
-    - [1.3 Current State Challenges](#13-current-state-challenges)
-    - [1.4 Integration Architecture Principles](#14-integration-architecture-principles)
+- [Business and Solution Context](#business-and-solution-context)
+    - [Goals and Objectives](#goals-and-objectives)
+    - [Solution Context](#solution-context)
+        - [Key Systems](#key-systems)
+    - [Current State Challenges](#current-state-challenges)
+    - [Integration Architecture Principles](#integration-architecture-principles)
 
-## 1 Business and Solution Context
+## Business and Solution Context
 
 RideXpress is a fictional ride sharing company founded with the solely purpose of demonstrating the power of the API-First approach. It was created with the idea of powering every single API with Anypoint Platform, from the main API to the integration to third party APIs or Applications, every single piece of code runs on a flavor of the Mule Runtime.
 
 RideXpress is completely Open Source and Community driven so we can learn from each other based on our diverse backgrounds and experiences.
 
-### 1.1 Goals and Objectives
+### Goals and Objectives
 
 - User-Centric Subscription Model: Predictable pricing for drivers with monthly subscription plans.
 - Stability for Drivers: Consistent earnings through a steady flow of riders.
@@ -21,11 +21,11 @@ RideXpress is completely Open Source and Community driven so we can learn from e
 - Tech-Driven Community: Optimized matching and efficient service.
 - Disruptive Innovation: A proposal that challenges traditional pay-per-ride models like Uber or Lyft.
 
-### 1.2 Solution Context
+### Solution Context
 
 <TODO: Describe the current state solution landscape within the customer, the target state architecture, and how MuleSoft will complement, or replace existing integration capabilities as the customer transitions from as-is to to-be state>
 
-#### 1.2.1 Key Systems 
+#### Key Systems 
 
 | System | Description | Deployment Model | Key integration concerns |
 | --- | --- | --- | --- |
@@ -37,7 +37,7 @@ RideXpress is completely Open Source and Community driven so we can learn from e
 | Apple Push Notification | Push notifications plaform to send notifications to users | Cloud | REST API Available |
 | DB System | Database engine to store support information related to rides, users and drivers | Cloud | REST API Available |
 
-### 1.3 Current State Challenges
+### Current State Challenges
 
 There are several challenges within the existing IT landscape that create friction and hinder the ability to realize their broader business objectives, including:
 
@@ -46,7 +46,7 @@ There are several challenges within the existing IT landscape that create fricti
 1.  Understand the regulations of personal information 
 1.  Being an Open Source company can affect the main interests
 
-### 1.4 Integration Architecture Principles
+### Integration Architecture Principles
 
 - **APIs as a product**: Treat every API as a product - effectively every API should be an independent product, with its own lifecycle and ownership. This is one of the core principles which underpins the application network, and effectively drives the vision around the ‘composable’ enterprise, and the goal to increase time to market for new products and propositions.
 - **Secure**: Given the critical nature of services that need to be supported, it is essential that security is built from the ground up. This must all elements of the integration, for example 
@@ -60,7 +60,7 @@ There are several challenges within the existing IT landscape that create fricti
 - **Canonical Data Model**: There must be a canonical data model for each business domain (this does NOT mean having a canonical data model for the whole organization, which would NOT be recommended). Canonical data model must be maintained as a separate reusable RAML fragment documented on Exchange.
 - **Loosely coupled, highly cohesive**: APIs and applications should have a single responsibility when it comes to supporting wider business outcomes. This aligns with the API led architecture approach and enables the creation of assets that can be reused and ‘composed’ to drive future capabilities.
 
-### 1.5 Assumptions and Dependencies
+### Assumptions and Dependencies
 
 <Document key assumptions and dependencies that have been considered as part of this platform architecture definition. > 
 
