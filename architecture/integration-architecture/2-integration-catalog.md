@@ -4,7 +4,9 @@
 
 The Integration Catalog provides a high-level overview of the integration flows for the system.
 
-TODO: Integration flow diagram
+<a href="../../architecture/diagrams/entity-diagrams/integration-context-diagram.drawio.svg">
+  <img src="../../architecture/diagrams/entity-diagrams/integration-context-diagram.drawio.svg" alt="alt text" width="800"/>
+</a>
 
 The catalog is structured to be driven by the inbound triggers, where a single integration flow will lead to outbound interactions with one or more target systems. It's important to note that multiple source systems can trigger the same integration flow.
 
