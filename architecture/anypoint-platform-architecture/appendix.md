@@ -1,13 +1,11 @@
-# Appendix
-
 - [Appendix](#appendix)
     - [Backend Systems Catalog](#backend-systems-catalog)
     - [CloudHub Log Data Externalization Options](#cloudhub-log-data-externalization-options)
     - [Anypoint Team Profiles and Permissions Model](#anypoint-team-profiles-and-permissions-model)
+    
+# Appendix
 
-## Appendix
-
-### Backend Systems Catalog
+## Backend Systems Catalog
 
 | System name | Location | Access Protocol | Host | Access |
 | --- | --- | --- | --- | --- |
@@ -17,15 +15,15 @@
 | Workday - sandbox | Cloud | HTTPS | wd5-impl-services1.workday.com | Integration user |
 | Workday - production | Cloud | HTTPS | TBD | Integration user |
 
-### CloudHub Log data externalization options
+## CloudHub Log data externalization options
 
-![alt text](./anypoint-platform-architecture/logs_external.png)
+![alt text](images/logs-external.png)
 
-### CloudHub DLB Detailed Connectivity Flow
+## CloudHub DLB Detailed Connectivity Flow
 
-![alt text](./anypoint-platform-architecture/dlb_sequence.png)
+![alt text](images/dlb-sequence.png)
 
-### Anypoint Team profiles and permissions model
+## Anypoint Team profiles and permissions model
 
 | #.# | Team | Description |
 | --- | --- | --- |
