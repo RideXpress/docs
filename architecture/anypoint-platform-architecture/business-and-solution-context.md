@@ -6,6 +6,7 @@
         - [Key Systems](#key-systems)
     - [Current State Challenges](#current-state-challenges)
     - [Integration Architecture Principles](#integration-architecture-principles)
+    - [Assumptions and dependencies](#assumptions-and-dependencies)
 
 # Business and Solution Context
 

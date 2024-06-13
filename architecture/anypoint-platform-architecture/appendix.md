@@ -2,6 +2,7 @@
     - [Backend Systems Catalog](#backend-systems-catalog)
     - [CloudHub Log Data Externalization Options](#cloudhub-log-data-externalization-options)
     - [Anypoint Team Profiles and Permissions Model](#anypoint-team-profiles-and-permissions-model)
+    - [About MuleSoft, a Salesforce Company](#about-mulesoft-a-salesforce-company)
     
 # Appendix
 
@@ -40,3 +41,9 @@
 | 3 | Global Support and Operations | Central Support and Operations Team. Assign to Central support and operations teams |
 | 3.1 | Support Analysts | Shared Services and Support Analysts across the organization. Assign to support analysts who are responsible for L1 and L2 support of the platform, in a shared services model. This role will need to permissions for the following: Ability to view API configurations in API Manager in preprod and production environments. Ability to view Runtime Manager configurations in preprod and production environments. Ability to view messaging assets in Anypoint MQ. |
 | 3.2 | Release Managers | Central Release Management Team. Assign to the release management team who will be responsible for managing Mule application related releases. Ability to manage API configurations in API Manager in preprod and production environments. Ability to manage Runtime Manager configurations in preprod and production environments. Ability to manage messaging assets in Anypoint MQ. |
+
+## About MuleSoft, a Salesforce company
+
+MuleSoft, provider of the world’s #1 integration and API platform, makes it easy to connect data from any system – no matter where it resides – to create connected experiences, faster. Thousands of organizations across industries rely on MuleSoft to realize speed, agility and innovation at scale. For more information, visit [https://www.mulesoft.com](https://www.mulesoft.com).
+
+MuleSoft is a registered trademark of MuleSoft, LLC, a Salesforce company. All other marks are those of respective owners.
