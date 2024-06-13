@@ -1,13 +1,13 @@
 # Application Architecture
 
-- [4. Application Architecture](#application-architecture)
-    - [4.1. API Led Connectivity](#41-api-led-connectivity)
-    - [4.2. Integration Patterns](#42-integration-patterns)
+- [Application Architecture](#application-architecture)
+    - [API Led Connectivity](#api-led-connectivity)
+    - [Integration Patterns](#integration-patterns)
 
-## 4. Application Architecture
+# Application Architecture
 This section is a drill down of the Platform Architecture, covering the application related components and their interactions.
 
-### 4.1. API Led Connectivity
+## API Led Connectivity
 
 The key goal of the approach recommended by this document is to introduce reusable building blocks that can be reused both during the initial implementation and by future projects, resulting in reduced development effort.
 
@@ -24,7 +24,7 @@ The diagram below illustrates the API-led connectivity approach composed of thre
 
 The value of this approach is enabling a flexible, agile architecture built for reuse and consumption, to speed up project delivery with built in governance and security.
 
-### 4.2. Integration Patterns
+## Integration Patterns
 Based on the discussions and discovery sessions, the following integration patterns were identified:
 
 | Pattern | Description | Examples |

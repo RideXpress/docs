@@ -1,17 +1,17 @@
 # Common Services
 
-- [6. Common Services](#common-services)
-    - [6.1. API Implementation Template](#61-api-implementation-template)
-    - [6.2. API Design Template](#62-api-design-template)
-    - [6.3. Error Handling](#63-error-handling)
-    - [6.4. Configuration Management](#64-configuration-management)
-    - [6.5 Secure Properties](#65-secure-properties)
+- [Common Services](#common-services)
+    - [API Implementation Template](#api-implementation-template)
+    - [API Design Template](#api-design-template)
+    - [Error Handling](#error-handling)
+    - [Configuration Management](#configuration-management)
+        - [Secure Properties](#secure-properties)
 
-## 6 Common Services
+# Common Services
 
 Provide details of common services that will be configured to standardize and streamline Mule application development and delivery>
 
-### 6.1 API Implementation Template
+## API Implementation Template
 
 To support and streamline application development, API templates will be published for consistent and streamlined development activity. Templates will de created using maven archetypes and they will be published to our code repository and Anypoint Exchange.
 
@@ -96,7 +96,7 @@ The following API templates have been published to Anypoint Exchange, and aligne
 | mule4-rest-api-template | [<<LINK>>](link) | Use this template to support the development of REST APIs. |
 | mule4-batch-template | [<<LINK>>](link) | Use this template to support the development of Batch applications. This template contains common aspects of Batch application development, including: <br> - Batch framework and common configuration placeholders (e.g. schedulers) <br> - Framework to support custom alerts, in conjunction with Alert Utility application. See below for details. |
 
-### 6.2 API Design Template
+## API Design Template
 
 API Design Templates provide a starting point for the consistent structure and design of MuleSoft API specifications based on RAML. The API design template contains the following to support a consistent design approach: 
 - Standard structure for API Design Artifacts
@@ -107,7 +107,7 @@ API Design Templates provide a starting point for the consistent structure and d
     - Standard design of common API functions – e.g. Pagination
 The API design template is published the Anypoint Exchange and can be imported as part of new API creation in Anypoint Design Center: [<<LINK TO API DESIGN TEMPLATE>>](link)
 
-### 6.3 Error Handling
+## Error Handling
 
 A common Error handler library has been configured to support consistent error handling approaches as part of MuleSoft projects. The library leverages existing Mule error handling capabilities and builds on this to provide a framework for the management for errors in Mule APIs and applications. 
 
@@ -123,7 +123,7 @@ A framework will be configured for different use cases:
     - If batch process are needed, errors will need a correlation Id as well and logging to batch results will be mandatory, special error handling will be performed as per requirements.
 
 
-### 6.4 Configuration Management
+## Configuration Management
 
 Mule applications typically need specific configurations properties to support implementations. These can be split into the following categories:
 - Standard configuration properties – e.g. API endpoints. 
@@ -138,7 +138,7 @@ square-prod.yaml: "connect.squareup.com"
 
 The API template will be defined the structure and placeholders for Mule API and application configuration management in line with best practice to manage common properties, environment specific properties and secure properties. 
 
-### 6.5 Secure properties
+### Secure properties
 
 Secrets will be saved in github secrets and are accesible via github actions.
 
