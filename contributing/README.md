@@ -16,12 +16,12 @@ The practice we started using was to create feature branches directly from Githu
 
 From the issues page click on `Create branch`
 
-![Create branch](images/issues-create-branch.png)
+<img src="images/issues-create-branch.png" alt="drawio github mode" width="300"/>
 
 That will open a dialog to create the remote branch. Use the default values and click on `Create branch`:
 
-![Checkout locally](images/issues-checkout-locally.png)
+<img src="images/issues-checkout-locally.png" alt="drawio github mode" width="300"/>
 
 Copy and paste the following commands in your terminal (If you are not using a Desktop client):
 
-![Fetch and Checkout](images/issues-fetch-checkout.png)
+<img src="images/issues-fetch-checkout.png" alt="drawio github mode" width="300"/>
