@@ -20,7 +20,7 @@ The diagram below illustrates the API-led connectivity approach composed of thre
 - Process APIs providing orchestration and transformation into business domain objects for greater agility and value creation and 
 - Experience APIs focused on rendering information specific to devices or consuming client applications.
 
-![alt text](./anypoint-platform-architecture/api_led.png)
+![alt text](./anypoint-platform-architecture/images/api-led.png)
 
 The value of this approach is enabling a flexible, agile architecture built for reuse and consumption, to speed up project delivery with built in governance and security.
 
