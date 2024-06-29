@@ -74,18 +74,18 @@ The key business drivers for this initiative that are relevant for the integrati
 
 Please note that any version numbers are current as of the time of writing this document. Update this table of references to align with your integration architecture specifics.
 
-- **Salesforce Platform REST API**: [Salesforce REST API Documentation](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm)
-- **Authentication**: [Okta OAuth]()
-- **API-led Connectivity**: [MuleSoft API-led Connectivity Whitepaper](https://www.mulesoft.com/lp/whitepaper/api/api-led-connectivity)
-- **MuleSoft CloudHub**: [MuleSoft CloudHub Information](https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cloud-based-integration)
-- **Mulesoft Anypoint Platform**: [Mulesoft Enterprise Integration Platform](https://www.mulesoft.com/platform/enterprise-integration)
-- **Mule Runtime**: [Mule Runtime Documentation](https://docs.mulesoft.com/mule-runtime/4.3/)
-- **MuleSoft Salesforce Connector**: [MuleSoft Salesforce Connector Documentation](https://docs.mulesoft.com/salesforce-connector/10.9/)
-- **Maps API**: [Google Maps]()
-- **Payments API**: [Square]()
-- **Data base**: 
-- **Push Notifications API**: 
-- **Email API**: 
+- [API-led Connectivity Whitepaper](https://www.mulesoft.com/lp/whitepaper/api/api-led-connectivity)
+- [MuleSoft CloudHub Information](https://www.mulesoft.com/platform/saas/cloudhub-ipaas-cloud-based-integration)
+- [Mulesoft Enterprise Integration Platform](https://www.mulesoft.com/platform/enterprise-integration)
+- [Mule Runtime Documentation](https://docs.mulesoft.com/mule-runtime/latest/)
+- [Salesforce Connector](https://docs.mulesoft.com/salesforce-connector/latest/)
+- [Google Maps API](https://developers.google.com/maps/documentation)
+- [Square API](https://developer.squareup.com/us/en)
+- [Database Connector](https://docs.mulesoft.com/db-connector/latest/)
+- [Push Notifications API](https://developer.apple.com/documentation/usernotifications/sending-notification-requests-to-apns_)
+- [GMail API](https://docs.mulesoft.com/gmail-connector/latest/)
+- [Okta API](https://developer.okta.com/docs/reference/core-okta-api/)
+- [Salesforce REST API](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_what_is_rest_api.htm)
 
 ### Acronyms
 
