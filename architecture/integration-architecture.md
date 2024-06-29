@@ -89,5 +89,13 @@ Please note that any version numbers are current as of the time of writing this 
 
 ### Acronyms
 
-- **DB**: Data Base
-- **MULE**:
+- **API:** Application Programming Interface
+- **REST:** Representational State Transfer
+- **HTTP:** HyperText Transfer Protocol
+- **VPC:** Virtual Private Cloud
+- **DLB:** Dedicated Load Balancer
+- **SSL:** Secure Sockets Layer
+- **HA:** High Availability
+- **SDLC:** Sofware Development Lifecycle
+- **CI/CD:** Continous Integration/Continous Deployment
+- **JSON:** JavaScript Object Notation
