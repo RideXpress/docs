@@ -18,7 +18,7 @@ This phase involves retrieving the latest projects from the Design Center to ens
 ### Diagram Explanation
 This diagram shows how projects are pulled from the Design Center, checking if they exist locally, and opening a pull request to review the updates.
 
-![Pull from Design Center Diagram](./docs/architecture/diagrams/ci-cd-design/pull-from-design-center.svg)
+[View Pull from Design Center Diagram](./pull-from-design-center.svg)
 
 ---
 
@@ -34,7 +34,7 @@ After making changes to the project, the next step is to push these changes back
 ### Diagram Explanation
 The diagram illustrates how projects from the Design Center are published to Anypoint Exchange after local changes.
 
-![Push to Design Center Diagram](./docs/architecture/diagrams/ci-cd-design/push-to-design-center.svg)
+[View Push to Design Center Diagram](./push-to-design-center.svg)
 
 ---
 
@@ -57,7 +57,7 @@ This phase compiles and deploys the application to various environments after th
 ### Diagram Explanation
 This diagram shows the full process of building and deploying the application, including unit testing, publishing to Anypoint Exchange, API Manager, and Runtime Manager.
 
-![Build and Deploy Diagram](./docs/architecture/diagrams/ci-cd-design/build-and-deploy.svg)
+[View Build and Deploy Diagram](./build-and-deploy.svg)
 
 ---
 
@@ -78,6 +78,6 @@ This phase finalizes the release process, promoting stable artifacts and making 
 ### Diagram Explanation
 This diagram outlines the release process, from reading the configuration file to promoting the APIs and tagging the code.
 
-![Release Diagram](./docs/architecture/diagrams/ci-cd-design/release.svg)
+[View Release Diagram](./release.svg)
 
 ---
