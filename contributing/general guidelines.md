@@ -20,6 +20,8 @@ Deploy square-system-api
 Write Unit tests for square-system-api
 Implementation ffor square-system-api
 
+The following status will be used: Todo, In Progress, In Review and Done.
+Contributors need to update task status accoirdinlgy in the project.
 
 ## Sprints:
 
@@ -33,5 +35,16 @@ Every developer should assign the task to the desired sprint.
 In order to maximize the time we spend working together, async communication would be preferred to talk about tasks progress, 
 blockers or comments. Slack workflows is a great way to do it.
 
-Milestones:
+## Milestones
+
+Milestones will be defined by larger components than tasks and will be defined by people/teams working on a functionality.
+
+## Labels
+
+To be able to find and measure tasks more easily, the following labels will be used:
+- documentation
+- api-design
+- implementation
+- test
+- deploy
 
