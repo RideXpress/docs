@@ -46,14 +46,14 @@ Define RAML object for user
 Complete Design Document for Payments API
 Deploy square-system-api
 Write Unit tests for square-system-api
-Implementation ffor square-system-api
+Implementation for square-system-api
 
 The following status will be used: Todo, In Progress, In Review and Done.
-Contributors need to update task status accoirdinlgy in the project.
+Contributors need to update task status accordingly in the project.
 
 ## Sprints:
 
-Every sprint will last two weeks starting.
+Every sprint will last two weeks.
 In Github every sprint is a field of type iteration and someone from the team needs to create new sprints if needed.
 
 Every developer should assign the task to the desired sprint.
@@ -76,4 +76,4 @@ To be able to find and measure tasks more easily, the following labels will be u
 - test
 - deploy
 - ci-cd
-- Labels specific for every project: ridexpress-experience-api, ridexpress-process-api,square-systema-api, etc.
+- Labels specific for every project: ridexpress-experience-api, ridexpress-process-api,square-system-api, etc.
