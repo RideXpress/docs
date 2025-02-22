@@ -69,6 +69,57 @@ The following resources handle payments:
 
 ---
 
+Request POST `/payment-link` data mapping
+
+| **Square**     | **Square system API** | **Note**                              |
+|-------------------|------------------|----------------------------------------------|
+| idempotency_key  | idempotencyKey             |  |
+|  quick_pay.name  | name         |  |
+|  quick_pay.price_money  | amount         |  |
+|  quick_pay.currency  | currency         |  |
+|  checkout_options.allow_tipping  | allowTipping         |  |
+|  checkout_options.redirect_url  | redirectUrl         |  |
+|  location_id  | locationId         |  |
+
+---
+
+Response POST `/payment-link` data mapping
+
+| **Square**     | **Square system API** | **Note**                              |
+|-------------------|------------------|----------------------------------------------|
+|  payment_link.order_id | orderId             |  |
+|  payment_link.url  |  url    |  |
+|  payment_link.long_url  | longUrl         |  |
+|  payment_link.created_at  | createdAt         |  |
+
+---
+Response GET `/orders/{id}` data mapping
+
+| **Square**     | **Square system API** | **Note**                              |
+|-------------------|------------------|----------------------------------------------|
+|  id      | id             |  |
+|  lineItems.uid  | lineItems.uid         |  |
+|  lineItems.quantity  | lineItems.quantity         |  |
+|  lineItems.name  | lineItems.name         |  |
+|  lineItems.price  | lineItems.price         |  |
+|  lineItems.currency  | lineItems.currency         |  |
+|  state  | state         |  |
+|  created_at  | createdAt         |  |
+|  updated_at  | updatedAt         |  |
+|  tenders.id  | tenderId         |  |
+
+---
+Request PUT `/orders/{id}` data mapping
+
+| **Square**     | **Square system API** | **Note**                              |
+|-------------------|------------------|----------------------------------------------|
+| state  | state             |  |
+|  fulfillments.uid  | fulfillmentId         |  |
+|  location_id  | locationId         |  |
+|  idempotency_key  | idempotencyKey         |  |
+
+---
+
 ## API Nonfunctional Requirements
 
 ### Hours of Operation
