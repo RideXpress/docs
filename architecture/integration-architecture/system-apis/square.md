@@ -51,6 +51,7 @@ RideXpress leverages the following Square APIs:
 <a href="../../../architecture/diagrams/api-led/square-sequence.drawio.svg">
   <img src="../../../architecture/diagrams/api-led/square-sequence.drawio.svg" alt="alt text" width="800"/>
 </a>
+
 1. User requests a ride; RideXpress orders a payment link from Square.
 2. User enters payment information; Square validates it.
 3. RideXpress requests the order using the order ID returned by Square.
