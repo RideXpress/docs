@@ -33,6 +33,11 @@ Refer to the glossary or taxonomy document for general terms and definitions.
 
 ## API Architecture
 The Square API provides operations to handle payments across RideXpress. It operates at a system level and abstracts the extense API to the ednpoints needed for RideXpress.  
+This API can be found in the overall architecture diagram.
+
+<a href="../../../architecture/diagrams/entity-diagrams/solution-diagram.drawio.svg">
+  <img src="../../../architecture/diagrams/entity-diagrams/solution-diagram.drawio.svg" alt="alt text" width="800"/>
+</a>
 
 RideXpress leverages the following Square APIs:
 - **Quick Payments API**: For payment link generation
@@ -43,6 +48,9 @@ RideXpress leverages the following Square APIs:
 - Payment confirmation and processing are delegated to Square.
 
 ### Sequence Diagram
+<a href="../../../architecture/diagrams/api-led/square-sequence.drawio.svg">
+  <img src="../../../architecture/diagrams/api-led/square-sequence.drawio.svg" alt="alt text" width="800"/>
+</a>
 1. User requests a ride; RideXpress orders a payment link from Square.
 2. User enters payment information; Square validates it.
 3. RideXpress requests the order using the order ID returned by Square.
