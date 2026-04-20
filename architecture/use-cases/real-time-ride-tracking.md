@@ -1,5 +1,7 @@
 # Real-time In-Ride Tracking
 
+> **Diagram:** [Real-time In-Ride Tracking Flow](../diagrams/use-cases/real-time-ride-tracking-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

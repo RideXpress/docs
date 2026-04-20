@@ -1,5 +1,7 @@
 # Help / Support / Dispute Resolution
 
+> **Diagram:** [Help / Support / Dispute Resolution Flow](../diagrams/use-cases/help-support-dispute-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

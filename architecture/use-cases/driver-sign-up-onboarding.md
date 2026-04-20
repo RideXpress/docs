@@ -1,5 +1,7 @@
 # Driver Sign Up / Onboarding
 
+> **Diagram:** [Driver Sign Up / Onboarding Flow](../diagrams/use-cases/driver-sign-up-onboarding-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                    |

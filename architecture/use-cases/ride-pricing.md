@@ -1,5 +1,7 @@
 # Ride Pricing / Fare Estimation
 
+> **Diagram:** [Ride Pricing / Fare Estimation Flow](../diagrams/use-cases/ride-pricing-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

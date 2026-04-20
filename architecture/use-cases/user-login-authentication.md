@@ -1,5 +1,7 @@
 # User Login / Authentication
 
+> **Diagram:** [User Login / Authentication Flow](../diagrams/use-cases/user-login-authentication-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                       |

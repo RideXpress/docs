@@ -1,5 +1,7 @@
 # Notification Preferences
 
+> **Diagram:** [Notification Preferences Flow](../diagrams/use-cases/notification-preferences-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

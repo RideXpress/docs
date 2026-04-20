@@ -1,5 +1,7 @@
 # Driver Availability (Go Online / Offline)
 
+> **Diagram:** [Driver Availability Flow](../diagrams/use-cases/driver-availability-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

@@ -1,5 +1,7 @@
 # Ride Type Selection
 
+> **Diagram:** [Ride Type Selection Flow](../diagrams/use-cases/ride-type-selection-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

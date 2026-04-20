@@ -1,5 +1,7 @@
 # User Profile Management
 
+> **Diagram:** [User Profile Management Flow](../diagrams/use-cases/user-profile-management-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

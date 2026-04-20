@@ -1,5 +1,7 @@
 # Ride History & Receipts
 
+> **Diagram:** [Ride History & Receipts Flow](../diagrams/use-cases/ride-history-receipts-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

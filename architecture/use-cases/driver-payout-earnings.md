@@ -1,5 +1,7 @@
 # Driver Payout / Earnings
 
+> **Diagram:** [Driver Payout / Earnings Flow](../diagrams/use-cases/driver-payout-earnings-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

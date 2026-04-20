@@ -1,5 +1,7 @@
 # Payment Failure Handling
 
+> **Diagram:** [Payment Failure Handling Flow](../diagrams/use-cases/payment-failure-handling-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |

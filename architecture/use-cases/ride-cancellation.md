@@ -1,5 +1,7 @@
 # Ride Cancellation (Client & Driver)
 
+> **Diagram:** [Ride Cancellation Flow](../diagrams/use-cases/ride-cancellation-use-case.drawio.svg)
+
 ## Overview
 
 | Field              | Details                                                                 |
