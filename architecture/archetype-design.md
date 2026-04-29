@@ -400,7 +400,7 @@ Worker size and Mule Runtime version defaults are defined in the parent POM alig
 | Worker size | `0.1 vCores` |
 | Worker memory | `1 GB` |
 | Mule Runtime | `4.6.1` |
-| CloudHub region | `us-east-2` (USA West 2) |
+| CloudHub region | `usa-w2` (USA West 2) |
 
 ---
 
