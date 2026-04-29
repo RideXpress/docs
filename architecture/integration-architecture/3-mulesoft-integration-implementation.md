@@ -62,15 +62,32 @@ https://www.mulesoft.com/lp/whitepaper/api/api-led-connectivity
 | push-notifications-system-api  | System | Provides the notifications functionality with the drivers and passangers|
 | email-system-api  | System       | Provides email sending functionality |
 | request-ride-process-api  | Process | Contains the orchestration logic to request a ride|
-| accept-ride-process-api  | Process | Contains the orchestration logic to request a ride  |
-| waiting-ride-process-api  | Process | Contains the orchestration logic to accept a ride  |
+| accept-ride-process-api  | Process | Contains the orchestration logic to accept a ride  |
+| waiting-ride-process-api  | Process | Contains the orchestration logic for waiting for a ride  |
 | finish-ride-process-api  | Process | Contains the orchestration logic to finish a ride  |
 | sign-up-user-process-api  | Process | Contains the orchestration logic of the sign up process  |
+| cancel-ride-process-api  | Process | Contains the orchestration logic for ride cancellations (client and driver)  |
+| driver-availability-process-api  | Process | Contains the orchestration logic for driver online/offline status management  |
 | mobile-experience-api  | Experience | Is the entry point of the operations for drivers and passangers|
 
 
 ### Reusable APIs
 The following core APIs are proposed to maximize reuse:
+
+| Reusable API                     | Reused By                                                              | Description                                          |
+|----------------------------------|------------------------------------------------------------------------|------------------------------------------------------|
+| db-system-api                    | All process APIs                                                       | Central database access layer for all non-sensitive data storage and retrieval |
+| okta-system-api                  | sign-up-user-process-api, mobile-experience-api                        | Authentication and user identity management across all user types (clients and drivers) |
+| push-notifications-system-api    | request-ride-process-api, accept-ride-process-api, waiting-ride-process-api, finish-ride-process-api, cancel-ride-process-api | Push notification delivery to both clients and drivers across all ride lifecycle stages |
+| square-system-api                | request-ride-process-api, finish-ride-process-api, cancel-ride-process-api, sign-up-user-process-api | Payment operations (hold, commit, refund) and customer management for both riders and driver payouts |
+| google-maps-system-api           | request-ride-process-api, waiting-ride-process-api                     | Geolocation, route calculation, distance and ETA estimation |
+| email-system-api                 | sign-up-user-process-api                                               | Email delivery for verification codes and account notifications |
+| mobile-experience-api            | Client app, Driver app                                                 | Single entry point for all mobile app interactions; routes requests to appropriate process APIs |
+
+**Key reuse principles:**
+- System APIs are never called directly by the mobile app; they are always invoked through process APIs via the experience API.
+- Each system API abstracts a single external system, enabling the external system to be replaced without affecting process or experience APIs.
+- Process APIs encapsulate business logic and orchestration, calling multiple system APIs as needed.
 
 
 This can be visualized in the following layered API-led network diagram:
