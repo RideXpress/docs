@@ -12,8 +12,11 @@
     - [JSON Logger](#json-logger)
     - [Error Handling](#error-handling)
     - [Configuration Files](#configuration-files)
+    - [Domain Project](#domain-project)
     - [Autodiscovery](#autodiscovery)
     - [Metrics and Monitoring](#metrics-and-monitoring)
+  - [Creating a New API from the Archetype](#creating-a-new-api-from-the-archetype)
+  - [Naming Conventions](#naming-conventions)
   - [Parent POM](#parent-pom)
   - [References](#references)
 
@@ -21,14 +24,16 @@
 
 ## Overview
 
-The RideXpress Maven Archetype provides a standardised starting point for every MuleSoft API project. It encapsulates the conventions defined in the [Software Development Lifecycle](anypoint-platform-architecture/software-development-lifecycle.md) and the [Common MuleSoft Best Practices](common-mulesoft-best-practices.md) documents, so that every new API is born already compliant and ready to run on CloudHub.
+The RideXpress archetype is a pre-configured project template that standardizes how MuleSoft API applications are created. It provides a consistent foundation for all new APIs, reducing setup time and ensuring adherence to architectural standards.
+
+It encapsulates the conventions defined in the [Software Development Lifecycle](anypoint-platform-architecture/software-development-lifecycle.md) and the [Common MuleSoft Best Practices](common-mulesoft-best-practices.md) documents, so that every new API is born already compliant and ready to run on CloudHub.
 
 Developers have two ways to bootstrap a new API project:
 
 1. **Maven Archetype** – generate the scaffolding from the command line.
 2. **Anypoint Exchange template** – download and import the template directly into Anypoint Studio or Code Builder.
 
-After bootstrapping the project the developer downloads the RAML specification from Design Center to generate the implementation scaffolding code using the MuleSoft Maven plugin.
+After bootstrapping the project, the developer downloads the RAML specification from Design Center to generate the implementation scaffolding code using the MuleSoft Maven plugin.
 
 ---
 
@@ -69,26 +74,32 @@ mvn archetype:generate \
 
 ## Project Structure
 
+All RideXpress MuleSoft projects follow this standard directory structure:
+
 ```
-<api-name>/
-├── pom.xml                          # Maven build descriptor (inherits parent POM)
-├── mule-artifact.json               # Mule runtime metadata
+{api-name}/
+├── pom.xml                               # Maven project configuration (inherits parent POM)
+├── mule-artifact.json                    # Mule artifact descriptor
+├── README.md                             # Project-specific documentation
 └── src/
     ├── main/
     │   ├── mule/
-    │   │   ├── <api-name>.xml       # Main Mule configuration (HTTP Listener, autodiscovery)
-    │   │   ├── error-handling.xml   # Global error handler
-    │   │   └── global-config.xml    # Connector and property placeholder configurations
+    │   │   ├── {api-name}.xml            # Main flow (HTTP Listener, autodiscovery)
+    │   │   ├── global-config.xml          # Global configurations
+    │   │   ├── error-handler.xml          # Centralized error handling
+    │   │   └── implementations/           # Implementation flows
     │   └── resources/
-    │       ├── api/                 # RAML specification (downloaded from Design Center)
-    │       ├── dwl/                 # DataWeave transformation files
+    │       ├── api/                       # RAML/OAS specification (from Design Center)
+    │       ├── dwl/                       # DataWeave transformation files
     │       ├── properties/
-    │       │   ├── sandbox.yaml     # Sandbox environment properties
-    │       │   ├── dev.yaml         # Development environment properties
-    │       │   └── prod.yaml        # Production environment properties
-    │       └── log4j2.xml           # Logging configuration
+    │       │   ├── local.yaml             # Local development properties
+    │       │   ├── dev.yaml               # Development environment properties
+    │       │   ├── test.yaml              # Test/staging environment properties
+    │       │   └── prod.yaml              # Production environment properties
+    │       └── log4j2.xml                 # Logging configuration
     └── test/
-        └── munit/                   # MUnit test suites
+        ├── munit/                         # MUnit test suites
+        └── resources/                     # Test resources and fixtures
 ```
 
 ---
@@ -111,7 +122,7 @@ Every API exposes an HTTPS endpoint through a single HTTP Listener configuration
 </http:listener-config>
 ```
 
-**`<api-name>.xml` – Listener usage**
+**`{api-name}.xml` – Listener usage**
 
 ```xml
 <http:listener config-ref="http-listener-config"
@@ -120,6 +131,12 @@ Every API exposes an HTTPS endpoint through a single HTTP Listener configuration
 ```
 
 > **Note:** `${https.port}` resolves to `8082` on CloudHub. Local development can override this value in the environment properties file.
+
+The `global-config.xml` also includes:
+
+- HTTP Request configurations for downstream APIs
+- Secure properties configuration
+- Autodiscovery configuration for API Manager
 
 ---
 
@@ -195,9 +212,24 @@ The log output follows the standard defined in the [SDLC document](anypoint-plat
 
 ### Error Handling
 
-A global error handler (`error-handling.xml`) is included in the archetype to provide consistent HTTP error responses across all APIs. It maps standard Mule error types to the appropriate HTTP status codes and returns a uniform JSON error payload.
+A global error handler (`error-handler.xml`) is included in the archetype to provide consistent HTTP error responses across all APIs using the standardized `errors-library`. It maps standard Mule error types to the appropriate HTTP status codes and returns a uniform JSON error payload.
 
-**`error-handling.xml`**
+**Error type mapping**
+
+| HTTP Status | Error Type            | Description                          |
+|-------------|-----------------------|--------------------------------------|
+| 400         | BAD_REQUEST           | Invalid request payload or parameters |
+| 401         | UNAUTHORIZED          | Missing or invalid authentication     |
+| 403         | FORBIDDEN             | Insufficient permissions              |
+| 404         | NOT_FOUND             | Resource not found                    |
+| 405         | METHOD_NOT_ALLOWED    | HTTP method not supported             |
+| 409         | CONFLICT              | Resource state conflict               |
+| 429         | TOO_MANY_REQUESTS     | Rate limit exceeded                   |
+| 500         | INTERNAL_SERVER_ERROR | Unexpected server error               |
+| 502         | BAD_GATEWAY           | Downstream service error              |
+| 503         | SERVICE_UNAVAILABLE   | Service temporarily unavailable       |
+
+**`error-handler.xml`**
 
 ```xml
 <error-handler name="global-error-handler" doc:name="Global Error Handler">
@@ -228,6 +260,20 @@ A global error handler (`error-handling.xml`) is included in the archetype to pr
                         enableNotifications="true" logException="false">
         <http:listener-error-response statusCode="404">
             <http:body>#[output application/json --- { "status": 404, "message": "Not Found", "detail": error.description }]</http:body>
+        </http:listener-error-response>
+    </on-error-propagate>
+
+    <on-error-propagate type="HTTP:METHOD_NOT_ALLOWED"
+                        enableNotifications="true" logException="false">
+        <http:listener-error-response statusCode="405">
+            <http:body>#[output application/json --- { "status": 405, "message": "Method Not Allowed", "detail": error.description }]</http:body>
+        </http:listener-error-response>
+    </on-error-propagate>
+
+    <on-error-propagate type="HTTP:TOO_MANY_REQUESTS"
+                        enableNotifications="true" logException="false">
+        <http:listener-error-response statusCode="429">
+            <http:body>#[output application/json --- { "status": 429, "message": "Too Many Requests", "detail": error.description }]</http:body>
         </http:listener-error-response>
     </on-error-propagate>
 
@@ -264,7 +310,7 @@ The global error handler is referenced in the main configuration file:
 
 ### Configuration Files
 
-Environment-specific properties are stored in YAML files under `src/main/resources/properties/`. The active file is selected at startup via the `env` system property (e.g. `-Denv=sandbox`).
+Environment-specific properties are externalized in YAML files under `src/main/resources/properties/`. The active file is selected at startup via the `env` system property (e.g. `-Denv=sandbox`).
 
 **`global-config.xml` – property placeholder**
 
@@ -274,7 +320,14 @@ Environment-specific properties are stored in YAML files under `src/main/resourc
     doc:name="Configuration Properties" />
 ```
 
-**`sandbox.yaml` template**
+Available environments:
+
+- **`local.yaml`**: For local development and testing
+- **`dev.yaml`**: Development environment (CloudHub Sandbox)
+- **`test.yaml`**: Test/staging environment (CloudHub Sandbox)
+- **`prod.yaml`**: Production environment (CloudHub Production)
+
+**`dev.yaml` / `sandbox.yaml` template**
 
 ```yaml
 # HTTP / CloudHub
@@ -290,7 +343,7 @@ json:
   logger:
     applicationName: "${app.name}"
     applicationVersion: "${app.version}"
-    environment: "sandbox"
+    environment: "dev"
     level: "DEBUG"
 
 # Anypoint Monitoring (optional)
@@ -319,7 +372,18 @@ monitoring:
   enabled: true
 ```
 
-> Sensitive values (credentials, secrets) must **never** be stored in property files. Use **CloudHub Properties** (encrypted at rest) or **Anypoint Secrets Manager** instead.
+> Sensitive values (credentials, secrets) must **never** be stored in property files. Use the **Mule Secure Properties** module for encrypted properties, or **Anypoint Secrets Manager** for highly sensitive secrets.
+
+---
+
+### Domain Project
+
+A shared domain project (`ridexpress-domain`) provides common configurations reused across all APIs:
+
+- Shared HTTP Listener on a common port
+- Common DataWeave utility functions
+- Shared error response structures
+- Common logging configuration
 
 ---
 
@@ -327,7 +391,7 @@ monitoring:
 
 The Autodiscovery component registers the running application with **Anypoint API Manager**, enabling policy enforcement, analytics, and client management.
 
-**`<api-name>.xml` – Autodiscovery configuration**
+**`{api-name}.xml` – Autodiscovery configuration**
 
 ```xml
 <api-gateway:autodiscovery
@@ -365,6 +429,32 @@ When `monitoring.enabled` is `true`, the API emits custom metrics to **Anypoint 
 ```
 
 > The metrics component is **optional** and should only be added when there is a specific need to track custom business metrics beyond the built-in Anypoint Monitoring capabilities.
+
+---
+
+## Creating a New API from the Archetype
+
+1. Run the Maven archetype generation command (see [Getting Started](#getting-started)) or download the template from Exchange.
+2. Import the RAML specification from Design Center into `src/main/resources/api/`.
+3. Scaffold the API flows using Anypoint Studio's API Kit Router.
+4. Implement the business logic in the `implementations/` directory.
+5. Write MUnit tests in `src/test/munit/`.
+6. Configure environment properties in `src/main/resources/properties/`.
+
+---
+
+## Naming Conventions
+
+For full naming convention details refer to the [SDLC document](anypoint-platform-architecture/software-development-lifecycle.md#development-standards-and-naming-conventions). The table below summarises the most commonly used conventions within a project generated from the archetype:
+
+| Component       | Convention                                    | Example                          |
+|-----------------|-----------------------------------------------|----------------------------------|
+| API artifact    | `{domain}-{layer}-api`                        | `square-system-api`              |
+| Main flow file  | `{api-name}.xml`                              | `square-system-api.xml`          |
+| Implementation  | `{resource}-impl.xml`                         | `payments-impl.xml`              |
+| MUnit test      | `{resource}-test-suite.xml`                   | `payments-test-suite.xml`        |
+| DataWeave file  | `{operation}-{direction}.dwl`                 | `create-payment-request.dwl`     |
+| Properties file | `{environment}.yaml`                          | `dev.yaml`                       |
 
 ---
 
