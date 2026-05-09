@@ -107,25 +107,25 @@
   <defs/>
   <g>
 <path d="M 30 0 L 0 0 L 0 200 L 30 200" fill="#f5f5f5" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-<path d="30 0 L 1100 0 L 1100 200 L 30 200" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+<path d="M 30 0 L 1100 0 L 1100 200 L 30 200" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <path d="M 30 0 L 30 200" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <g transform="translate(15,100)">
   <text text-anchor="middle" font-family="Helvetica" font-size="12" transform="rotate(-90)" fill="rgb(0,0,0)">Mobile App</text>
 </g>
 <path d="M 30 200 L 0 200 L 0 400 L 30 400" fill="#e8f0fe" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-<path d="30 200 L 1100 200 L 1100 400 L 30 400" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+<path d="M 30 200 L 1100 200 L 1100 400 L 30 400" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <path d="M 30 200 L 30 400" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <g transform="translate(15,300)">
   <text text-anchor="middle" font-family="Helvetica" font-size="12" transform="rotate(-90)" fill="rgb(0,0,0)">mobile-experience-api</text>
 </g>
 <path d="M 30 400 L 0 400 L 0 600 L 30 600" fill="#e8f5e6" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-<path d="30 400 L 1100 400 L 1100 600 L 30 600" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+<path d="M 30 400 L 1100 400 L 1100 600 L 30 600" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <path d="M 30 400 L 30 600" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <g transform="translate(15,500)">
   <text text-anchor="middle" font-family="Helvetica" font-size="12" transform="rotate(-90)" fill="rgb(0,0,0)">request-ride-process-api</text>
 </g>
 <path d="M 30 600 L 0 600 L 0 800 L 30 800" fill="#fff8e1" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-<path d="30 600 L 1100 600 L 1100 800 L 30 800" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+<path d="M 30 600 L 1100 600 L 1100 800 L 30 800" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <path d="M 30 600 L 30 800" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <g transform="translate(15,700)">
   <text text-anchor="middle" font-family="Helvetica" font-size="12" transform="rotate(-90)" fill="rgb(0,0,0)">db-system-api</text>
@@ -163,7 +163,7 @@
 <path d="M 350.0 260 L 345.3 253.5 L 354.7 253.5 Z" fill="rgb(0,0,0)"/>
 <rect x="205.0" y="182.0" width="140" height="14" fill="rgb(255,255,255)" stroke="none"/>
 <text x="275.0" y="192.0" text-anchor="middle" font-family="Helvetica" font-size="10" fill="rgb(0,0,0)">POST /rides/estimate</text>
-<path d="M 350.0 340 L 360.0 460" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+<path d="M 350 340 L 350 460" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
 <path d="M 360.0 460 L 354.8 453.9 L 364.1 453.2 Z" fill="rgb(0,0,0)"/>
 <rect x="274.5" y="382.0" width="161" height="14" fill="rgb(255,255,255)" stroke="none"/>
 <text x="355.0" y="392.0" text-anchor="middle" font-family="Helvetica" font-size="10" fill="rgb(0,0,0)">POST /pricing/calculate</text>
@@ -181,7 +181,7 @@
 <text x="460.0" y="287.0" text-anchor="middle" font-family="Helvetica" font-size="10" fill="rgb(0,0,0)">Return estimates per type</text>
 <path d="M 660 90.0 L 720 100.0" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
 <path d="M 720 100.0 L 712.8 103.6 L 714.4 94.3 Z" fill="rgb(0,0,0)"/>
-<path d="M 785.0 140 L 780.0 260" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+<path d="M 785 140 L 785 260" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
 <path d="M 780.0 260 L 775.6 253.3 L 785.0 253.7 Z" fill="rgb(0,0,0)"/>
 <rect x="744.0" y="182.0" width="77" height="14" fill="rgb(255,255,255)" stroke="none"/>
 <text x="782.5" y="192.0" text-anchor="middle" font-family="Helvetica" font-size="10" fill="rgb(0,0,0)">POST /rides</text>
