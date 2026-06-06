@@ -114,31 +114,31 @@
   <defs/>
   <g>
 <path d="M 30 0 L 0 0 L 0 200 L 30 200" fill="#f5f5f5" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-<path d="30 0 L 1100 0 L 1100 200 L 30 200" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+<path d="M 30 0 L 1100 0 L 1100 200 L 30 200" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <path d="M 30 0 L 30 200" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <g transform="translate(15,100)">
   <text text-anchor="middle" font-family="Helvetica" font-size="12" transform="rotate(-90)" fill="rgb(0,0,0)">Mobile App</text>
 </g>
 <path d="M 30 200 L 0 200 L 0 400 L 30 400" fill="#e8f0fe" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-<path d="30 200 L 1100 200 L 1100 400 L 30 400" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+<path d="M 30 200 L 1100 200 L 1100 400 L 30 400" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <path d="M 30 200 L 30 400" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <g transform="translate(15,300)">
   <text text-anchor="middle" font-family="Helvetica" font-size="12" transform="rotate(-90)" fill="rgb(0,0,0)">mobile-experience-api</text>
 </g>
 <path d="M 30 400 L 0 400 L 0 600 L 30 600" fill="#e8f5e6" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-<path d="30 400 L 1100 400 L 1100 600 L 30 600" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+<path d="M 30 400 L 1100 400 L 1100 600 L 30 600" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <path d="M 30 400 L 30 600" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <g transform="translate(15,500)">
   <text text-anchor="middle" font-family="Helvetica" font-size="12" transform="rotate(-90)" fill="rgb(0,0,0)">salesforce-system-api</text>
 </g>
 <path d="M 30 600 L 0 600 L 0 800 L 30 800" fill="#fff8e1" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-<path d="30 600 L 1100 600 L 1100 800 L 30 800" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+<path d="M 30 600 L 1100 600 L 1100 800 L 30 800" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <path d="M 30 600 L 30 800" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <g transform="translate(15,700)">
   <text text-anchor="middle" font-family="Helvetica" font-size="12" transform="rotate(-90)" fill="rgb(0,0,0)">square-system-api</text>
 </g>
 <path d="M 30 800 L 0 800 L 0 1000 L 30 1000" fill="#f0e8f4" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="all"/>
-<path d="30 800 L 1100 800 L 1100 1000 L 30 1000" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
+<path d="M 30 800 L 1100 800 L 1100 1000 L 30 1000" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <path d="M 30 800 L 30 1000" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="none"/>
 <g transform="translate(15,900)">
   <text text-anchor="middle" font-family="Helvetica" font-size="12" transform="rotate(-90)" fill="rgb(0,0,0)">push-notifications-system-api</text>
@@ -180,7 +180,7 @@
 <path d="M 310 100.0 L 303.5 104.7 L 303.5 95.3 Z" fill="rgb(0,0,0)"/>
 <path d="M 470 100.0 L 520 100.0" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
 <path d="M 520 100.0 L 513.5 104.7 L 513.5 95.3 Z" fill="rgb(0,0,0)"/>
-<path d="M 580.0 140 L 590.0 260" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+<path d="M 580 140 L 580 260" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
 <path d="M 590.0 260 L 584.8 253.9 L 594.1 253.2 Z" fill="rgb(0,0,0)"/>
 <rect x="511.5" y="182.0" width="147" height="14" fill="rgb(255,255,255)" stroke="none"/>
 <text x="585.0" y="192.0" text-anchor="middle" font-family="Helvetica" font-size="10" fill="rgb(0,0,0)">POST /support/tickets</text>
@@ -202,7 +202,7 @@
 <path d="M 870.0 50 L 874.7 56.5 L 865.3 56.5 Z" fill="rgb(0,0,0)"/>
 <path d="M 960 90.0 L 1010 100.0" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
 <path d="M 1010 100.0 L 1002.7 103.3 L 1004.6 94.1 Z" fill="rgb(0,0,0)"/>
-<path d="M 860.0 940 L 870.0 50" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
+<path d="M 860 940 L 860 50" fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" pointer-events="stroke"/>
 <path d="M 870.0 50 L 874.6 56.5 L 865.2 56.4 Z" fill="rgb(0,0,0)"/>
   </g>
 </svg>
